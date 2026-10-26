@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Grupo Genesia, Abogados y Notarios en San Jerónimo, Baja Verapaz: derecho civil, penal, familiar, notarial, migratorio, mercantil, administrativo y laboral.">
+<title>Abogados y Notarios Genesia</title>
+
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
+<style>
+  /* ===== ÍNDICE DE ÁREAS (botones que bajan a cada área) ===== */
+  .indice-areas {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .indice-areas a {
+    display: block;
+    padding: 8px 14px;
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    background: var(--blanco);
+    color: var(--azul);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .indice-areas a:hover { border-color: var(--azul); }
+  .indice-areas a:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+  /* ===== ÁREAS DE SERVICIO (una tarjeta por área del derecho) ===== */
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+  .area {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-top: 4px solid var(--azul);
+    border-radius: 6px;
+    padding: 24px;
+    scroll-margin-top: 16px;
+  }
+  .area h3 { font-size: 22px; margin-bottom: 8px; }
+  .area > p { margin: 0 0 16px; color: var(--azul-suave); font-size: 16px; }
+  .area ul { list-style: none; margin: 0; padding: 0; }
+  .area li {
+    padding-block: 9px;
+    border-top: 1px solid var(--linea);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .area li a { color: var(--azul); }
+
+  /* ===== RESULTADOS ===== */
+  .resultados p { margin: 0 0 24px; max-width: 65ch; font-size: 18px; }
+  .barra {
+    display: flex;
+    height: 18px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--linea);
+    max-width: 720px;
+  }
+  .barra span:first-child { width: 80%; background: var(--azul); }
+  .cifras { display: flex; flex-wrap: wrap; gap: 16px 56px; margin-top: 18px; }
+  .cifra strong {
+    display: block;
+    font-family: var(--letra-titulo);
+    font-size: 44px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .cifra span { font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--azul-suave); }
+  .cifra.suave strong { color: var(--azul-suave); }
+
+</style>
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO (igual en todas las páginas) ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
+
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <a class="logo" href="/"><img src="/img/logo.png" alt="Grupo Genesia, ir al inicio" width="746" height="505"></a>
+
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quienes-somos/">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== 1. PRESENTACIÓN ===================== -->
+  <section class="seccion presentacion">
+    <div class="contenedor">
+      <p class="etiqueta">Grupo Genesia</p>
+      <h1>Abogados y Notarios</h1>
+      <p class="resumen">Derecho que protege. Experiencia que respalda. Asesoría jurídica integral, clara y confiable en San Jerónimo, Baja Verapaz.</p>
+      <div class="acciones">
+        <a class="boton-secundario" href="#servicios">Ver servicios</a>
+        <a class="boton-whatsapp"
+           href="https://wa.me/50241077030?text=Hola,%20quiero%20una%20consulta%20con%20Abogados%20y%20Notarios%20Genesia"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Agenda tu consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. NUESTROS SERVICIOS ===================== -->
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <h2>Nuestros servicios</h2>
+
+      <!-- Índice: cada botón baja a su área -->
+      <ul class="indice-areas" aria-label="Áreas del derecho">
+        <li><a href="#civil">Civil</a></li>
+        <li><a href="#penal">Penal</a></li>
+        <li><a href="#familiar">Familiar</a></li>
+        <li><a href="#notarial">Notarial</a></li>
+        <li><a href="#migratorio">Migratorio</a></li>
+        <li><a href="#mercantil">Mercantil</a></li>
+        <li><a href="#administrativo">Administrativo</a></li>
+        <li><a href="#laboral">Laboral</a></li>
+      </ul>
+
+      <div class="areas">
+
+        <article class="area" id="civil">
+          <h3>Derecho Civil</h3>
+          <p>Asesoría y representación legal integral en todos los asuntos de Derecho Civil.</p>
+          <ul>
+            <li>Juicios civiles</li>
+            <li>Jurisdicción voluntaria judicial</li>
+            <li>Pagos por consignación</li>
+            <li>Proceso sucesorio judicial</li>
+            <li>Conciliación</li>
+            <li>Procesos bancarios</li>
+          </ul>
+        </article>
+
+        <article class="area" id="penal">
+          <h3>Derecho Penal</h3>
+          <p>Asesoría y representación penal integral en todas las etapas del proceso, defendiendo sus derechos con estrategia y compromiso.</p>
+          <ul>
+            <li>Denuncias y querellas</li>
+            <li>Medidas de seguridad</li>
+            <li>Accidentes de tránsito</li>
+            <li>Audiencia de primera declaración</li>
+            <li>Audiencias ante el MP</li>
+            <li>Cancelación de antecedentes penales y policiales</li>
+            <li>Proceso penal (etapa preparatoria, intermedia y debate)</li>
+          </ul>
+        </article>
+
+        <article class="area" id="familiar">
+          <h3>Derecho Familiar</h3>
+          <p>Asesoría y representación en asuntos de familia, con sensibilidad, ética y compromiso para proteger lo que más importa: tu familia y tu bienestar.</p>
+          <ul>
+            <li>Matrimonio civil</li>
+            <li>Divorcio por mutuo acuerdo o por causal determinada</li>
+            <li>Juicio de fijación, disminución o aumento de la pensión alimenticia</li>
+            <li>Juicio de guarda y custodia</li>
+            <li>Unión de hecho post mortem</li>
+          </ul>
+        </article>
+
+        <article class="area" id="notarial">
+          <h3>Derecho Notarial</h3>
+          <p>Gestión notarial con legalidad, seguridad y confianza, garantizando la validez y autenticidad de sus documentos.</p>
+          <ul>
+            <li>Escrituras públicas</li>
+            <li>Compraventas</li>
+            <li>Mandatos</li>
+            <li>Donaciones</li>
+            <li>Testamentos</li>
+            <li>Legalizaciones de firmas y de documentos</li>
+            <li>Actas notariales</li>
+            <li>Actas de sobrevivencia</li>
+            <li>Declaración jurada</li>
+            <li>Contratos en documento privado</li>
+            <li>Arrendamiento</li>
+            <li>Finiquitos</li>
+            <li>Proceso sucesorio extrajudicial</li>
+          </ul>
+        </article>
+
+        <article class="area" id="migratorio">
+          <h3>Derecho Migratorio</h3>
+          <p>Soluciones legales seguras, eficientes y personalizadas para cada etapa de tu camino.</p>
+          <ul>
+            <li>Arraigos</li>
+            <li>Residencia temporal y permanente</li>
+            <li>Apostillas de documentos del extranjero</li>
+            <li>Mandatos de USA</li>
+            <li>Naturalización</li>
+            <li>Estatus migratorio</li>
+          </ul>
+        </article>
+
+        <article class="area" id="mercantil">
+          <h3>Derecho Mercantil</h3>
+          <p>Gestión mercantil para empresas y trámites comerciales, con seguridad jurídica y eficiencia.</p>
+          <ul>
+            <li>Inscripción de empresa mercantil</li>
+            <li>Inscripción de sociedades anónimas</li>
+            <li>Inscripción de ONG</li>
+            <li>Inscripción de sociedades civiles</li>
+            <li>Traspasos de vehículos</li>
+            <li>Inscripción de pequeño contribuyente</li>
+            <li>Cancelación de omisos</li>
+            <li>Primer RTU o Agencia Virtual SAT</li>
+          </ul>
+        </article>
+
+        <article class="area" id="administrativo">
+          <h3>Derecho Administrativo</h3>
+          <p>Gestión para personas y empresas ante entidades públicas, con eficiencia, seguridad jurídica y cumplimiento normativo.</p>
+          <ul>
+            <li>Licencias municipales, DIGECAM y 14 ministerios</li>
+            <li>Certificaciones electrónicas de RENAP</li>
+            <li>Antecedentes penales y policiales</li>
+            <li>Constancia de RENAS</li>
+            <!-- Este enlace lleva a la página de Visas -->
+            <li><a href="/visas/">Visa americana y pasaporte ordinario</a></li>
+          </ul>
+        </article>
+
+        <article class="area" id="laboral">
+          <h3>Derecho Laboral</h3>
+          <p>Asesoría y representación laboral integral para personas y empresas.</p>
+          <ul>
+            <li>Despidos directos e injustificados</li>
+            <li>Contrato de trabajo</li>
+            <li>Jubilaciones</li>
+            <li>Pago de planilla IGSS</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Cómo trabajamos tu caso</h2>
+      <ol class="pasos detallados">
+        <li>
+          <div>
+            <h3>Primera consulta y evaluación del caso</h3>
+            <p>Te escuchamos y reunimos la información clave: fechas, documentos y antecedentes. Te explicamos de forma clara y honesta si tu caso es viable, y firmamos un contrato de servicios con honorarios y alcances.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Recolección de documentos y pruebas</h3>
+            <p>Reunimos los documentos esenciales (DPI, contratos, pruebas, antecedentes), solicitamos certificaciones si hacen falta y organizamos todo en un expediente digital y físico.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Estrategia legal y presentación de la demanda o defensa</h3>
+            <p>Definimos la vía (judicial, administrativa o extrajudicial), redactamos los documentos legales y los presentamos ante el juzgado u organismo competente.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Seguimiento del caso y representación legal</h3>
+            <p>Te representamos en audiencias y comparecencias, te mantenemos informado de cada avance y, cuando es posible, buscamos conciliaciones para resolver sin llegar a juicio.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Resolución y cierre del caso</h3>
+            <p>Una vez dictada la resolución, te informamos y evaluamos contigo los próximos pasos.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 4. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Quiénes somos</h2>
+      <div class="nosotros">
+        <div>
+          <p>En Grupo Genesia, Abogados y Notarios, somos un equipo de profesionales del derecho comprometidos con brindar asesoría jurídica integral, clara y confiable.</p>
+          <p>Acompañamos a nuestros clientes en cada etapa legal y administrativa, ofreciendo soluciones efectivas con ética, transparencia y un trato cercano.</p>
+          <p>Nuestro propósito es proteger tus derechos, prevenir riesgos y ayudarte a tomar decisiones con seguridad y confianza.</p>
+          <p class="lema">Tu tranquilidad legal, nuestra prioridad.</p>
+        </div>
+        <div class="mv">
+          <div>
+            <h3>Misión</h3>
+            <p>Brindamos asesoría legal clara, confiable, ética y efectiva, con un enfoque centrado en las necesidades de nuestros clientes, ofreciendo soluciones jurídicas que protegen sus derechos y generan confianza en cada paso.</p>
+          </div>
+          <div>
+            <h3>Visión</h3>
+            <p>Ser una firma líder en constante crecimiento, reconocida por nuestra excelencia, claridad, profesionalismo y compromiso, siendo la referencia legal confiable para nuestros clientes y la comunidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. NUESTROS VALORES ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Nuestros valores</h2>
+      <dl class="valores">
+        <div><dt>Integridad</dt><dd>Actuamos con honestidad y rectitud en cada caso que asumimos.</dd></div>
+        <div><dt>Claridad</dt><dd>Comunicamos lo legal en lenguaje accesible y transparente.</dd></div>
+        <div><dt>Compromiso</dt><dd>Nos dedicamos con pasión a defender los intereses de nuestros clientes.</dd></div>
+        <div><dt>Responsabilidad</dt><dd>Asumimos cada caso con seriedad y diligencia profesional.</dd></div>
+        <div><dt>Confidencialidad</dt><dd>Protegemos la información de nuestros clientes con absoluta reserva.</dd></div>
+        <div><dt>Excelencia</dt><dd>Buscamos la mejora continua en cada servicio que ofrecemos.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== 6. RESULTADOS ===================== -->
+  <section class="seccion resultados">
+    <div class="contenedor">
+      <h2>Nuestros resultados</h2>
+      <p>Nuestro compromiso con la excelencia se refleja en nuestros resultados. Hasta la fecha hemos gestionado con éxito una amplia variedad de casos, asegurando la mejor defensa y asesoría para nuestros clientes.</p>
+      <!-- Barra: la parte azul es el 80 %, la gris el 20 % -->
+      <div class="barra" aria-hidden="true"><span></span><span></span></div>
+      <div class="cifras">
+        <div class="cifra"><strong>80 %</strong><span>Efectividad y resultados positivos</span></div>
+        <div class="cifra suave"><strong>20 %</strong><span>Casos en proceso</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. CONTÁCTENOS ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Contáctenos</h2>
+      <dl class="contacto-lista">
+        <div>
+          <dt>Teléfono</dt>
+          <dd><span>+502 4107 7030</span><span>+502 4102 4701</span></dd>
+        </div>
+        <div>
+          <dt>Correo electrónico</dt>
+          <dd><a href="mailto:academiajuridicagenesia@gmail.com">academiajuridicagenesia@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Dirección</dt>
+          <dd>San Jerónimo, Baja Verapaz, a 2 cuadras de Panadería Doña Lucía</dd>
+        </div>
+        <div>
+          <dt>Redes sociales</dt>
+          <dd>
+            <span>Facebook: Grupo Genesia – Servicios Jurídicos y Formación Integral</span>
+            <span>Instagram: <a href="https://www.instagram.com/grupogenesia/" target="_blank" rel="noopener">@grupogenesia</a></span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>Abogados y Notarios Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz</p>
+    <a class="boton-whatsapp"
+       href="https://wa.me/50241077030?text=Hola,%20quiero%20una%20consulta%20con%20Abogados%20y%20Notarios%20Genesia"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</footer>
+
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
+</body>
+</html>

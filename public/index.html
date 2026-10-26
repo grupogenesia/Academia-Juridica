@@ -9,122 +9,11 @@
 <!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
 
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
 <style>
-  /* ===== COLORES Y LETRAS DE GRUPO GENESIA ===== */
-  /* Diseño: encabezado con logo y eslogan, debajo tres tarjetas grandes (una por servicio) */
-  :root {
-    --gris: #e1e5e8;          /* fondo de la página */
-    --blanco: #f7f8f9;        /* fondo de las tarjetas */
-    --azul: #14374a;          /* color principal: letras, bordes, encabezado */
-    --azul-suave: #4c6878;    /* textos secundarios */
-    --linea: #c3cbd1;         /* líneas y bordes suaves */
-    --whatsapp: #1f8f4e;      /* verde del botón de WhatsApp */
-
-    --letra-titulo: "Libre Baskerville", Georgia, serif;
-    --letra-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background: var(--gris);
-    color: var(--azul);
-    font-family: var(--letra-texto);
-    font-size: 17px;
-    line-height: 1.5;
-  }
-
-  /* Contenedor que limita el ancho y deja márgenes a los lados */
-  .contenedor {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-  }
-
-  /* ===== ENCABEZADO: logo a la izquierda, menú a la derecha, en la misma línea ===== */
-  .encabezado {
-    background: var(--blanco);
-    border-bottom: 1px solid var(--linea);
-  }
-  .encabezado .contenedor {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;   /* logo a un extremo, menú al otro */
-    gap: 24px;
-    padding-block: 12px;
-  }
-
-  /* El logo: el texto "Grupo Genesia" va en alt, para Google y lectores de pantalla */
-  .logo { margin: 0; flex-shrink: 0; }
-  .logo a { display: block; }
-  .logo img {
-    display: block;
-    width: 96px;
-    height: auto;
-  }
-
-  /* ===== MENÚ DE NAVEGACIÓN ===== */
-  .menu ul {
-    list-style: none;                 /* quita los puntitos de la lista */
-    margin: 0;
-    padding: 0;
-    display: flex;                    /* pone los enlaces en fila */
-    gap: 32px;
-  }
-  .menu a {
-    display: block;
-    padding-block: 8px 5px;
-    color: var(--azul);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-bottom: 2px solid transparent;
-  }
-  .menu a:hover { border-bottom-color: var(--linea); }
-  .menu a[aria-current="page"] { border-bottom-color: var(--azul); }  /* página actual subrayada */
-  .menu a:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
-
-  /* Botón de las tres rayitas (☰): solo aparece en el celular */
-  .boton-menu {
-    display: none;
-    background: none;
-    border: 1px solid var(--linea);
-    border-radius: 6px;
-    padding: 10px;
-    cursor: pointer;
-    color: var(--azul);
-  }
-  .boton-menu svg { display: block; width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; }
-  .boton-menu:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
-
-  /* En el celular: el menú se esconde y se abre con el botón ☰ */
-  @media (max-width: 760px) {
-    .encabezado .contenedor { flex-wrap: wrap; }
-    .boton-menu { display: block; }
-    .menu { display: none; width: 100%; }
-    .menu.abierto { display: block; }   /* la clase "abierto" la pone el JavaScript */
-    .menu ul { flex-direction: column; gap: 0; padding-bottom: 8px; }
-    .menu li + li { border-top: 1px solid var(--linea); }
-    .menu a { padding-block: 14px; border-bottom: none; }
-    .menu a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
-  }
-
-  /* ===== FRANJA AZUL CON EL ESLOGAN ===== */
-  .franja { background: var(--azul); }
-  .eslogan {
-    margin: 0;
-    padding-block: 14px;
-    text-align: center;
-    color: var(--gris);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
   /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
   .servicios .contenedor { padding-block: 48px; }
 
@@ -178,34 +67,6 @@
     border-top: 1px solid var(--linea);
     padding-top: 14px;
   }
-
-  /* ===== PIE DE PÁGINA CON WHATSAPP ===== */
-  .pie { border-top: 1px solid var(--linea); }
-  .pie .contenedor {
-    padding-block: 32px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .pie p { margin: 0; color: var(--azul-suave); }
-  .pie strong { color: var(--azul); }
-
-  .boton-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--whatsapp);
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 14px 22px;
-    border-radius: 6px;
-  }
-  .boton-whatsapp:hover { filter: brightness(1.1); }
-  .boton-whatsapp:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
-  .boton-whatsapp svg { width: 22px; height: 22px; fill: currentColor; }
 
   @media (prefers-reduced-motion: reduce) {
     .tarjeta { transition: none; }
@@ -264,7 +125,7 @@
           <path d="M17 21h14M24 14c-3 4-3 10 0 14M24 14c3 4 3 10 0 14M17 35h14"/>
         </svg>
         <h2>Visas y Pasaportes</h2>
-        <p>Asesoría y trámite de visas y pasaportes.</p>
+        <p>Trámite de visa americana con abogados especialistas en trámites migratorios.</p>
         <span class="ir">Ver servicio →</span>
       </a>
 
@@ -308,17 +169,7 @@
   </div>
 </footer>
 
-
-<!-- ===================== JAVASCRIPT: abrir y cerrar el menú en el celular ===================== -->
-<script>
-  const boton = document.querySelector('.boton-menu');
-  const menu = document.querySelector('.menu');
-
-  boton.addEventListener('click', function () {
-    const abierto = menu.classList.toggle('abierto');   // pone o quita la clase "abierto"
-    boton.setAttribute('aria-expanded', abierto);
-    boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
-  });
-</script>
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
 </body>
 </html>

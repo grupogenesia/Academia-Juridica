@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Grupo Genesia: servicios jurídicos y formación integral en San Jerónimo, Baja Verapaz. Abogados y Notarios, Visas y Pasaportes, y Academia Jurídica.">
+<title>Quiénes somos · Grupo Genesia</title>
+
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
+<style>
+  /* ===== NUESTRAS ÁREAS: una fila por área, cada una es un enlace ===== */
+  .unidades {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .unidades a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 4px 24px;
+    padding: 22px 24px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    color: var(--azul);
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .unidades a:hover { border-color: var(--azul); }
+  .unidades a:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+  .unidades h3 { font-size: 22px; }
+  .unidades p { margin: 0; color: var(--azul-suave); grid-column: 1; }
+  .unidades .ir { grid-column: 2; grid-row: 1 / span 2; font-weight: 600; font-size: 15px; white-space: nowrap; }
+
+  /* ===== LLAMADO FINAL ===== */
+  .llamado { background: var(--blanco); text-align: center; }
+  .llamado h2 { margin-bottom: 12px; }
+  .llamado p { margin: 0 auto 24px; color: var(--azul-suave); max-width: 50ch; }
+  .llamado .acciones { justify-content: center; }
+
+  @media (max-width: 520px) {
+    .unidades a { grid-template-columns: 1fr; }
+    .unidades .ir { grid-column: 1; grid-row: auto; margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO (igual en todas las páginas) ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
+
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <a class="logo" href="/"><img src="/img/logo.png" alt="Grupo Genesia, ir al inicio" width="746" height="505"></a>
+
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha: aria-current marca la página en la que estás -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quienes-somos/" aria-current="page">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== 1. PRESENTACIÓN ===================== -->
+  <section class="seccion presentacion">
+    <div class="contenedor">
+      <p class="etiqueta">Grupo Genesia</p>
+      <h1>Quiénes somos</h1>
+      <p class="resumen">Servicios jurídicos y formación integral en San Jerónimo, Baja Verapaz. Experiencia, compromiso y soluciones legales.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 2. NOSOTROS + MISIÓN Y VISIÓN ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="nosotros">
+        <div>
+          <p>En Grupo Genesia somos un equipo de profesionales del derecho comprometidos con brindar asesoría jurídica integral, clara y confiable.</p>
+          <p>Acompañamos a nuestros clientes en cada etapa legal y administrativa, ofreciendo soluciones efectivas con ética, transparencia y un trato cercano.</p>
+          <p>Nuestro propósito es proteger tus derechos, prevenir riesgos y ayudarte a tomar decisiones con seguridad y confianza.</p>
+          <p class="lema">Tu tranquilidad legal, nuestra prioridad.</p>
+        </div>
+        <div class="mv">
+          <div>
+            <h3>Misión</h3>
+            <p>Brindamos asesoría legal clara, confiable, ética y efectiva, con un enfoque centrado en las necesidades de nuestros clientes, ofreciendo soluciones jurídicas que protegen sus derechos y generan confianza en cada paso.</p>
+          </div>
+          <div>
+            <h3>Visión</h3>
+            <p>Ser una firma líder en constante crecimiento, reconocida por nuestra excelencia, claridad, profesionalismo y compromiso, siendo la referencia legal confiable para nuestros clientes y la comunidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. NUESTRAS ÁREAS ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Nuestras áreas</h2>
+      <ul class="unidades">
+        <li>
+          <a href="/abogados/">
+            <h3>Abogados y Notarios</h3>
+            <p>Derecho civil, penal, familiar, notarial, migratorio, mercantil, administrativo y laboral.</p>
+            <span class="ir">Ver servicios →</span>
+          </a>
+        </li>
+        <li>
+          <a href="/visas/">
+            <h3>Visas y Pasaportes</h3>
+            <p>Trámite de visa americana: DS-160, cita en la Embajada y preparación para la entrevista.</p>
+            <span class="ir">Ver trámite →</span>
+          </a>
+        </li>
+        <li>
+          <a href="/academia/">
+            <h3>Academia Jurídica</h3>
+            <p>Preparación para la Fase Privada, presencial o virtual, con simulacros y mentorías.</p>
+            <span class="ir">Ver curso →</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 4. NUESTROS VALORES ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Nuestros valores</h2>
+      <dl class="valores">
+        <div><dt>Integridad</dt><dd>Actuamos con honestidad y rectitud en cada caso que asumimos.</dd></div>
+        <div><dt>Claridad</dt><dd>Comunicamos lo legal en lenguaje accesible y transparente.</dd></div>
+        <div><dt>Compromiso</dt><dd>Nos dedicamos con pasión a defender los intereses de nuestros clientes.</dd></div>
+        <div><dt>Responsabilidad</dt><dd>Asumimos cada caso con seriedad y diligencia profesional.</dd></div>
+        <div><dt>Confidencialidad</dt><dd>Protegemos la información de nuestros clientes con absoluta reserva.</dd></div>
+        <div><dt>Excelencia</dt><dd>Buscamos la mejora continua en cada servicio que ofrecemos.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== 5. LLAMADO FINAL ===================== -->
+  <section class="seccion llamado">
+    <div class="contenedor">
+      <h2>¿Cómo podemos ayudarte?</h2>
+      <p>Estamos para defender tus derechos y acompañarte en cada paso.</p>
+      <div class="acciones">
+        <a class="boton-secundario" href="/contacto/">Ver datos de contacto</a>
+        <a class="boton-whatsapp"
+           href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20de%20Grupo%20Genesia"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>Grupo Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz</p>
+    <a class="boton-whatsapp"
+       href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20de%20Grupo%20Genesia"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</footer>
+
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
+</body>
+</html>

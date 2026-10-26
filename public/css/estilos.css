@@ -1,0 +1,292 @@
+/* =====================================================================
+   ESTILOS COMPARTIDOS DE GRUPO GENESIA
+   Los usan todas las páginas: colores, letras, encabezado, menú,
+   franja del eslogan, pie de página y botón de WhatsApp.
+   Si cambias algo aquí, cambia en TODO el sitio.
+   ===================================================================== */
+
+/* ===== COLORES Y LETRAS DE GRUPO GENESIA ===== */
+:root {
+  --gris: #e1e5e8;          /* fondo de la página */
+  --blanco: #f7f8f9;        /* fondo de las tarjetas */
+  --azul: #14374a;          /* color principal: letras, bordes, encabezado */
+  --azul-suave: #4c6878;    /* textos secundarios */
+  --linea: #c3cbd1;         /* líneas y bordes suaves */
+  --whatsapp: #1f8f4e;      /* verde del botón de WhatsApp */
+
+  --letra-titulo: "Libre Baskerville", Georgia, serif;
+  --letra-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--gris);
+  color: var(--azul);
+  font-family: var(--letra-texto);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Contenedor que limita el ancho y deja márgenes a los lados */
+.contenedor {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ===== ENCABEZADO: logo a la izquierda, menú a la derecha, en la misma línea ===== */
+.encabezado {
+  background: var(--blanco);
+  border-bottom: 1px solid var(--linea);
+}
+.encabezado .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* logo a un extremo, menú al otro */
+  gap: 24px;
+  padding-block: 12px;
+}
+
+/* El logo: el texto "Grupo Genesia" va en alt, para Google y lectores de pantalla */
+.logo { margin: 0; flex-shrink: 0; }
+.logo a { display: block; }
+.logo img {
+  display: block;
+  width: 96px;
+  height: auto;
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.menu ul {
+  list-style: none;                 /* quita los puntitos de la lista */
+  margin: 0;
+  padding: 0;
+  display: flex;                    /* pone los enlaces en fila */
+  gap: 32px;
+}
+.menu a {
+  display: block;
+  padding-block: 8px 5px;
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.menu a:hover { border-bottom-color: var(--linea); }
+.menu a[aria-current="page"] { border-bottom-color: var(--azul); }  /* página actual subrayada */
+.menu a:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+/* Botón de las tres rayitas (☰): solo aparece en el celular */
+.boton-menu {
+  display: none;
+  background: none;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--azul);
+}
+.boton-menu svg { display: block; width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; }
+.boton-menu:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+/* En el celular: el menú se esconde y se abre con el botón ☰ */
+@media (max-width: 760px) {
+  .encabezado .contenedor { flex-wrap: wrap; }
+  .boton-menu { display: block; }
+  .menu { display: none; width: 100%; }
+  .menu.abierto { display: block; }   /* la clase "abierto" la pone el JavaScript */
+  .menu ul { flex-direction: column; gap: 0; padding-bottom: 8px; }
+  .menu li + li { border-top: 1px solid var(--linea); }
+  .menu a { padding-block: 14px; border-bottom: none; }
+  .menu a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+}
+
+/* ===== FRANJA AZUL CON EL ESLOGAN ===== */
+.franja { background: var(--azul); }
+.eslogan {
+  margin: 0;
+  padding-block: 14px;
+  text-align: center;
+  color: var(--gris);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ===== SECCIONES DE CONTENIDO (las usan las páginas de servicios) ===== */
+/* Cada sección de la página tiene el mismo espacio arriba y abajo */
+.seccion { padding-block: 56px; }
+.seccion + .seccion { border-top: 1px solid var(--linea); }
+
+.etiqueta {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul-suave);
+}
+h1, h2, h3 { font-family: var(--letra-titulo); text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px; }
+
+/* ===== PRESENTACIÓN ===== */
+.presentacion { background: var(--blanco); }
+.presentacion h1 { font-size: clamp(34px, 7vw, 54px); line-height: 1.1; }
+.presentacion .resumen {
+  max-width: 60ch;
+  margin: 18px 0 28px;
+  font-size: 19px;
+  color: var(--azul-suave);
+}
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+.boton-secundario {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 22px;
+  border: 2px solid var(--azul);
+  border-radius: 6px;
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: none;
+}
+.boton-secundario:hover { background: var(--azul); color: var(--blanco); }
+.boton-secundario:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+/* Pasos numerados: solo para cosas que van en orden */
+.pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: paso; }
+.pasos li {
+  counter-increment: paso;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.pasos li::before {
+  content: counter(paso);
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--blanco);
+  display: grid;
+  place-items: center;
+  font-family: var(--letra-titulo);
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+/* Variante: pasos con título y explicación */
+.pasos.detallados { gap: 24px; max-width: 75ch; }
+.pasos.detallados li {
+  align-items: flex-start;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 17px;
+  font-weight: 400;
+}
+.pasos.detallados h3 { font-size: 20px; margin-bottom: 4px; }
+.pasos.detallados p { margin: 0; color: var(--azul-suave); }
+
+/* ===== QUIÉNES SOMOS + MISIÓN Y VISIÓN ===== */
+.nosotros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px 56px;
+  align-items: start;
+}
+.nosotros > div { min-width: 0; }
+.nosotros p { margin: 0 0 14px; font-size: 18px; max-width: 60ch; }
+.lema { font-family: var(--letra-titulo); font-weight: 700; font-size: 20px; }
+.mv { display: grid; gap: 16px; }
+.mv div {
+  padding: 22px 24px;
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+}
+.mv h3 { font-size: 20px; margin-bottom: 8px; }
+.mv p { margin: 0; font-size: 16px; color: var(--azul-suave); }
+
+/* ===== VALORES ===== */
+.valores {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--linea);        /* las líneas entre valores salen de este color */
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.valores div { background: var(--blanco); padding: 22px 24px; }
+.valores dt {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.valores dd { margin: 0; color: var(--azul-suave); }
+
+/* ===== LISTA DE DATOS DE CONTACTO ===== */
+.contacto-lista {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px 40px;
+}
+.contacto-lista > div { min-width: 0; }
+.contacto-lista dt {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul-suave);
+  margin-bottom: 4px;
+}
+.contacto-lista dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.contacto-lista a { color: var(--azul); }
+.contacto-lista dd span { display: block; }
+
+/* ===== PIE DE PÁGINA CON WHATSAPP ===== */
+.pie { border-top: 1px solid var(--linea); }
+.pie .contenedor {
+  padding-block: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.pie p { margin: 0; color: var(--azul-suave); }
+.pie strong { color: var(--azul); }
+
+.boton-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--whatsapp);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 6px;
+}
+.boton-whatsapp:hover { filter: brightness(1.1); }
+.boton-whatsapp:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+.boton-whatsapp svg { width: 22px; height: 22px; fill: currentColor; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
