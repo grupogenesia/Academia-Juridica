@@ -3,194 +3,322 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Curso Fase Privada para títulos. Inicio enero a junio 2027. Costo Q 1,800, pago único.">
-<title>Academia Jurídica</title>
+<meta name="description" content="Grupo Genesia: visas y pasaportes, Academia Jurídica, abogados y notarios. Especialistas en resolución de conflictos.">
+<title>Grupo Genesia</title>
 
-<!-- Tipos de letra de Google Fonts: uno elegante para títulos y uno sencillo para el texto -->
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
 
 <style>
-  /* ===== COLORES Y LETRAS (los definimos una sola vez y los reutilizamos) ===== */
-  /* Diseño: una sola tarjeta centrada sobre fondo gris, como un aviso de inscripción */
+  /* ===== COLORES Y LETRAS DE GRUPO GENESIA ===== */
+  /* Diseño: encabezado con logo y eslogan, debajo tres tarjetas grandes (una por servicio) */
   :root {
-    --fondo: #d9dde3;        /* gris de fondo */
-    --tarjeta: #f3f5f8;      /* gris muy claro para la tarjeta */
-    --azul: #1d3f7a;         /* azul principal de las letras */
-    --azul-suave: #4a6496;   /* azul más claro para textos secundarios */
-    --linea: #b9c2d0;        /* gris para las líneas divisorias */
-    --whatsapp: #1f8f4e;     /* verde del botón de WhatsApp */
+    --gris: #e1e5e8;          /* fondo de la página */
+    --blanco: #f7f8f9;        /* fondo de las tarjetas */
+    --azul: #14374a;          /* color principal: letras, bordes, encabezado */
+    --azul-suave: #4c6878;    /* textos secundarios */
+    --linea: #c3cbd1;         /* líneas y bordes suaves */
+    --whatsapp: #1f8f4e;      /* verde del botón de WhatsApp */
 
     --letra-titulo: "Libre Baskerville", Georgia, serif;
     --letra-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
   }
 
-  /* ===== LA PÁGINA COMPLETA ===== */
-  html { height: 100%; }
   *, *::before, *::after { box-sizing: border-box; }
+
   body {
     margin: 0;
-    background: var(--fondo);
+    background: var(--gris);
     color: var(--azul);
     font-family: var(--letra-texto);
     font-size: 17px;
     line-height: 1.5;
-    min-height: 100%;
-    display: grid;
-    place-items: center;               /* centra la tarjeta */
-    padding-block: 48px;
+  }
+
+  /* Contenedor que limita el ancho y deja márgenes a los lados */
+  .contenedor {
+    max-width: 1040px;
+    margin: 0 auto;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
 
-  /* ===== LA TARJETA BLANCA DEL CENTRO ===== */
-  .tarjeta {
-    background: var(--tarjeta);
-    width: 100%;
-    max-width: 520px;
-    border: 1px solid var(--linea);
-    border-radius: 6px;
-    padding: 40px 32px;
-    display: grid;
-    gap: 28px;
+  /* ===== ENCABEZADO: logo a la izquierda, menú a la derecha, en la misma línea ===== */
+  .encabezado {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--linea);
   }
-
-  /* Nombre de la academia (arriba, pequeño) */
-  .academia {
-    font-family: var(--letra-titulo);
-    font-size: 15px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin: 0;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--azul);
-  }
-
-  /* Etiqueta "Títulos" */
-  .etiqueta {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--azul-suave);
-    margin: 0 0 6px;
-  }
-
-  /* Título grande del curso */
-  h1 {
-    font-family: var(--letra-titulo);
-    font-size: clamp(30px, 7vw, 40px);  /* se achica en el celular */
-    line-height: 1.15;
-    margin: 0;
-    text-wrap: balance;
-  }
-
-  /* ===== LISTA DE DATOS (fecha y costo) ===== */
-  .datos {
-    margin: 0;
-    display: grid;
-    gap: 0;
-  }
-  .dato {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding-block: 14px;
-    border-top: 1px solid var(--linea);
-  }
-  .dato:last-child { border-bottom: 1px solid var(--linea); }
-  .dato dt {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--azul-suave);
-  }
-  .dato dd {
-    margin: 0;
-    font-weight: 600;
-    text-align: right;
-  }
-  .precio {
-    font-family: var(--letra-titulo);
-    font-size: 28px;
-    font-weight: 700;
-  }
-  .nota {
-    display: block;
-    font-family: var(--letra-texto);
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--azul-suave);
-  }
-
-  /* ===== BOTÓN DE WHATSAPP ===== */
-  .boton-whatsapp {
+  .encabezado .contenedor {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;   /* logo a un extremo, menú al otro */
+    gap: 24px;
+    padding-block: 12px;
+  }
+
+  /* El logo: el texto "Grupo Genesia" va en alt, para Google y lectores de pantalla */
+  .logo { margin: 0; flex-shrink: 0; }
+  .logo a { display: block; }
+  .logo img {
+    display: block;
+    width: 96px;
+    height: auto;
+  }
+
+  /* ===== MENÚ DE NAVEGACIÓN ===== */
+  .menu ul {
+    list-style: none;                 /* quita los puntitos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;                    /* pone los enlaces en fila */
+    gap: 32px;
+  }
+  .menu a {
+    display: block;
+    padding-block: 8px 5px;
+    color: var(--azul);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+  }
+  .menu a:hover { border-bottom-color: var(--linea); }
+  .menu a[aria-current="page"] { border-bottom-color: var(--azul); }  /* página actual subrayada */
+  .menu a:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+  /* Botón de las tres rayitas (☰): solo aparece en el celular */
+  .boton-menu {
+    display: none;
+    background: none;
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--azul);
+  }
+  .boton-menu svg { display: block; width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; }
+  .boton-menu:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+  /* En el celular: el menú se esconde y se abre con el botón ☰ */
+  @media (max-width: 760px) {
+    .encabezado .contenedor { flex-wrap: wrap; }
+    .boton-menu { display: block; }
+    .menu { display: none; width: 100%; }
+    .menu.abierto { display: block; }   /* la clase "abierto" la pone el JavaScript */
+    .menu ul { flex-direction: column; gap: 0; padding-bottom: 8px; }
+    .menu li + li { border-top: 1px solid var(--linea); }
+    .menu a { padding-block: 14px; border-bottom: none; }
+    .menu a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+  }
+
+  /* ===== FRANJA AZUL CON EL ESLOGAN ===== */
+  .franja { background: var(--azul); }
+  .eslogan {
+    margin: 0;
+    padding-block: 14px;
+    text-align: center;
+    color: var(--gris);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
+  .servicios .contenedor { padding-block: 48px; }
+
+  .instruccion {
+    margin: 0 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--azul-suave);
+  }
+
+  .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  /* 3 columnas en compu, 1 en celular */
+    gap: 20px;
+  }
+
+  /* Cada tarjeta es un enlace completo: se puede tocar en cualquier parte */
+  .tarjeta {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: var(--azul);
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .tarjeta:hover { border-color: var(--azul); transform: translateY(-3px); }
+  .tarjeta:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+  .icono { width: 44px; height: 44px; stroke: var(--azul); fill: none; stroke-width: 1.5; }
+
+  .tarjeta h2 {
+    font-family: var(--letra-titulo);
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .tarjeta p {
+    margin: 0;
+    color: var(--azul-suave);
+    flex-grow: 1;
+  }
+  .ir {
+    font-weight: 600;
+    font-size: 15px;
+    border-top: 1px solid var(--linea);
+    padding-top: 14px;
+  }
+
+  /* ===== PIE DE PÁGINA CON WHATSAPP ===== */
+  .pie { border-top: 1px solid var(--linea); }
+  .pie .contenedor {
+    padding-block: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .pie p { margin: 0; color: var(--azul-suave); }
+  .pie strong { color: var(--azul); }
+
+  .boton-whatsapp {
+    display: inline-flex;
+    align-items: center;
     gap: 10px;
     background: var(--whatsapp);
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 18px;
-    padding: 16px 20px;
+    padding: 14px 22px;
     border-radius: 6px;
-    transition: filter 0.15s;
   }
   .boton-whatsapp:hover { filter: brightness(1.1); }
   .boton-whatsapp:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
-  .boton-whatsapp svg { width: 24px; height: 24px; fill: currentColor; }
+  .boton-whatsapp svg { width: 22px; height: 22px; fill: currentColor; }
 
-  .telefono {
-    text-align: center;
-    font-size: 15px;
-    color: var(--azul-suave);
-    margin: -16px 0 0;
+  @media (prefers-reduced-motion: reduce) {
+    .tarjeta { transition: none; }
+    .tarjeta:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===================== CONTENIDO DE LA PÁGINA ===================== -->
-<main class="tarjeta">
+<!-- ===================== ENCABEZADO ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
 
-  <!-- Nombre de la academia -->
-  <p class="academia">Academia Jurídica</p>
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <h1 class="logo">
+      <a href="/"><img src="/img/logo.png" alt="Grupo Genesia" width="746" height="505"></a>
+    </h1>
 
-  <!-- Título del curso -->
-  <div>
-    <p class="etiqueta">Títulos</p>
-    <h1>Curso Fase Privada</h1>
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha: cada <li> es un enlace a otra sección del sitio -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/quienes-somos/">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
   </div>
+</header>
 
-  <!-- Datos del curso: fecha y costo -->
-  <dl class="datos">
-    <div class="dato">
-      <dt>Inicio</dt>
-      <dd>Enero a junio 2027</dd>
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<!-- ===================== SERVICIOS ===================== -->
+<main class="servicios">
+  <div class="contenedor">
+    <p class="instruccion">Elige un servicio</p>
+
+    <div class="tarjetas">
+
+      <!-- Tarjeta 1: lleva a /visas/ -->
+      <a class="tarjeta" href="/visas/">
+        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="10" y="5" width="28" height="38" rx="3"/>
+          <circle cx="24" cy="21" r="7"/>
+          <path d="M17 21h14M24 14c-3 4-3 10 0 14M24 14c3 4 3 10 0 14M17 35h14"/>
+        </svg>
+        <h2>Visas y Pasaportes</h2>
+        <p>Asesoría y trámite de visas y pasaportes.</p>
+        <span class="ir">Ver servicio →</span>
+      </a>
+
+      <!-- Tarjeta 2: lleva a /academia/ -->
+      <a class="tarjeta" href="/academia/">
+        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M4 18 24 9l20 9-20 9Z"/>
+          <path d="M12 22v10c0 3 5 6 12 6s12-3 12-6V22M44 18v12"/>
+        </svg>
+        <h2>Academia Jurídica</h2>
+        <p>Curso Fase Privada para títulos. Inicio de enero a junio 2027.</p>
+        <span class="ir">Ver curso →</span>
+      </a>
+
+      <!-- Tarjeta 3: lleva a /abogados/ -->
+      <a class="tarjeta" href="/abogados/">
+        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 6v34M14 42h20M10 12h28"/>
+          <path d="M10 12 4 26h12ZM38 12l-6 14h12Z"/>
+          <path d="M4 26a6 4 0 0 0 12 0M32 26a6 4 0 0 0 12 0"/>
+        </svg>
+        <h2>Abogados y Notarios</h2>
+        <p>Asesoría legal, procesos judiciales y servicios notariales.</p>
+        <span class="ir">Ver servicio →</span>
+      </a>
+
     </div>
-    <div class="dato">
-      <dt>Costo</dt>
-      <dd>
-        <span class="precio">Q 1,800</span>
-        <span class="nota">Pago único</span>
-      </dd>
-    </div>
-  </dl>
-
-  <!-- Botón de WhatsApp: abre un chat con el número indicado -->
-  <!-- CAMBIAR: reemplazar 50200000000 por el número real (502 + 8 dígitos) -->
-  <a class="boton-whatsapp"
-     href="https://wa.me/50200000000?text=Hola,%20quiero%20información%20del%20Curso%20Fase%20Privada"
-     target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-    Escríbenos por WhatsApp
-  </a>
-  <p class="telefono">+502 0000 0000</p>
-
+  </div>
 </main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p>¿Tienes dudas? Escríbenos al <strong>+502 4107 7030</strong></p>
+    <a class="boton-whatsapp"
+       href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20de%20Grupo%20Genesia"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</footer>
+
+
+<!-- ===================== JAVASCRIPT: abrir y cerrar el menú en el celular ===================== -->
+<script>
+  const boton = document.querySelector('.boton-menu');
+  const menu = document.querySelector('.menu');
+
+  boton.addEventListener('click', function () {
+    const abierto = menu.classList.toggle('abierto');   // pone o quita la clase "abierto"
+    boton.setAttribute('aria-expanded', abierto);
+    boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+</script>
 </body>
 </html>
