@@ -23,6 +23,30 @@
   }
   .por-que p { margin: 0; font-size: 18px; max-width: 60ch; }
 
+  /* ===== BONUS: ícono en círculo + título, en fila ===== */
+  .bonus-titulo span { color: var(--azul-suave); }
+  .bonus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px 40px;
+  }
+  .bonus li { display: flex; align-items: center; gap: 18px; }
+  .bonus-icono {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    display: grid;
+    place-items: center;
+  }
+  .bonus-icono svg { width: 36px; height: 36px; stroke: var(--azul); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .bonus h3 { font-size: 19px; line-height: 1.35; }
+
   /* ===== METODOLOGÍA ===== */
   .metodos {
     list-style: none;
@@ -250,7 +274,31 @@
     </div>
   </section>
 
-  <!-- ===================== 3. METODOLOGÍA ===================== -->
+  <!-- ===================== 3. BONUS ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2 class="bonus-titulo">Bonus <span>+</span></h2>
+      <ul class="bonus">
+        <li>
+          <!-- Ícono: carpeta con documento -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 9a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M11 17h10M11 21h6"/></svg></span>
+          <h3>Acceso a material didáctico en Drive</h3>
+        </li>
+        <li>
+          <!-- Ícono: dos globos de conversación -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8l-4 3v-3H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M21 12h6a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2v3l-4-3h-6a2 2 0 0 1-2-2v-1"/></svg></span>
+          <h3>Grupo de WhatsApp para preguntas y respuestas</h3>
+        </li>
+        <li>
+          <!-- Ícono: expositor frente a una pizarra -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="5" width="16" height="11" rx="1"/><circle cx="8" cy="12" r="3"/><path d="M3 27v-4a5 5 0 0 1 10 0v4M11 18l5-3"/></svg></span>
+          <h3>Clases magistrales con expertos en las áreas legales</h3>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 4. METODOLOGÍA ===================== -->
   <section class="seccion">
     <div class="contenedor">
       <h2>Metodología</h2>
@@ -279,7 +327,7 @@
     </div>
   </section>
 
-  <!-- ===================== 4. CURSOS ===================== -->
+  <!-- ===================== 5. CURSOS ===================== -->
   <section class="seccion" id="cursos">
     <div class="contenedor">
       <h2>Nuestros cursos</h2>
@@ -323,7 +371,7 @@
     </div>
   </section>
 
-  <!-- ===================== 5. PLANES Y COSTOS ===================== -->
+  <!-- ===================== 6. PLANES Y COSTOS ===================== -->
   <section class="seccion" id="planes">
     <div class="contenedor">
       <h2>Planes y costos</h2>
@@ -387,7 +435,7 @@
     </div>
   </section>
 
-  <!-- ===================== 6. INSCRÍBETE ===================== -->
+  <!-- ===================== 7. INSCRÍBETE ===================== -->
   <section class="seccion" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
