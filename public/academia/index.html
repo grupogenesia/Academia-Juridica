@@ -83,7 +83,7 @@
   }
   .curso-cuerpo { padding: 24px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; }
   .curso-cuerpo h3 { font-size: 22px; }
-  .materias { list-style: none; margin: 0; padding: 0; flex-grow: 1; }
+  .materias { list-style: none; margin: 0; padding: 0; }
   .materias li {
     display: flex;
     align-items: center;
@@ -92,8 +92,7 @@
     border-top: 1px solid var(--linea);
     font-weight: 600;
   }
-  .materias svg { width: 20px; height: 20px; flex-shrink: 0; stroke: var(--azul-suave); fill: none; stroke-width: 1.6; }
-  .curso .boton-secundario { justify-content: center; }
+  .materias svg { width: 20px; height: 20px; flex-shrink: 0; stroke: var(--azul); fill: none; stroke-width: 1.5; }
 
   /* ===== PLANES Y COSTOS ===== */
   .planes {
@@ -294,14 +293,12 @@
           <div class="curso-cuerpo">
             <h3>Curso de Fase Privada</h3>
             <ul class="materias" aria-label="Materias del curso de fase privada">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Constitucional</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Mercantil</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Notarial</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Civil y Procesal Civil</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Leyes especiales</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Constitucional</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Mercantil</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Notarial</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Civil y Procesal Civil</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Leyes especiales</li>
             </ul>
-            <!-- Lleva al formulario y deja elegida esta fase -->
-            <a class="boton-secundario" href="#inscripcion" data-fase="Fase Privada">Quiero inscribirme</a>
           </div>
         </article>
 
@@ -313,14 +310,12 @@
           <div class="curso-cuerpo">
             <h3>Curso de Fase Pública</h3>
             <ul class="materias" aria-label="Materias del curso de fase pública">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Constitucional</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Administrativo</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Penal</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Laboral</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Leyes especiales</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Constitucional</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Administrativo</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Penal</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Derecho Laboral</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>Leyes especiales</li>
             </ul>
-            <!-- Lleva al formulario y deja elegida esta fase -->
-            <a class="boton-secundario" href="#inscripcion" data-fase="Fase Pública">Quiero inscribirme</a>
           </div>
         </article>
 
@@ -536,15 +531,6 @@
     if (evento.target.getAttribute('aria-invalid') === 'true') {
       evento.target.setAttribute('aria-invalid', 'false');
     }
-  });
-
-  // Botones "Quiero inscribirme" de los cursos: dejan elegida la fase en el formulario
-  document.querySelectorAll('[data-fase]').forEach(function (boton) {
-    boton.addEventListener('click', function () {
-      const selector = document.getElementById('fase');
-      selector.value = boton.dataset.fase;
-      selector.setAttribute('aria-invalid', 'false');
-    });
   });
 </script>
 </body>
