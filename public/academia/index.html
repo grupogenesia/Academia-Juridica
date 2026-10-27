@@ -234,15 +234,8 @@
     flex-direction: column;
     gap: 18px;
   }
-  /* Comillas grandes decorativas arriba de cada opinión */
-  .resena::before {
-    content: "“";
-    font-family: var(--letra-titulo);
-    font-size: 56px;
-    line-height: 1;
-    height: 24px;                     /* recorta el espacio vacío debajo de las comillas */
-    color: var(--linea);
-  }
+  /* Estrellas de calificación (★ es un carácter de texto, no una imagen) */
+  .estrellas { margin: 0; color: var(--estrella); font-size: 18px; letter-spacing: 3px; line-height: 1; }
   .resena blockquote { margin: 0; font-size: 17px; flex-grow: 1; }
   .resena figcaption { padding-top: 16px; border-top: 1px solid var(--linea); }
   .resena strong { display: block; }
@@ -549,8 +542,19 @@
       <h2>Lo que dicen nuestros alumnos</h2>
       <div class="resenas">
         <figure class="resena">
+          <p class="estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
           <blockquote>Muy buen curso, bien explicado, se aclaran muy bien las dudas, lo recomiendo 100 %.</blockquote>
           <figcaption><strong>Luis Cifuentes</strong><small>Alumno · 2026</small></figcaption>
+        </figure>
+        <figure class="resena">
+          <p class="estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+          <blockquote>Me encantó aprender con el Método Genesia, excelente forma de enseñar.</blockquote>
+          <figcaption><strong>Oscar Ruiz</strong><small>Alumno · 2026</small></figcaption>
+        </figure>
+        <figure class="resena">
+          <p class="estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+          <blockquote>Sin dudarlo volvería a tomar el curso, excelente servicio.</blockquote>
+          <figcaption><strong>Andres Ramirez</strong><small>Alumno · 2026</small></figcaption>
         </figure>
       </div>
     </div>
