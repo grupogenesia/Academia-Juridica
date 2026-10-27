@@ -44,6 +44,57 @@
   }
   .metodos svg { width: 40px; height: 40px; flex-shrink: 0; stroke: var(--azul); fill: none; stroke-width: 1.5; }
 
+  /* ===== CURSOS: una tarjeta por fase, con portada y lista de materias ===== */
+  .cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .curso {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Portada de la tarjeta: fondo gris con balanzas tenues y el nombre de la fase en grande */
+  .curso-portada {
+    padding: 32px 24px;
+    background-color: var(--gris);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none' stroke='%2314374a' stroke-opacity='0.09' stroke-width='1.5'%3E%3Cpath d='M28 12v28M20 42h16M16 17h24M16 17l-5 11h10ZM40 17l-5 11h10Z'/%3E%3C/svg%3E");
+    border-bottom: 4px solid var(--azul);
+    text-align: center;
+  }
+  .curso-portada span {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--azul-suave);
+  }
+  .curso-portada strong {
+    display: block;
+    font-family: var(--letra-titulo);
+    font-size: clamp(36px, 6vw, 50px);
+    line-height: 1.1;
+    color: var(--azul);
+  }
+  .curso-cuerpo { padding: 24px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; }
+  .curso-cuerpo h3 { font-size: 22px; }
+  .materias { list-style: none; margin: 0; padding: 0; flex-grow: 1; }
+  .materias li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-block: 11px;
+    border-top: 1px solid var(--linea);
+    font-weight: 600;
+  }
+  .materias svg { width: 20px; height: 20px; flex-shrink: 0; stroke: var(--azul-suave); fill: none; stroke-width: 1.6; }
+  .curso .boton-secundario { justify-content: center; }
+
   /* ===== PLANES Y COSTOS ===== */
   .planes {
     display: grid;
@@ -229,7 +280,55 @@
     </div>
   </section>
 
-  <!-- ===================== 4. PLANES Y COSTOS ===================== -->
+  <!-- ===================== 4. CURSOS ===================== -->
+  <section class="seccion" id="cursos">
+    <div class="contenedor">
+      <h2>Nuestros cursos</h2>
+      <div class="cursos">
+
+        <article class="curso">
+          <div class="curso-portada" aria-hidden="true">
+            <span>Fase</span>
+            <strong>Privada</strong>
+          </div>
+          <div class="curso-cuerpo">
+            <h3>Curso de Fase Privada</h3>
+            <ul class="materias" aria-label="Materias del curso de fase privada">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Constitucional</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Mercantil</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Notarial</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Civil y Procesal Civil</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Leyes especiales</li>
+            </ul>
+            <!-- Lleva al formulario y deja elegida esta fase -->
+            <a class="boton-secundario" href="#inscripcion" data-fase="Fase Privada">Quiero inscribirme</a>
+          </div>
+        </article>
+
+        <article class="curso">
+          <div class="curso-portada" aria-hidden="true">
+            <span>Fase</span>
+            <strong>Pública</strong>
+          </div>
+          <div class="curso-cuerpo">
+            <h3>Curso de Fase Pública</h3>
+            <ul class="materias" aria-label="Materias del curso de fase pública">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Constitucional</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Administrativo</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Penal</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Derecho Laboral</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg>Leyes especiales</li>
+            </ul>
+            <!-- Lleva al formulario y deja elegida esta fase -->
+            <a class="boton-secundario" href="#inscripcion" data-fase="Fase Pública">Quiero inscribirme</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. PLANES Y COSTOS ===================== -->
   <section class="seccion" id="planes">
     <div class="contenedor">
       <h2>Planes y costos</h2>
@@ -293,7 +392,7 @@
     </div>
   </section>
 
-  <!-- ===================== 5. INSCRÍBETE ===================== -->
+  <!-- ===================== 6. INSCRÍBETE ===================== -->
   <section class="seccion" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
@@ -437,6 +536,15 @@
     if (evento.target.getAttribute('aria-invalid') === 'true') {
       evento.target.setAttribute('aria-invalid', 'false');
     }
+  });
+
+  // Botones "Quiero inscribirme" de los cursos: dejan elegida la fase en el formulario
+  document.querySelectorAll('[data-fase]').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      const selector = document.getElementById('fase');
+      selector.value = boton.dataset.fase;
+      selector.setAttribute('aria-invalid', 'false');
+    });
   });
 </script>
 </body>
