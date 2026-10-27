@@ -14,6 +14,20 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
+  /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
+  .seccion-azul .area { border-top-color: var(--azul-suave); }
+  .seccion-azul .nosotros > div:not(.mv) > p { color: var(--blanco); }   /* solo el texto sobre azul; Misión y Visión siguen en sus recuadros claros */
+  .seccion-azul .mv div { border-color: transparent; }
+  .seccion-azul.resultados p { color: var(--blanco); }
+  /* Barra de resultados sobre azul: la parte llena en blanco, el resto translúcido */
+  .seccion-azul .barra { background: rgba(247, 248, 249, 0.2); }
+  .seccion-azul .barra span:first-child { background: var(--blanco); }
+  .seccion-azul .cifra strong { color: var(--blanco); }
+  .seccion-azul .cifra span { color: var(--linea); }
+  .seccion-azul .cifra.suave strong { color: var(--linea); }
+  .seccion-azul .indice-areas a { border-color: transparent; }
+  .seccion-azul .indice-areas a:focus-visible { outline-color: var(--blanco); }
+
   /* ===== ÍNDICE DE ÁREAS (botones que bajan a cada área) ===== */
   .indice-areas {
     list-style: none;
@@ -142,7 +156,7 @@
   </section>
 
   <!-- ===================== 2. NUESTROS SERVICIOS ===================== -->
-  <section class="seccion" id="servicios">
+  <section class="seccion seccion-azul" id="servicios">
     <div class="contenedor">
       <h2>Nuestros servicios</h2>
 
@@ -315,7 +329,7 @@
   </section>
 
   <!-- ===================== 4. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Quiénes somos</h2>
       <div class="nosotros">
@@ -355,7 +369,7 @@
   </section>
 
   <!-- ===================== 6. RESULTADOS ===================== -->
-  <section class="seccion resultados">
+  <section class="seccion seccion-azul resultados">
     <div class="contenedor">
       <h2>Nuestros resultados</h2>
       <p>Nuestro compromiso con la excelencia se refleja en nuestros resultados. Hasta la fecha hemos gestionado con éxito una amplia variedad de casos, asegurando la mejor defensa y asesoría para nuestros clientes.</p>

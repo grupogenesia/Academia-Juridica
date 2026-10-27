@@ -14,6 +14,11 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
+  /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
+  .seccion-azul .intro { color: var(--blanco); }
+  .seccion-azul .aviso { border-left-color: var(--azul-suave); }
+  .seccion-azul .testimonio { border-color: transparent; }
+
   /* ===== PRESENTACIÓN: texto a la izquierda, foto a la derecha ===== */
   .presentacion-grid {
     display: grid;
@@ -221,7 +226,7 @@
   </section>
 
   <!-- ===================== 2. INTRODUCCIÓN ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <p class="intro">Sabemos que un trámite de visa no es solo llenar formularios, es un paso que puede cambiar tu vida y la de tu familia. Por eso en Abogados y Notarios Genesia nos especializamos en trámites migratorios: te acompañamos en cada etapa con el conocimiento legal y la preparación que este proceso exige, para que llegues a tu cita con la mayor confianza posible.</p>
 
@@ -248,7 +253,7 @@
   </section>
 
   <!-- ===================== 4. CÓMO TE ACOMPAÑAMOS (3 pasos en orden) ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Cómo te acompañamos</h2>
       <ol class="pasos detallados">
@@ -317,7 +322,7 @@
   </section>
 
   <!-- ===================== 6. TESTIMONIOS ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Quienes ya confiaron en nosotros</h2>
       <div class="testimonios">

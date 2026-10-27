@@ -14,17 +14,9 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
-  /* ===== SECCIONES ALTERNADAS: gris, azul, gris, azul... =====
-     Las secciones con class="seccion-azul" llevan fondo azul.
-     Lo que va directo sobre el fondo pasa a blanco; las tarjetas conservan su fondo claro. */
-  .seccion-azul { background: var(--azul); }
-  .seccion-azul,
-  .seccion-azul + .seccion { border-top: none; }   /* el cambio de color ya separa, no hace falta línea */
-  .seccion-azul h2 { color: var(--blanco); }
-  .seccion-azul .bonus h3 { color: var(--blanco); }
-  .seccion-azul .por-que p,
-  .seccion-azul .pasos li { color: var(--blanco); }
-  .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
+  /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
+  .seccion-azul .bonus h3,
+  .seccion-azul .por-que p { color: var(--blanco); }
   .seccion-azul :is(.metodos li, .resena) { border-color: transparent; }
   .seccion-azul .plan { border: none; }
   .seccion-azul .plan-titulo { background: var(--azul-suave); }   /* gris azulado: se distingue del fondo azul */
