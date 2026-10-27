@@ -267,8 +267,8 @@
   }
   .contacto-datos p { margin: 0; color: var(--linea); }
   .contacto-datos .sede-nombre { color: var(--blanco); font-weight: 600; }
-  .contacto-datos dl { margin: 0; display: grid; gap: 14px; }
-  .contacto-datos dt {
+  .datos { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .dato-etiqueta {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -276,12 +276,18 @@
     color: var(--linea);
     opacity: 0.8;
   }
-  .contacto-datos dd { margin: 2px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+  .dato-etiqueta { display: block; }
+  .dato-valor { display: block; margin-top: 2px; font-weight: 600; overflow-wrap: anywhere; }
   .contacto-datos a { color: var(--blanco); text-decoration-color: rgba(247, 248, 249, 0.4); text-underline-offset: 3px; }
   .contacto-datos a:hover { text-decoration-color: var(--blanco); }
   .contacto-datos a:focus-visible { outline: 2px solid var(--blanco); outline-offset: 2px; }
+  /* Cada dato lleva su ícono a la izquierda */
+  .con-icono { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; }
+  .con-icono > svg { width: 20px; height: 20px; margin-top: 2px; stroke: var(--linea); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .con-icono > div { min-width: 0; }
+
   /* Redes sociales: ícono + nombre */
-  .redes { display: grid; gap: 8px; }
+  .redes { display: grid; gap: 8px; margin-top: 4px; }
   .redes a, .redes span { display: inline-flex; align-items: center; gap: 10px; }
   .redes svg { width: 18px; height: 18px; flex-shrink: 0; fill: currentColor; }
 
@@ -648,25 +654,33 @@
 
           <div>
             <h3>Sede</h3>
-            <p class="sede-nombre">Academia Jurídica Genesia</p>
-            <p>San Jerónimo, Baja Verapaz, zona 0</p>
-            <p>Guatemala</p>
+            <div class="con-icono">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              <div>
+                <p class="sede-nombre">Academia Jurídica Genesia</p>
+                <p>San Jerónimo, Baja Verapaz, zona 0</p>
+                <p>Guatemala</p>
+              </div>
+            </div>
           </div>
 
           <div>
             <h3>Contacto y atención</h3>
-            <dl>
-              <div><dt>WhatsApp</dt><dd>+502 3796 4043</dd></div>
-              <div><dt>Correo</dt><dd><a href="mailto:academiajuridicagenesia@gmail.com">academiajuridicagenesia@gmail.com</a></dd></div>
-              <div>
-                <dt>Redes sociales</dt>
-                <dd class="redes">
-                  <!-- CAMBIAR: cuando tengas el enlace de Facebook, convierte este <span> en <a href="..."> como el de Instagram -->
-                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 0 0-2.2-.1c-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21Z"/></svg>Grupo Genesia</span>
-                  <a href="https://www.instagram.com/grupogenesia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21 8.1c-.1-1.5-.4-2.8-1.5-3.9S17.4 2.8 15.9 2.7C14.4 2.6 9.6 2.6 8.1 2.7 6.6 2.8 5.3 3.1 4.2 4.2S2.8 6.6 2.7 8.1c-.1 1.5-.1 6.3 0 7.8.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.5.1 6.3.1 7.8 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.5.1-6.3 0-7.8Zm-2 9.6a3.1 3.1 0 0 1-1.8 1.8c-1.2.5-4.1.4-5.2.4s-4 .1-5.2-.4a3.1 3.1 0 0 1-1.8-1.8c-.5-1.2-.4-4.1-.4-5.2s-.1-4 .4-5.2a3.1 3.1 0 0 1 1.8-1.8c1.2-.5 4.1-.4 5.2-.4s4-.1 5.2.4a3.1 3.1 0 0 1 1.8 1.8c.5 1.2.4 4.1.4 5.2s.1 4-.4 5.2Z"/></svg>@grupogenesia</a>
-                </dd>
-              </div>
-            </dl>
+            <ul class="datos">
+              <li class="con-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 16A8 8 0 1 1 8 18.4Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1c-1-.4-2.1-1.5-2.5-2.5l1-1-1-2Z"/></svg><div><span class="dato-etiqueta">WhatsApp</span><span class="dato-valor">+502 3796 4043</span></div></li>
+              <li class="con-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg><div><span class="dato-etiqueta">Correo</span><span class="dato-valor"><a href="mailto:academiajuridicagenesia@gmail.com">academiajuridicagenesia@<wbr>gmail.com</a></span></div></li>
+              <li class="con-icono">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                <div>
+                  <span class="dato-etiqueta">Redes sociales</span>
+                  <span class="dato-valor redes">
+                    <!-- CAMBIAR: cuando tengas el enlace de Facebook, convierte este <span> en <a href="..."> como el de Instagram -->
+                    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 0 0-2.2-.1c-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21Z"/></svg>Grupo Genesia</span>
+                    <a href="https://www.instagram.com/grupogenesia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21 8.1c-.1-1.5-.4-2.8-1.5-3.9S17.4 2.8 15.9 2.7C14.4 2.6 9.6 2.6 8.1 2.7 6.6 2.8 5.3 3.1 4.2 4.2S2.8 6.6 2.7 8.1c-.1 1.5-.1 6.3 0 7.8.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.5.1 6.3.1 7.8 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.5.1-6.3 0-7.8Zm-2 9.6a3.1 3.1 0 0 1-1.8 1.8c-1.2.5-4.1.4-5.2.4s-4 .1-5.2-.4a3.1 3.1 0 0 1-1.8-1.8c-.5-1.2-.4-4.1-.4-5.2s-.1-4 .4-5.2a3.1 3.1 0 0 1 1.8-1.8c1.2-.5 4.1-.4 5.2-.4s4-.1 5.2.4a3.1 3.1 0 0 1 1.8 1.8c.5 1.2.4 4.1.4 5.2s.1 4-.4 5.2Z"/></svg>@grupogenesia</a>
+                  </span>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </aside>
