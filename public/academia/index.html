@@ -30,10 +30,17 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 28px 40px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));   /* 4 en computadora */
+    gap: 28px 32px;
   }
-  .bonus li { display: flex; align-items: center; gap: 18px; }
+  .bonus li { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }   /* ícono arriba del texto */
+  /* Tablet: 2 por fila, con el ícono al lado del texto */
+  @media (max-width: 960px) {
+    .bonus { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bonus li { flex-direction: row; align-items: center; gap: 18px; }
+  }
+  /* Celular: uno debajo del otro */
+  @media (max-width: 560px) { .bonus { grid-template-columns: 1fr; } }
   .bonus-icono {
     width: 64px;
     height: 64px;
@@ -176,6 +183,41 @@
   .precio-tipo { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-suave); }
   .precio-o { color: var(--azul-suave); }
 
+  /* ===== PREGUNTAS FRECUENTES: cada pregunta se abre y se cierra al tocarla ===== */
+  .preguntas { display: grid; gap: 12px; max-width: 800px; }
+  .preguntas details {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+  }
+  .preguntas summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    cursor: pointer;
+    list-style: none;                 /* quita el triángulo que trae el navegador */
+    font-family: var(--letra-titulo);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .preguntas summary::-webkit-details-marker { display: none; }
+  .preguntas summary:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; border-radius: 6px; }
+  /* El "+" de la derecha gira y se vuelve "×" cuando la pregunta está abierta */
+  .preguntas summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-family: var(--letra-texto);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--azul-suave);
+    transition: transform 0.2s;
+  }
+  .preguntas details[open] summary::after { transform: rotate(45deg); }
+  .preguntas details p { margin: 0; padding: 0 22px 20px; color: var(--azul-suave); }
+
   /* ===== INSCRÍBETE: formulario a la izquierda, datos de contacto a la derecha ===== */
   .inscripcion {
     display: grid;
@@ -294,6 +336,11 @@
           <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="5" width="16" height="11" rx="1"/><circle cx="8" cy="12" r="3"/><path d="M3 27v-4a5 5 0 0 1 10 0v4M11 18l5-3"/></svg></span>
           <h3>Clases magistrales con expertos en las áreas legales</h3>
         </li>
+        <li>
+          <!-- Ícono: calendario -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6M10 18h3M15 18h3M20 18h2M10 22h3M15 22h3"/></svg></span>
+          <h3>Calendario de estudios personalizado</h3>
+        </li>
       </ul>
     </div>
   </section>
@@ -385,6 +432,10 @@
           </div>
           <dl>
             <div class="fila">
+              <dt>Lugar</dt>
+              <dd>San Jerónimo, Baja Verapaz</dd>
+            </div>
+            <div class="fila">
               <dt>Días</dt>
               <dd>Sábado <small>Domingo a requerimiento</small></dd>
             </div>
@@ -394,11 +445,11 @@
             </div>
             <div class="fila">
               <dt>Fechas</dt>
-              <dd>Enero 2027 <small>y</small> Junio 2027</dd>
+              <dd>Enero 2027 a junio 2027</dd>
             </div>
           </dl>
           <div class="precios">
-            <div><span class="precio-cifra">Q 1,500</span><span class="precio-tipo">Pago único</span></div>
+            <div><span class="precio-cifra">Q 1,800</span><span class="precio-tipo">Pago único</span></div>
             <span class="precio-o">o</span>
             <div><span class="precio-cifra">Q 350</span><span class="precio-tipo">Mensualidad</span></div>
           </div>
@@ -413,15 +464,15 @@
           <dl>
             <div class="fila">
               <dt>Días</dt>
-              <dd>Lunes, martes y jueves</dd>
+              <dd>Martes y jueves</dd>
             </div>
             <div class="fila">
               <dt>Horario</dt>
-              <dd>19:30 a 21:00 h</dd>
+              <dd>18:30 a 21:00 h</dd>
             </div>
             <div class="fila">
               <dt>Fechas</dt>
-              <dd>Noviembre y diciembre 2025 <small>y</small> enero a mayo 2026</dd>
+              <dd>Enero 2027 a junio 2027</dd>
             </div>
           </dl>
           <div class="precios">
@@ -435,7 +486,33 @@
     </div>
   </section>
 
-  <!-- ===================== 7. INSCRÍBETE ===================== -->
+  <!-- ===================== 7. PREGUNTAS FRECUENTES ===================== -->
+  <!-- <details> abre y cierra cada respuesta sin necesidad de JavaScript -->
+  <section class="seccion" id="preguntas">
+    <div class="contenedor">
+      <h2>Preguntas frecuentes</h2>
+      <div class="preguntas">
+        <details>
+          <summary>¿Cuál es el método de pago?</summary>
+          <p>Depósito o transferencia a la cuenta oficial.</p>
+        </details>
+        <details>
+          <summary>¿Qué documentos necesito para inscribirme?</summary>
+          <p>DPI escaneado y comprobante de pago.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo inicia el curso?</summary>
+          <p>En enero de 2027.</p>
+        </details>
+        <details>
+          <summary>¿Dónde se ubica la Academia para las clases presenciales?</summary>
+          <p>En San Jerónimo, Baja Verapaz, zona 0.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. INSCRÍBETE ===================== -->
   <section class="seccion" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
