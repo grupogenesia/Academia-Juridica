@@ -14,6 +14,18 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
+  /* ===== PRESENTACIÓN CON MARCA DE AGUA (foto de clase, muy tenue, detrás del texto) ===== */
+  .marca-agua { position: relative; overflow: hidden; }
+  .marca-agua::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/img/academia-clase.jpg") center 35% / cover no-repeat;
+    filter: grayscale(100%);          /* en blanco y negro, para que no compita con el texto */
+    opacity: 0.14;                    /* qué tan visible es: 0 = invisible, 1 = foto normal */
+  }
+  .marca-agua > .contenedor { position: relative; z-index: 1; }   /* el texto queda encima */
+
   /* ===== ¿POR QUÉ ELEGIRNOS? ===== */
   .por-que {
     display: grid;
@@ -337,7 +349,7 @@
 <main>
 
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
-  <section class="seccion presentacion">
+  <section class="seccion presentacion marca-agua">
     <div class="contenedor">
       <p class="etiqueta">Academia Jurídica Integral</p>
       <h1>Academia Jurídica Genesia</h1>
