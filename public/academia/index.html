@@ -102,10 +102,29 @@
   .precio-tipo { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-suave); }
   .precio-o { color: var(--azul-suave); }
 
-  /* ===== CONTACTO ===== */
-  .contacto-datos { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
+  /* ===== INSCRÍBETE: formulario a la izquierda, datos de contacto a la derecha ===== */
+  .inscripcion {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 32px 48px;
+    align-items: start;
+  }
+  .contacto-datos {
+    padding: 24px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    display: grid;
+    gap: 14px;
+  }
+  .contacto-datos h3 { font-size: 20px; }
   .contacto-datos p { margin: 0; }
-  .contacto-datos a { color: var(--azul); font-weight: 600; }
+  .contacto-datos span { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--azul-suave); }
+  .contacto-datos a { color: var(--azul); font-weight: 600; overflow-wrap: anywhere; }
+
+  @media (max-width: 800px) {
+    .inscripcion { grid-template-columns: 1fr; }
+  }
 
   @media (max-width: 420px) {
     .fila { grid-template-columns: 1fr; gap: 2px; }
@@ -274,13 +293,72 @@
     </div>
   </section>
 
-  <!-- ===================== 5. CONTÁCTENOS ===================== -->
-  <section class="seccion">
+  <!-- ===================== 5. INSCRÍBETE ===================== -->
+  <section class="seccion" id="inscripcion">
     <div class="contenedor">
-      <h2>Contáctenos</h2>
-      <div class="contacto-datos">
-        <p>WhatsApp: <strong>+502 3796 4043</strong></p>
-        <p>Correo: <a href="mailto:academiajuridicagenesia@gmail.com">academiajuridicagenesia@gmail.com</a></p>
+      <h2>Inscríbete</h2>
+      <div class="inscripcion">
+
+        <!-- Formulario: al enviarlo, arma un mensaje y lo abre en WhatsApp de la academia -->
+        <form class="formulario" id="formulario-inscripcion" novalidate>
+          <p>Llena tus datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+
+          <div class="campos-dos">
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Tu nombre" required>
+            </div>
+            <div class="campo">
+              <label for="apellido">Apellido</label>
+              <input id="apellido" name="apellido" type="text" autocomplete="family-name" placeholder="Tu apellido" required>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com" required>
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="+502 1234 5678" required>
+          </div>
+
+          <div class="campos-dos">
+            <div class="campo">
+              <label for="universidad">Universidad</label>
+              <input id="universidad" name="universidad" type="text" placeholder="Ej: Universidad de San Carlos" required>
+            </div>
+            <div class="campo">
+              <label for="fase">Fase de interés</label>
+              <select id="fase" name="fase" required>
+                <option value="">Seleccione</option>
+                <option>Fase Privada</option>
+                <option>Fase Pública</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje <span class="opcional">(opcional)</span></label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas: temas específicos, horarios preferidos, modalidad (presencial/virtual), etc."></textarea>
+          </div>
+
+          <p class="aviso-error" id="error-inscripcion" role="alert" hidden></p>
+
+          <button class="boton-whatsapp" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+            Quiero inscribirme
+          </button>
+        </form>
+
+        <!-- Datos de contacto de la academia -->
+        <aside class="contacto-datos">
+          <h3>Contáctenos</h3>
+          <p><span>WhatsApp</span><strong>+502 3796 4043</strong></p>
+          <p><span>Correo</span><a href="mailto:academiajuridicagenesia@gmail.com">academiajuridicagenesia@gmail.com</a></p>
+        </aside>
+
       </div>
     </div>
   </section>
@@ -302,5 +380,64 @@
 
 <!-- Abre y cierra el menú en el celular -->
 <script src="/js/menu.js"></script>
+
+<!-- ===================== JAVASCRIPT: envía la inscripción a WhatsApp ===================== -->
+<script>
+  const formInscripcion = document.getElementById('formulario-inscripcion');
+  const errorInscripcion = document.getElementById('error-inscripcion');
+  const WHATSAPP_ACADEMIA = '50237964043';
+
+  formInscripcion.addEventListener('submit', function (evento) {
+    evento.preventDefault();   // evita que la página se recargue
+
+    // 1. Revisa los campos obligatorios y marca en rojo los que faltan
+    const obligatorios = ['nombre', 'apellido', 'email', 'telefono', 'universidad', 'fase'];
+    const faltan = [];
+    obligatorios.forEach(function (id) {
+      const campo = document.getElementById(id);
+      const valido = campo.value.trim() !== '' && campo.checkValidity();
+      campo.setAttribute('aria-invalid', valido ? 'false' : 'true');
+      if (!valido) faltan.push(campo.labels[0].textContent.trim());
+    });
+
+    if (faltan.length > 0) {
+      errorInscripcion.textContent = 'Revisa estos campos: ' + faltan.join(', ') + '.';
+      errorInscripcion.hidden = false;
+      document.getElementById(obligatorios.find(function (id) {
+        return document.getElementById(id).getAttribute('aria-invalid') === 'true';
+      })).focus();
+      return;
+    }
+    errorInscripcion.hidden = true;
+
+    // 2. Arma el mensaje (los *asteriscos* ponen el texto en negrita en WhatsApp)
+    const dato = function (id) { return document.getElementById(id).value.trim(); };
+    let texto = 'Hola, quiero inscribirme en la Academia Jurídica Genesia.\n\n'
+      + '*Nombre:* ' + dato('nombre') + ' ' + dato('apellido') + '\n'
+      + '*Email:* ' + dato('email') + '\n'
+      + '*Teléfono:* ' + dato('telefono') + '\n'
+      + '*Universidad:* ' + dato('universidad') + '\n'
+      + '*Fase de interés:* ' + dato('fase');
+    if (dato('mensaje')) {
+      texto += '\n*Mensaje:* ' + dato('mensaje');
+    }
+
+    // 3. Abre WhatsApp con el mensaje listo para enviar
+    const enlace = 'https://wa.me/' + WHATSAPP_ACADEMIA + '?text=' + encodeURIComponent(texto);
+    const ventana = window.open(enlace, '_blank');
+    if (ventana) {
+      ventana.opener = null;               // por seguridad, la pestaña nueva no controla esta página
+    } else {
+      window.location.href = enlace;       // si el navegador bloquea la pestaña nueva, abre aquí mismo
+    }
+  });
+
+  // Quita el borde rojo en cuanto la persona corrige un campo
+  formInscripcion.addEventListener('input', function (evento) {
+    if (evento.target.getAttribute('aria-invalid') === 'true') {
+      evento.target.setAttribute('aria-invalid', 'false');
+    }
+  });
+</script>
 </body>
 </html>

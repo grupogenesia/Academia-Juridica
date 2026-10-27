@@ -13,6 +13,7 @@
   --azul-suave: #4c6878;    /* textos secundarios */
   --linea: #c3cbd1;         /* líneas y bordes suaves */
   --whatsapp: #1f8f4e;      /* verde del botón de WhatsApp */
+  --error: #a3332b;         /* rojo para avisos de error en formularios */
 
   --letra-titulo: "Libre Baskerville", Georgia, serif;
   --letra-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
@@ -258,6 +259,44 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .contacto-lista dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 .contacto-lista a { color: var(--azul); }
 .contacto-lista dd span { display: block; }
+
+/* ===== FORMULARIOS (los usan Contacto y Academia) ===== */
+.formulario {
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 28px 24px;
+  display: grid;
+  gap: 18px;
+}
+.formulario h2 { margin-bottom: 0; font-size: 26px; }
+.formulario > p { margin: -8px 0 0; color: var(--azul-suave); }
+.campo { display: grid; gap: 6px; }
+.campo label { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.campo input, .campo select, .campo textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--azul);
+  background: #ffffff;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.campo textarea { min-height: 120px; resize: vertical; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--azul); outline-offset: 1px; border-color: var(--azul); }
+.formulario .boton-whatsapp { border: none; cursor: pointer; font: inherit; font-weight: 600; justify-content: center; }
+/* ".formulario" delante hace que esta regla le gane a ".formulario > p" */
+.formulario .aviso-error { margin: 0; color: var(--error); font-weight: 600; }
+
+/* Dos campos lado a lado (ej. Nombre y Apellido); en el celular, uno debajo del otro */
+.campos-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+.campos-dos > .campo { min-width: 0; }
+
+/* Texto "(opcional)" junto a la etiqueta */
+.opcional { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--azul-suave); }
+
+/* Campo con error: borde rojo */
+.campo [aria-invalid="true"] { border-color: var(--error); outline: 1px solid var(--error); }
 
 /* ===== PIE DE PÁGINA CON WHATSAPP ===== */
 .pie { border-top: 1px solid var(--linea); }
