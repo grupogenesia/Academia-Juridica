@@ -14,6 +14,20 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
+  /* ===== SECCIONES ALTERNADAS: gris, azul, gris, azul... =====
+     Las secciones con class="seccion-azul" llevan fondo azul.
+     Lo que va directo sobre el fondo pasa a blanco; las tarjetas conservan su fondo claro. */
+  .seccion-azul { background: var(--azul); }
+  .seccion-azul,
+  .seccion-azul + .seccion { border-top: none; }   /* el cambio de color ya separa, no hace falta línea */
+  .seccion-azul h2 { color: var(--blanco); }
+  .seccion-azul .bonus h3 { color: var(--blanco); }
+  .seccion-azul .bonus-titulo span { color: var(--linea); }
+  .seccion-azul .bonus-icono { border-color: transparent; }
+  .seccion-azul .preguntas summary:focus-visible { outline-color: var(--blanco); }
+  /* El bloque de contacto ya era azul: sobre fondo azul se distingue con un borde claro */
+  .seccion-azul .contacto-datos { background: rgba(247, 248, 249, 0.06); border: 1px solid rgba(247, 248, 249, 0.2); }
+
   /* ===== PRESENTACIÓN CON MARCA DE AGUA (foto de clase, muy tenue, detrás del texto) ===== */
   .marca-agua { position: relative; overflow: hidden; }
   .marca-agua::before {
@@ -382,7 +396,7 @@
   </section>
 
   <!-- ===================== 3. BONUS ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2 class="bonus-titulo">Bonus <span>+</span></h2>
       <ul class="bonus">
@@ -440,7 +454,7 @@
   </section>
 
   <!-- ===================== 5. CURSOS ===================== -->
-  <section class="seccion" id="cursos">
+  <section class="seccion seccion-azul" id="cursos">
     <div class="contenedor">
       <h2>Nuestros cursos</h2>
       <div class="cursos">
@@ -553,7 +567,7 @@
 
   <!-- ===================== 7. PREGUNTAS FRECUENTES ===================== -->
   <!-- <details> abre y cierra cada respuesta sin necesidad de JavaScript -->
-  <section class="seccion" id="preguntas">
+  <section class="seccion seccion-azul" id="preguntas">
     <div class="contenedor">
       <h2>Preguntas frecuentes</h2>
       <div class="preguntas">
@@ -603,7 +617,7 @@
   </section>
 
   <!-- ===================== 9. INSCRÍBETE ===================== -->
-  <section class="seccion" id="inscripcion">
+  <section class="seccion seccion-azul" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
       <div class="inscripcion">
