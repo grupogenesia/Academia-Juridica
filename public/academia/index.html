@@ -218,6 +218,36 @@
   .preguntas details[open] summary::after { transform: rotate(45deg); }
   .preguntas details p { margin: 0; padding: 0 22px 20px; color: var(--azul-suave); }
 
+  /* ===== RESEÑAS: una tarjeta por alumno, con su opinión y su nombre ===== */
+  .resenas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .resena {
+    margin: 0;
+    padding: 24px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  /* Comillas grandes decorativas arriba de cada opinión */
+  .resena::before {
+    content: "“";
+    font-family: var(--letra-titulo);
+    font-size: 56px;
+    line-height: 1;
+    height: 24px;                     /* recorta el espacio vacío debajo de las comillas */
+    color: var(--linea);
+  }
+  .resena blockquote { margin: 0; font-size: 17px; flex-grow: 1; }
+  .resena figcaption { padding-top: 16px; border-top: 1px solid var(--linea); }
+  .resena strong { display: block; }
+  .resena small { color: var(--azul-suave); font-size: 14px; }
+
   /* ===== INSCRÍBETE: formulario a la izquierda, datos de contacto a la derecha ===== */
   .inscripcion {
     display: grid;
@@ -512,7 +542,21 @@
     </div>
   </section>
 
-  <!-- ===================== 8. INSCRÍBETE ===================== -->
+  <!-- ===================== 8. RESEÑAS ===================== -->
+  <!-- Para agregar otra reseña, copia un bloque <figure> completo y cambia el texto y el nombre -->
+  <section class="seccion" id="resenas">
+    <div class="contenedor">
+      <h2>Lo que dicen nuestros alumnos</h2>
+      <div class="resenas">
+        <figure class="resena">
+          <blockquote>Muy buen curso, bien explicado, se aclaran muy bien las dudas, lo recomiendo 100 %.</blockquote>
+          <figcaption><strong>Luis Cifuentes</strong><small>Alumno · 2026</small></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 9. INSCRÍBETE ===================== -->
   <section class="seccion" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
