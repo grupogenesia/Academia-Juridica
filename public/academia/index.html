@@ -26,7 +26,8 @@
   .seccion-azul .pasos li { color: var(--blanco); }
   .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
   .seccion-azul :is(.metodos li, .resena) { border-color: transparent; }
-  .seccion-azul .plan { border-color: rgba(247, 248, 249, 0.3); }   /* borde claro: el encabezado azul del plan no se funde con el fondo */
+  .seccion-azul .plan { border: none; }
+  .seccion-azul .plan-titulo { background: var(--azul-suave); }   /* gris azulado: se distingue del fondo azul */
   .seccion-azul .bonus-titulo span { color: var(--linea); }
   .seccion-azul .bonus-icono { border-color: transparent; }
   .seccion-azul .preguntas summary:focus-visible { outline-color: var(--blanco); }
@@ -370,9 +371,8 @@
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
   <section class="seccion presentacion marca-agua">
     <div class="contenedor">
-      <p class="etiqueta">Academia Jurídica Integral</p>
       <h1>Academia Jurídica Genesia</h1>
-      <p class="resumen">Preparación para la Fase Privada, en modalidad presencial o virtual, con simulacros de examen y mentorías personalizadas.</p>
+      <p class="resumen">Preparación para la Fase Privada y Pública, en modalidad presencial o virtual, con simulacros de examen y mentorías personalizadas.</p>
       <div class="acciones">
         <a class="boton-secundario" href="#planes">Ver planes y costos</a>
         <a class="boton-whatsapp"
