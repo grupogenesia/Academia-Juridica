@@ -22,6 +22,11 @@
   .seccion-azul + .seccion { border-top: none; }   /* el cambio de color ya separa, no hace falta línea */
   .seccion-azul h2 { color: var(--blanco); }
   .seccion-azul .bonus h3 { color: var(--blanco); }
+  .seccion-azul .por-que p,
+  .seccion-azul .pasos li { color: var(--blanco); }
+  .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
+  .seccion-azul :is(.metodos li, .resena) { border-color: transparent; }
+  .seccion-azul .plan { border-color: rgba(247, 248, 249, 0.3); }   /* borde claro: el encabezado azul del plan no se funde con el fondo */
   .seccion-azul .bonus-titulo span { color: var(--linea); }
   .seccion-azul .bonus-icono { border-color: transparent; }
   .seccion-azul .preguntas summary:focus-visible { outline-color: var(--blanco); }
@@ -381,7 +386,7 @@
   </section>
 
   <!-- ===================== 2. ¿POR QUÉ ELEGIRNOS? ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>¿Por qué elegirnos?</h2>
       <div class="por-que">
@@ -396,7 +401,7 @@
   </section>
 
   <!-- ===================== 3. BONUS ===================== -->
-  <section class="seccion seccion-azul">
+  <section class="seccion">
     <div class="contenedor">
       <h2 class="bonus-titulo">Bonus <span>+</span></h2>
       <ul class="bonus">
@@ -425,7 +430,7 @@
   </section>
 
   <!-- ===================== 4. METODOLOGÍA ===================== -->
-  <section class="seccion">
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Metodología</h2>
       <ul class="metodos">
@@ -454,7 +459,7 @@
   </section>
 
   <!-- ===================== 5. CURSOS ===================== -->
-  <section class="seccion seccion-azul" id="cursos">
+  <section class="seccion" id="cursos">
     <div class="contenedor">
       <h2>Nuestros cursos</h2>
       <div class="cursos">
@@ -498,7 +503,7 @@
   </section>
 
   <!-- ===================== 6. PLANES Y COSTOS ===================== -->
-  <section class="seccion" id="planes">
+  <section class="seccion seccion-azul" id="planes">
     <div class="contenedor">
       <h2>Planes y costos</h2>
       <div class="planes">
@@ -567,7 +572,7 @@
 
   <!-- ===================== 7. PREGUNTAS FRECUENTES ===================== -->
   <!-- <details> abre y cierra cada respuesta sin necesidad de JavaScript -->
-  <section class="seccion seccion-azul" id="preguntas">
+  <section class="seccion" id="preguntas">
     <div class="contenedor">
       <h2>Preguntas frecuentes</h2>
       <div class="preguntas">
@@ -593,7 +598,7 @@
 
   <!-- ===================== 8. RESEÑAS ===================== -->
   <!-- Para agregar otra reseña, copia un bloque <figure> completo y cambia el texto y el nombre -->
-  <section class="seccion" id="resenas">
+  <section class="seccion seccion-azul" id="resenas">
     <div class="contenedor">
       <h2>Lo que dicen nuestros alumnos</h2>
       <div class="resenas">
@@ -617,7 +622,7 @@
   </section>
 
   <!-- ===================== 9. INSCRÍBETE ===================== -->
-  <section class="seccion seccion-azul" id="inscripcion">
+  <section class="seccion" id="inscripcion">
     <div class="contenedor">
       <h2>Inscríbete</h2>
       <div class="inscripcion">
