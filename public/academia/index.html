@@ -26,18 +26,6 @@
   /* El bloque de contacto ya era azul: sobre fondo azul se distingue con un borde claro */
   .seccion-azul .contacto-datos { background: rgba(247, 248, 249, 0.06); border: 1px solid rgba(247, 248, 249, 0.2); }
 
-  /* ===== PRESENTACIÓN CON MARCA DE AGUA (foto de clase, muy tenue, detrás del texto) ===== */
-  .marca-agua { position: relative; overflow: hidden; }
-  .marca-agua::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("/img/academia-clase.jpg") center 35% / cover no-repeat;
-    filter: grayscale(100%);          /* en blanco y negro, para que no compita con el texto */
-    opacity: 0.14;                    /* qué tan visible es: 0 = invisible, 1 = foto normal */
-  }
-  .marca-agua > .contenedor { position: relative; z-index: 1; }   /* el texto queda encima */
-
   /* ===== ¿POR QUÉ ELEGIRNOS? ===== */
   .por-que {
     display: grid;
@@ -361,7 +349,7 @@
 <main>
 
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
-  <section class="seccion presentacion marca-agua">
+  <section class="seccion presentacion marca-agua" style="--marca-foto: url('/img/academia-clase.jpg')">
     <div class="contenedor">
       <h1>Academia Jurídica Genesia</h1>
       <p class="resumen">Preparación para la Fase Privada y Pública, en modalidad presencial o virtual, con simulacros de examen y mentorías personalizadas.</p>

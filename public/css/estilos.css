@@ -149,6 +149,20 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
 .seccion-azul .pasos.detallados p { color: var(--linea); }
 
+/* ===== MARCA DE AGUA: una foto muy tenue detrás de la presentación =====
+   Uso: <section class="seccion presentacion marca-agua" style="--marca-foto: url('/img/foto.jpg')">
+   Opcional: --marca-opacidad (qué tan visible es: 0 = invisible, 1 = foto normal) */
+.marca-agua { position: relative; overflow: hidden; }
+.marca-agua::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--marca-foto) center 35% / cover no-repeat;
+  filter: grayscale(100%);          /* en blanco y negro, para que no compita con el texto */
+  opacity: var(--marca-opacidad, 0.14);
+}
+.marca-agua > .contenedor { position: relative; z-index: 1; }   /* el texto queda encima */
+
 /* ===== MIGAS DE PAN: "Visas y Pasaportes / Visa americana" ===== */
 .migas { margin: 0 0 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azul-suave); }
 .migas a { color: var(--azul); text-underline-offset: 3px; }

@@ -20,23 +20,8 @@
   .seccion-azul .inversion p { color: var(--blanco); }
   .seccion-azul .contado { border-color: var(--linea); color: var(--blanco); }
 
-  /* ===== PRESENTACIÓN: texto a la izquierda, foto a la derecha ===== */
-  .presentacion-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px 48px;
-    align-items: center;
-  }
-  .presentacion-grid > div { min-width: 0; }
-  .foto {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 1000 / 499;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid var(--linea);
-  }
+  /* ===== PRESENTACIÓN: texto sobre la foto de marca de agua ===== */
+  .presentacion-texto { max-width: 640px; }
 
   /* Texto de introducción */
   .intro { margin: 0; font-size: 18px; max-width: 65ch; }
@@ -306,9 +291,9 @@
 <main>
 
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
-  <section class="seccion presentacion">
-    <div class="contenedor presentacion-grid">
-      <div>
+  <section class="seccion presentacion marca-agua" style="--marca-foto: url('/img/visa-americana.jpg'); --marca-opacidad: 0.3">
+    <div class="contenedor">
+      <div class="presentacion-texto">
         <!-- Migas de pan: muestran dónde estás y permiten regresar -->
         <p class="migas"><a href="/visas/">Visas y Pasaportes</a> <span aria-hidden="true">/</span> Visa americana</p>
         <h1>Trámite de Visa Americana</h1>
@@ -323,7 +308,6 @@
           </a>
         </div>
       </div>
-      <img class="foto" src="/img/visa-americana.jpg" alt="Visa y pasaporte de Estados Unidos" width="1000" height="499">
     </div>
   </section>
 
