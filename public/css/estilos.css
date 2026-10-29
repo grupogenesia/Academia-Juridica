@@ -149,6 +149,11 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
 .seccion-azul .pasos.detallados p { color: var(--linea); }
 
+/* ===== MIGAS DE PAN: "Visas y Pasaportes / Visa americana" ===== */
+.migas { margin: 0 0 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azul-suave); }
+.migas a { color: var(--azul); text-underline-offset: 3px; }
+.migas span { margin: 0 6px; color: var(--linea); }
+
 /* ===== PRESENTACIÓN ===== */
 .presentacion { background: var(--blanco); }
 .presentacion h1 { font-size: clamp(34px, 7vw, 54px); line-height: 1.1; }

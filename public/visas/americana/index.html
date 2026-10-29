@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Trámite de visa americana con abogados especialistas en trámites migratorios: DS-160, cita en la Embajada y preparación para la entrevista. San Jerónimo, Baja Verapaz.">
+<title>Visa Americana · Visas y Pasaportes Genesia</title>
+
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
+<style>
+  /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
+  .seccion-azul .intro { color: var(--blanco); }
+  .seccion-azul .aviso { border-left-color: var(--azul-suave); }
+  .seccion-azul .testimonio { border-color: transparent; }
+
+  /* ===== PRESENTACIÓN: texto a la izquierda, foto a la derecha ===== */
+  .presentacion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px 48px;
+    align-items: center;
+  }
+  .presentacion-grid > div { min-width: 0; }
+  .foto {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1000 / 499;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--linea);
+  }
+
+  /* Texto de introducción */
+  .intro { margin: 0; font-size: 18px; max-width: 65ch; }
+
+  /* ===== AVISO "UN DETALLE PUEDE CAMBIARLO TODO" ===== */
+  .aviso {
+    margin-top: 28px;
+    padding: 24px 28px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-left: 4px solid var(--azul);
+    border-radius: 6px;
+    max-width: 75ch;
+  }
+  .aviso h3 { font-size: 20px; margin-bottom: 10px; }
+  .aviso p { margin: 0 0 10px; }
+  .aviso p:last-child { margin-bottom: 0; font-weight: 600; }
+
+  /* ===== REQUISITOS (lista con palomitas) ===== */
+  .requisitos {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .requisitos li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .requisitos svg { width: 24px; height: 24px; flex-shrink: 0; stroke: var(--whatsapp); fill: none; stroke-width: 2.5; }
+  .nota-seccion { margin: 0; color: var(--azul-suave); max-width: 65ch; }
+
+  /* ===== INVERSIÓN ===== */
+  .inversion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px 48px;
+    align-items: start;
+  }
+  .inversion > div { min-width: 0; }
+  .inversion p { margin: 0 0 16px; max-width: 60ch; }
+
+  .fases {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .fase {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--linea);
+  }
+  .fase-nombre { font-weight: 600; }
+  .fase-cuando { color: var(--azul-suave); font-size: 15px; }
+  .fase-monto { font-family: var(--letra-titulo); font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 22px;
+    background: var(--azul);
+    color: var(--blanco);
+  }
+  .total strong { font-family: var(--letra-titulo); font-size: 24px; font-variant-numeric: tabular-nums; }
+
+  .contado {
+    margin-top: 16px;
+    padding: 18px 22px;
+    border: 2px dashed var(--azul);
+    border-radius: 6px;
+  }
+  .contado p { margin: 0; }
+  .contado strong { display: block; margin-top: 4px; font-family: var(--letra-titulo); font-size: 24px; }
+
+  .familia { margin-top: 16px; font-weight: 600; }
+
+  /* ===== TESTIMONIOS ===== */
+  .testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .testimonio {
+    margin: 0;
+    padding: 24px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .testimonio blockquote { margin: 0; font-family: var(--letra-titulo); font-size: 18px; line-height: 1.45; flex-grow: 1; }
+  .testimonio figcaption { display: flex; align-items: center; gap: 12px; }
+  .inicial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: var(--blanco);
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .testimonio small { display: block; color: var(--azul-suave); }
+
+  /* ===== LLAMADO FINAL ===== */
+  .llamado { background: var(--blanco); text-align: center; }
+  .llamado h2 { max-width: 30ch; margin-inline: auto; margin-bottom: 12px; }
+  .llamado p { margin: 0 auto 24px; color: var(--azul-suave); }
+  .llamado .acciones { justify-content: center; }
+
+  @media (max-width: 420px) {
+    .fase { grid-template-columns: 1fr auto; }
+    .fase-cuando { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO (igual en todas las páginas) ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
+
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <a class="logo" href="/"><img src="/img/logo.png" alt="Grupo Genesia, ir al inicio" width="746" height="505"></a>
+
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quienes-somos/">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== 1. PRESENTACIÓN ===================== -->
+  <section class="seccion presentacion">
+    <div class="contenedor presentacion-grid">
+      <div>
+        <!-- Migas de pan: muestran dónde estás y permiten regresar -->
+        <p class="migas"><a href="/visas/">Visas y Pasaportes</a> <span aria-hidden="true">/</span> Visa americana</p>
+        <h1>Trámite de Visa Americana</h1>
+        <p class="resumen">Abogados especialistas en trámites migratorios. Te acompañamos desde el DS-160 hasta tu entrevista en la Embajada.</p>
+        <div class="acciones">
+          <a class="boton-secundario" href="#inversion">Ver costos</a>
+          <a class="boton-whatsapp"
+             href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20del%20trámite%20de%20visa%20americana"
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+            Consulta por WhatsApp
+          </a>
+        </div>
+      </div>
+      <img class="foto" src="/img/visa-americana.jpg" alt="Visa y pasaporte de Estados Unidos" width="1000" height="499">
+    </div>
+  </section>
+
+  <!-- ===================== 2. INTRODUCCIÓN ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <p class="intro">Sabemos que un trámite de visa no es solo llenar formularios, es un paso que puede cambiar tu vida y la de tu familia. Por eso en Abogados y Notarios Genesia nos especializamos en trámites migratorios: te acompañamos en cada etapa con el conocimiento legal y la preparación que este proceso exige, para que llegues a tu cita con la mayor confianza posible.</p>
+
+      <div class="aviso">
+        <h3>Un detalle puede cambiarlo todo</h3>
+        <p>El DS-160 parece un formulario sencillo, pero no lo es. Una inconsistencia entre lo que declaras ahí y lo que respondes en la entrevista, un dato que no coincide con tu pasaporte, o una foto que no cumple las especificaciones exactas del consulado son errores comunes.</p>
+        <p>Por eso revisamos cada detalle contigo antes de que llegue ese momento. No se trata de llenar un formulario, se trata de hacerlo bien desde la primera vez.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. REQUISITOS ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Requisitos para iniciar tu trámite</h2>
+      <p class="nota-seccion">Esto es lo que necesitas tener listo antes de tu cita. Te ayudamos a revisar que todo esté en orden desde el inicio.</p>
+      <ul class="requisitos">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Pasaporte oficial vigente</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>DPI (Documento Personal de Identificación)</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Formulario DS-160</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Fotografía digital según especificaciones del consulado</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 4. CÓMO TE ACOMPAÑAMOS (3 pasos en orden) ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <h2>Cómo te acompañamos</h2>
+      <ol class="pasos detallados">
+        <li>
+          <div>
+            <h3>Preparación de tu expediente</h3>
+            <p>Llenamos el DS-160, creamos tu perfil en el sistema consular y te asesoramos sobre qué documentos de respaldo presentar.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Programación de tu cita</h3>
+            <p>Creamos tu usuario en línea y coordinamos la cita con la Embajada Americana.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Preparación para tu entrevista</h3>
+            <p>Te preparamos de forma personalizada para las preguntas del oficial consular, y te acompañamos legalmente durante todo el proceso, para que llegues a tu cita con la mayor seguridad posible.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 5. INVERSIÓN ===================== -->
+  <section class="seccion" id="inversion">
+    <div class="contenedor">
+      <h2>Inversión</h2>
+      <div class="inversion">
+        <div>
+          <p>La tarifa que se paga directamente en la embajada al solicitar tu visa no se devuelve si la solicitud no se prepara correctamente. <strong>Nuestro acompañamiento existe para proteger esa inversión desde el inicio.</strong></p>
+          <p>El proceso completo tiene un valor de Q 3,000, dividido en 3 pagos de Q 1,000, uno por cada fase de acompañamiento.</p>
+          <p class="familia">¿Varios miembros de tu familia van a tramitar su visa? Pregúntanos por nuestras tarifas especiales para grupos familiares.</p>
+        </div>
+
+        <div>
+          <div class="fases">
+            <div class="fase">
+              <span class="fase-nombre">Fase 1</span>
+              <span class="fase-cuando">Al iniciar tu expediente</span>
+              <span class="fase-monto">Q 1,000</span>
+            </div>
+            <div class="fase">
+              <span class="fase-nombre">Fase 2</span>
+              <span class="fase-cuando">Según fecha programada</span>
+              <span class="fase-monto">Q 1,000</span>
+            </div>
+            <div class="fase">
+              <span class="fase-nombre">Fase 3</span>
+              <span class="fase-cuando">Según fecha programada</span>
+              <span class="fase-monto">Q 1,000</span>
+            </div>
+            <div class="total">
+              <span>Total del proceso</span>
+              <strong>Q 3,000</strong>
+            </div>
+          </div>
+
+          <div class="contado">
+            <p>¿Prefieres pagar todo de una vez? Pagando al contado tienes Q 200 de descuento.<strong>Q 2,800</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. TESTIMONIOS ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <h2>Quienes ya confiaron en nosotros</h2>
+      <div class="testimonios">
+        <figure class="testimonio">
+          <blockquote>“Excelente servicio, ya tengo mi visa mexicana.”</blockquote>
+          <figcaption><span class="inicial" aria-hidden="true">S</span><span>Sofía Rodríguez <small>Enero 2026</small></span></figcaption>
+        </figure>
+        <figure class="testimonio">
+          <blockquote>“Excelente servicio, ya tengo mi visa mexicana.”</blockquote>
+          <figcaption><span class="inicial" aria-hidden="true">S</span><span>Shantall <small>Marzo 2026</small></span></figcaption>
+        </figure>
+        <figure class="testimonio">
+          <blockquote>“Excelente servicio, ya tengo mi visa mexicana.”</blockquote>
+          <figcaption><span class="inicial" aria-hidden="true">E</span><span>Elmer Pérez <small>Junio 2026</small></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. LLAMADO FINAL ===================== -->
+  <section class="seccion llamado">
+    <div class="contenedor">
+      <h2>¿Tienes alguna duda o quieres que revisemos juntos si ya cumples con los requisitos?</h2>
+      <p>Escríbenos y con gusto te orientamos antes de decidir.</p>
+      <div class="acciones">
+        <a class="boton-whatsapp"
+           href="https://wa.me/50241077030?text=Hola,%20quiero%20revisar%20si%20cumplo%20los%20requisitos%20para%20la%20visa%20americana"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>Abogados y Notarios Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz</p>
+    <a class="boton-whatsapp"
+       href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20del%20trámite%20de%20visa%20americana"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</footer>
+
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
+</body>
+</html>
