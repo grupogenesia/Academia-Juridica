@@ -360,3 +360,185 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
+
+/* =====================================================================
+   CHAT: cuadrito flotante en la esquina inferior derecha (lo crea js/chat.js)
+   ===================================================================== */
+.chat {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font-family: var(--letra-texto);
+}
+
+/* Botón redondo que abre y cierra el chat */
+.chat-boton {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--blanco);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(20, 55, 74, 0.35);
+  transition: transform 0.15s;
+}
+.chat-boton:hover { transform: scale(1.06); }
+.chat-boton:focus-visible { outline: 3px solid var(--estrella); outline-offset: 3px; }
+.chat-boton svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.chat-icono-cerrar { display: none; }
+.chat.abierto .chat-icono-abrir { display: none; }
+.chat.abierto .chat-icono-cerrar { display: block; }
+
+/* Globito "¿Tienes dudas?" que aparece a los 5 segundos */
+.chat-aviso {
+  position: relative;
+  max-width: 240px;
+  padding: 14px 40px 14px 16px;
+  background: var(--blanco);
+  color: var(--azul);
+  border-radius: 12px 12px 4px 12px;
+  box-shadow: 0 6px 18px rgba(20, 55, 74, 0.2);
+}
+.chat-aviso p { margin: 0; cursor: pointer; font-size: 15px; }
+.chat-aviso-cerrar {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: none;
+  color: var(--azul-suave);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.chat-aviso-cerrar svg, .chat-cerrar svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+/* Ventana del chat */
+.chat-panel {
+  width: min(370px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 120px));
+  background: var(--blanco);
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(20, 55, 74, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.chat-panel[hidden] { display: none; }
+.chat-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--azul);
+  color: var(--blanco);
+}
+.chat-cabecera img {
+  width: 54px;
+  height: 42px;
+  padding: 4px 6px;
+  border-radius: 8px;                /* recuadro redondeado: el logo completo cabe sin recortarse */
+  background: var(--blanco);
+  object-fit: contain;
+}
+.chat-cabecera > div { flex-grow: 1; min-width: 0; }
+.chat-cabecera p { margin: 0; }
+.chat-nombre { font-family: var(--letra-titulo); font-weight: 700; font-size: 17px; }
+.chat-estado { font-size: 13px; color: var(--linea); display: flex; align-items: center; gap: 6px; }
+.punto { width: 8px; height: 8px; border-radius: 50%; background: var(--azul-suave); }
+.punto.en-linea { background: #3cc46b; }
+.chat-cerrar {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--blanco);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.chat-cerrar:hover { background: rgba(247, 248, 249, 0.12); }
+.chat-cerrar:focus-visible { outline: 2px solid var(--blanco); }
+
+/* Mensajes */
+.chat-mensajes {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--gris);
+}
+.chat-msg {
+  max-width: 88%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.chat-msg.bot { align-self: flex-start; background: var(--blanco); color: var(--azul); border-bottom-left-radius: 4px; }
+.chat-msg.cliente { align-self: flex-end; background: var(--azul); color: var(--blanco); border-bottom-right-radius: 4px; }
+.chat-msg b { font-weight: 600; }
+.chat-enlace { display: table; margin-top: 10px; color: var(--azul); font-weight: 600; text-underline-offset: 3px; }
+.chat-fuera { margin: 10px 0 0; padding: 8px 10px; background: var(--gris); border-radius: 8px; font-size: 14px; }
+.chat-fuera small { color: var(--azul-suave); }
+.chat-wa {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: var(--whatsapp);
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.chat-wa svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Puntitos de "escribiendo..." */
+.chat-msg.escribiendo { display: flex; gap: 4px; padding: 14px; }
+.chat-msg.escribiendo span { width: 7px; height: 7px; border-radius: 50%; background: var(--azul-suave); animation: chat-punto 1s infinite; }
+.chat-msg.escribiendo span:nth-child(2) { animation-delay: 0.15s; }
+.chat-msg.escribiendo span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes chat-punto { 0%, 60%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+
+/* Botones de opciones */
+.chat-opciones { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.chat-opcion {
+  padding: 8px 14px;
+  border: 1.5px solid var(--azul);
+  border-radius: 999px;
+  background: var(--blanco);
+  color: var(--azul);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.chat-opcion:hover { background: var(--azul); color: var(--blanco); }
+.chat-opcion:focus-visible { outline: 3px solid var(--estrella); outline-offset: 2px; }
+.chat-opcion.persona { border-color: var(--whatsapp); color: var(--whatsapp); }
+.chat-opcion.persona:hover { background: var(--whatsapp); color: #ffffff; }
+
+.chat-legal { margin: 0; padding: 8px 14px; font-size: 12px; text-align: center; color: var(--azul-suave); border-top: 1px solid var(--linea); }
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-boton { transition: none; }
+  .chat-msg.escribiendo span { animation: none; }
+}
