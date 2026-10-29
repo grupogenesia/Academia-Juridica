@@ -27,6 +27,37 @@
   .seccion-azul .cifra.suave strong { color: var(--linea); }
   .seccion-azul .indice-areas a { border-color: transparent; }
   .seccion-azul .indice-areas a:focus-visible { outline-color: var(--blanco); }
+  .seccion-azul .contacto-lista dt { color: var(--linea); }
+  .seccion-azul .contacto-lista dd,
+  .seccion-azul .contacto-lista a { color: var(--blanco); }
+
+  /* ===== TARJETA "HABLA CON UN ABOGADO Y NOTARIO" ===== */
+  .ficha-consulta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px 48px;
+    align-items: center;
+    padding: clamp(24px, 4vw, 48px);
+    background: var(--blanco);
+    border-radius: 18px;
+  }
+  @media (max-width: 760px) { .ficha-consulta { grid-template-columns: 1fr; } }
+  .ficha-etiqueta { margin: 0 0 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--whatsapp); }
+  .seccion-azul .ficha-consulta h2 { color: var(--azul); margin-bottom: 14px; }
+  .ficha-texto > p:not(.ficha-etiqueta) { margin: 0 0 28px; font-size: 18px; color: var(--azul-suave); max-width: 40ch; }
+  .boton-ficha {
+    display: inline-flex;
+    padding: 16px 32px;
+    border-radius: 999px;
+    background: var(--azul);
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .boton-ficha:hover { background: #1d4a62; }
+  .boton-ficha:focus-visible { outline: 3px solid var(--estrella); outline-offset: 3px; }
+  .ficha-foto { width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px; }
 
   /* ===== ÍNDICE DE ÁREAS (botones que bajan a cada área) ===== */
   .indice-areas {
@@ -155,8 +186,23 @@
     </div>
   </section>
 
-  <!-- ===================== 2. NUESTROS SERVICIOS ===================== -->
-  <section class="seccion seccion-azul" id="servicios">
+  <!-- ===================== 2. HABLA CON UN ABOGADO (tarjeta) ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <div class="ficha-consulta">
+        <div class="ficha-texto">
+          <p class="ficha-etiqueta">Primera consulta gratuita</p>
+          <h2>Habla con un Abogado y Notario</h2>
+          <p>Cuéntanos tu caso y un abogado de nuestro equipo te contactará para orientarte.</p>
+          <a class="boton-ficha" href="/abogados/consulta/">Solicitar consulta</a>
+        </div>
+        <img class="ficha-foto" src="/img/presentacion.jpg" alt="Apretón de manos entre abogado y cliente" width="711" height="431" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. NUESTROS SERVICIOS ===================== -->
+  <section class="seccion" id="servicios">
     <div class="contenedor">
       <h2>Nuestros servicios</h2>
 
@@ -289,8 +335,8 @@
     </div>
   </section>
 
-  <!-- ===================== 3. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
-  <section class="seccion">
+  <!-- ===================== 4. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Cómo trabajamos tu caso</h2>
       <ol class="pasos detallados">
@@ -328,8 +374,8 @@
     </div>
   </section>
 
-  <!-- ===================== 4. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
-  <section class="seccion seccion-azul">
+  <!-- ===================== 5. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
+  <section class="seccion">
     <div class="contenedor">
       <h2>Quiénes somos</h2>
       <div class="nosotros">
@@ -353,8 +399,8 @@
     </div>
   </section>
 
-  <!-- ===================== 5. NUESTROS VALORES ===================== -->
-  <section class="seccion">
+  <!-- ===================== 6. NUESTROS VALORES ===================== -->
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Nuestros valores</h2>
       <dl class="valores">
@@ -368,8 +414,8 @@
     </div>
   </section>
 
-  <!-- ===================== 6. RESULTADOS ===================== -->
-  <section class="seccion seccion-azul resultados">
+  <!-- ===================== 7. RESULTADOS ===================== -->
+  <section class="seccion resultados">
     <div class="contenedor">
       <h2>Nuestros resultados</h2>
       <p>Nuestro compromiso con la excelencia se refleja en nuestros resultados. Hasta la fecha hemos gestionado con éxito una amplia variedad de casos, asegurando la mejor defensa y asesoría para nuestros clientes.</p>
@@ -382,8 +428,8 @@
     </div>
   </section>
 
-  <!-- ===================== 7. CONTÁCTENOS ===================== -->
-  <section class="seccion">
+  <!-- ===================== 8. CONTÁCTENOS ===================== -->
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Contáctenos</h2>
       <dl class="contacto-lista">

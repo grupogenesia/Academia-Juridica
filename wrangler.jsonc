@@ -2,8 +2,19 @@
   // CAMBIAR: debe ser exactamente el nombre de tu Worker en Cloudflare
   "name": "academia-juridica",
   "compatibility_date": "2026-09-01",
-  // Carpeta donde está la página (index.html)
+
+  // Código del servidor: solo atiende el formulario de consulta (/api/consulta)
+  "main": "src/index.js",
+
+  // Carpeta donde están las páginas (index.html, css, imágenes...)
   "assets": {
-    "directory": "./public"
-  }
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Envío de correos con Cloudflare Email Routing.
+  // El correo de destino debe estar VERIFICADO en Cloudflare (Email Routing → Destination addresses).
+  "send_email": [
+    { "name": "CORREO", "destination_address": "grupogenesia@gmail.com" }
+  ]
 }

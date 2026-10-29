@@ -320,7 +320,7 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .formulario .aviso-error { margin: 0; color: var(--error); font-weight: 600; }
 
 /* Dos campos lado a lado (ej. Nombre y Apellido); en el celular, uno debajo del otro */
-.campos-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+.campos-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; align-items: end; }   /* campos alineados abajo aunque una etiqueta ocupe dos líneas */
 .campos-dos > .campo { min-width: 0; }
 
 /* Texto "(opcional)" junto a la etiqueta */

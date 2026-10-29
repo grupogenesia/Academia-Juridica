@@ -104,7 +104,14 @@
       area: 'general',
       texto: 'Atendemos derecho <b>civil, penal, familiar, notarial, migratorio, mercantil, administrativo y laboral</b>.',
       enlace: ['Ver todos los servicios', '/abogados/#servicios'],
-      opciones: ['abogados_proceso', 'persona', 'inicio']
+      opciones: ['abogados_consulta', 'abogados_proceso', 'persona', 'inicio']
+    },
+    abogados_consulta: {
+      boton: 'Consulta gratuita',
+      area: 'general',
+      texto: 'La <b>primera consulta es gratuita</b>. Llena el formulario con tu caso y un abogado de nuestro equipo te contactará.',
+      enlace: ['Solicitar consulta', '/abogados/consulta/'],
+      opciones: ['persona', 'abogados']
     },
     abogados_proceso: {
       boton: '¿Cómo trabajan mi caso?',
