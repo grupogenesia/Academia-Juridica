@@ -14,15 +14,26 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
-  /* ===== IMAGEN DE PRESENTACIÓN ===== */
+  /* ===== CARRUSEL DE PORTADA: 4 diapositivas que cambian solas ===== */
   .portada {
-    position: relative;               /* para poder poner la foto detrás del texto */
+    position: relative;
     background: var(--azul);
     overflow: hidden;
   }
+  /* Todas las diapositivas ocupan la misma celda: el alto lo pone la más alta */
+  .diapositivas { display: grid; }
+  .diapositiva {
+    grid-area: 1 / 1;
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease, visibility 0.7s;
+  }
+  .diapositiva.activa { opacity: 1; visibility: visible; }
+
   .portada-foto {
     position: absolute;
-    inset: 0;                         /* la foto ocupa toda la sección */
+    inset: 0;                         /* la foto ocupa toda la diapositiva */
     width: 100%;
     height: 100%;
     max-width: 100%;
@@ -30,16 +41,30 @@
     object-position: center 40%;
   }
   /* Capa azul encima de la foto: más oscura a la izquierda, donde va el texto */
-  .portada::after {
+  .diapositiva::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(20, 55, 74, 0.94) 0%, rgba(20, 55, 74, 0.8) 45%, rgba(20, 55, 74, 0.3) 100%);
   }
+  /* Diapositiva sin foto: balanza grande y tenue a la derecha */
+  .portada-dibujo {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    width: min(340px, 40vw);
+    height: auto;
+    transform: translateY(-50%);
+    fill: none;
+    stroke: var(--azul-suave);
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
   .portada-texto {
     position: relative;
     z-index: 1;                       /* el texto queda por encima de la capa */
-    padding-block: clamp(56px, 9vw, 104px);
+    padding-block: clamp(56px, 9vw, 104px) clamp(80px, 11vw, 124px);
     color: var(--blanco);
   }
   .portada-etiqueta {
@@ -50,15 +75,17 @@
     text-transform: uppercase;
     opacity: 0.85;
   }
+  .portada-etiqueta.promo { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--estrella); color: #ffffff; opacity: 1; }
   .portada-titulo {
     margin: 0;
-    max-width: 16ch;
+    max-width: 18ch;
     font-family: var(--letra-titulo);
     font-size: clamp(32px, 5.5vw, 52px);
     line-height: 1.12;
     text-wrap: balance;
   }
-  .portada-resumen { margin: 16px 0 28px; font-size: 18px; opacity: 0.9; }
+  .portada-resumen { margin: 16px 0 28px; max-width: 48ch; font-size: 18px; opacity: 0.9; }
+  .portada-resumen b { opacity: 1; }
   .portada-acciones { display: flex; flex-wrap: wrap; gap: 12px; }
   .boton-claro {
     display: inline-flex;
@@ -73,9 +100,49 @@
   .boton-claro:hover { background: var(--blanco); color: var(--azul); }
   .boton-claro:focus-visible { outline: 3px solid var(--blanco); outline-offset: 3px; }
 
+  /* Controles: flechas y puntitos abajo */
+  .carrusel-controles {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    z-index: 2;
+  }
+  .carrusel-controles .contenedor { display: flex; align-items: center; gap: 12px; }
+  .carrusel-flecha {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(247, 248, 249, 0.6);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--blanco);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .carrusel-flecha:hover { background: rgba(247, 248, 249, 0.15); }
+  .carrusel-flecha svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .carrusel-puntos { display: flex; gap: 8px; margin: 0 4px; }
+  .carrusel-punto {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(247, 248, 249, 0.45);
+    cursor: pointer;
+    transition: width 0.3s, background 0.3s;
+  }
+  .carrusel-punto[aria-current="true"] { width: 28px; background: var(--blanco); }
+  .carrusel-flecha:focus-visible, .carrusel-punto:focus-visible { outline: 2px solid var(--estrella); outline-offset: 3px; }
+
   /* En el celular la capa es pareja, para que el texto se lea sobre toda la foto */
   @media (max-width: 600px) {
-    .portada::after { background: rgba(20, 55, 74, 0.85); }
+    .diapositiva::after { background: rgba(20, 55, 74, 0.85); }
+    .portada-dibujo { opacity: 0.4; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .diapositiva, .carrusel-punto { transition: none; }
   }
 
   /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
@@ -174,22 +241,85 @@
   </div>
 </div>
 
-<!-- ===================== IMAGEN DE PRESENTACIÓN ===================== -->
-<!-- La foto va al fondo; encima, una capa azul y el texto -->
-<section class="portada">
-  <img class="portada-foto" src="/img/presentacion.jpg" alt="Apretón de manos entre abogado y cliente" width="711" height="431">
-  <div class="contenedor portada-texto">
-    <p class="portada-etiqueta">Grupo Genesia</p>
-    <p class="portada-titulo">Servicios jurídicos y formación integral</p>
-    <p class="portada-resumen">Abogados y Notarios · Visas y Pasaportes · Academia Jurídica</p>
-    <div class="portada-acciones">
-      <a class="boton-claro" href="#servicios">Elige un servicio</a>
-      <a class="boton-whatsapp"
-         href="https://wa.me/50241077030?text=Hola,%20quiero%20información%20de%20Grupo%20Genesia"
-         target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-        Escríbenos por WhatsApp
-      </a>
+<!-- ===================== CARRUSEL DE PORTADA ===================== -->
+<!-- 4 diapositivas que cambian cada 7 segundos (js/carrusel.js).
+     Para cambiar una diapositiva, edita su texto, sus botones o su foto. -->
+<section class="portada carrusel" aria-roledescription="carrusel" aria-label="Novedades de Grupo Genesia">
+  <div class="diapositivas">
+    <!-- Diapositiva 1 -->
+    <div class="diapositiva activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
+      <img class="portada-foto" src="/img/presentacion.jpg" alt="" width="711" height="431">
+      <div class="contenedor portada-texto">
+        <p class="portada-etiqueta">Grupo Genesia</p>
+        <p class="portada-titulo">Servicios jurídicos y formación integral</p>
+        <p class="portada-resumen">Abogados y Notarios · Visas y Pasaportes · Academia Jurídica</p>
+        <div class="portada-acciones">
+        <a class="boton-claro" href="#servicios">Elige un servicio</a>
+        <a class="boton-whatsapp" href="https://wa.me/50241077030?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20Grupo%20Genesia" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+        </div>
+      </div>
+    </div>
+    <!-- Diapositiva 2 -->
+    <div class="diapositiva" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true" inert>
+      <img class="portada-foto" src="/img/visa-americana.jpg" alt="" width="1000" height="499" loading="lazy">
+      <div class="contenedor portada-texto">
+        <p class="portada-etiqueta promo">Promoción · Visa americana</p>
+        <h2 class="portada-titulo">Tu visa americana, con acompañamiento legal</h2>
+        <p class="portada-resumen">Paga al contado y <b>ahorra Q 200</b>: el proceso completo por <b>Q 2,800</b> en lugar de Q 3,000.</p>
+        <div class="portada-acciones">
+        <a class="boton-claro" href="/visas/americana/">Ver trámite</a>
+        <a class="boton-whatsapp" href="https://wa.me/50241077030?text=Hola%2C%20quiero%20la%20promoci%C3%B3n%20de%20visa%20americana%20%28Q%202%2C800%20al%20contado%29" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Quiero la promoción
+        </a>
+        </div>
+      </div>
+    </div>
+    <!-- Diapositiva 3 -->
+    <div class="diapositiva" role="group" aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true" inert>
+      <img class="portada-foto" src="/img/academia-clase.jpg" alt="" width="600" height="375" loading="lazy">
+      <div class="contenedor portada-texto">
+        <p class="portada-etiqueta">Academia Jurídica</p>
+        <h2 class="portada-titulo">Inicio de clases: enero 2027</h2>
+        <p class="portada-resumen">Preparación para la Fase Privada y Pública. Presencial Q 1,800 · Virtual Q 1,300.</p>
+        <div class="portada-acciones">
+        <a class="boton-claro" href="/academia/#cursos">Ver cursos</a>
+        <a class="boton-claro" href="/academia/#inscripcion">Inscríbete</a>
+        </div>
+      </div>
+    </div>
+    <!-- Diapositiva 4 -->
+    <div class="diapositiva" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true" inert>
+      <svg class="portada-dibujo" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8v44M20 56h24M14 16h36"/><path d="M14 16 6 34h16ZM50 16l-8 18h16Z"/><path d="M6 34a8 5 0 0 0 16 0M42 34a8 5 0 0 0 16 0"/><circle cx="32" cy="8" r="2.5"/></svg>
+      <div class="contenedor portada-texto">
+        <p class="portada-etiqueta">Abogados y Notarios</p>
+        <h2 class="portada-titulo">Derecho que protege. Experiencia que respalda.</h2>
+        <p class="portada-resumen">Civil, penal, familiar, notarial, migratorio, mercantil, administrativo y laboral.</p>
+        <div class="portada-acciones">
+        <a class="boton-claro" href="/abogados/">Ver servicios</a>
+        <a class="boton-whatsapp" href="https://wa.me/50241077030?text=Hola%2C%20quiero%20agendar%20una%20consulta%20con%20Abogados%20y%20Notarios%20Genesia" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Agenda tu consulta
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <div class="carrusel-controles">
+    <div class="contenedor">
+      <button class="carrusel-flecha anterior" type="button" aria-label="Diapositiva anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="carrusel-puntos">
+        <button class="carrusel-punto" type="button" aria-label="Ir a la diapositiva 1" aria-current="true"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la diapositiva 2"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la diapositiva 3"></button>
+        <button class="carrusel-punto" type="button" aria-label="Ir a la diapositiva 4"></button>
+      </div>
+      <button class="carrusel-flecha siguiente" type="button" aria-label="Diapositiva siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
@@ -251,5 +381,7 @@
 <script src="/js/menu.js"></script>
 <!-- Asistente de chat (cuadrito de la esquina) -->
 <script src="/js/chat.js"></script>
+<!-- Carrusel de la portada -->
+<script src="/js/carrusel.js"></script>
 </body>
 </html>
