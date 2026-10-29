@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Asesoría y acompañamiento en el trámite de visa mexicana con abogados especialistas en trámites migratorios.">
+<meta name="description" content="Visa mexicana de visitante (turismo, tránsito o negocios) hasta 180 días: requisitos, solvencia económica, casos especiales y cita en MiConsulado. Visas y Pasaportes Genesia.">
 <title>Visa Mexicana · Visas y Pasaportes Genesia</title>
 
 <!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
@@ -14,14 +14,160 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
-  /* ===== PRESENTACIÓN DEL TRÁMITE: texto a la izquierda, ícono grande a la derecha ===== */
+  /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
+  .seccion-azul .nota-seccion,
+  .seccion-azul .datos-visa dd,
+  .seccion-azul .supuestos-titulo { color: var(--blanco); }
+  .seccion-azul .datos-visa dt { color: var(--linea); }
+  .seccion-azul .acordeon summary:focus-visible { outline-color: var(--blanco); }
+
+  /* ===== PRESENTACIÓN: texto a la izquierda, ícono grande a la derecha ===== */
   .presentacion-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
   .icono-tramite { width: 180px; height: 180px; fill: none; stroke: var(--azul-suave); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
   @media (max-width: 700px) { .presentacion-grid { grid-template-columns: 1fr; } .icono-tramite { display: none; } }
 
-  /* ===== AVISO: información en preparación ===== */
-  .consulta p { max-width: 65ch; }
-  .consulta p { margin: 0 0 24px; font-size: 18px; color: var(--blanco); }
+  .nota-seccion { margin: 0 0 24px; max-width: 65ch; color: var(--azul-suave); }
+
+  /* ===== ¿PARA QUIÉN ES?: 3 datos clave en fila ===== */
+  .datos-visa {
+    margin: 0 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(247, 248, 249, 0.2);   /* las líneas entre datos */
+    border: 1px solid rgba(247, 248, 249, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .datos-visa div { background: var(--azul); padding: 22px 24px; }
+  .datos-visa dt { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  .datos-visa dd { margin: 6px 0 0; font-family: var(--letra-titulo); font-size: 22px; font-weight: 700; }
+  .supuestos-titulo { margin: 0 0 14px; font-weight: 600; }
+  .supuestos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .supuestos li { padding: 8px 16px; background: var(--blanco); border-radius: 999px; font-size: 15px; font-weight: 600; }
+
+  /* ===== REQUISITOS 1 AL 4: tarjetas numeradas ===== */
+  .req-num {
+    list-style: none;
+    margin: 0 0 48px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    counter-reset: req;
+  }
+  @media (max-width: 760px) { .req-num { grid-template-columns: 1fr; } }
+  .req-num > li {
+    counter-increment: req;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+  }
+  .req-num > li::before {
+    content: counter(req);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: var(--blanco);
+    display: grid;
+    place-items: center;
+    font-family: var(--letra-titulo);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .req-num h3 { font-size: 19px; margin-bottom: 6px; }
+  .req-num p { margin: 0; color: var(--azul-suave); font-size: 16px; }
+  .req-num a, .acordeon a, .enlaces a, .pasos a { color: var(--azul); font-weight: 600; text-underline-offset: 3px; }
+
+  .subtitulo { font-family: var(--letra-titulo); font-size: 26px; margin: 0 0 8px; }
+  .subtitulo span { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-right: 10px; border-radius: 50%; background: var(--azul); color: var(--blanco); font-size: 18px; vertical-align: middle; }
+
+  /* ===== ACORDEÓN: cada opción se abre al tocarla ===== */
+  .acordeon { display: grid; gap: 12px; }
+  .acordeon details { background: var(--blanco); border: 1px solid var(--linea); border-radius: 10px; }
+  .acordeon summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;                 /* quita el triángulo del navegador */
+    font-family: var(--letra-titulo);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .acordeon summary::-webkit-details-marker { display: none; }
+  .acordeon summary:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; border-radius: 10px; }
+  .acordeon summary .letra {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gris);
+    display: grid;
+    place-items: center;
+    font-family: var(--letra-texto);
+    font-size: 15px;
+  }
+  .acordeon summary .nombre { flex-grow: 1; }
+  /* El "+" de la derecha gira y se vuelve "×" al abrir */
+  .acordeon summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-family: var(--letra-texto);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--azul-suave);
+    transition: transform 0.2s;
+  }
+  .acordeon details[open] summary::after { transform: rotate(45deg); }
+  .acordeon .detalle { padding: 0 20px 20px; color: var(--azul-suave); }
+  .acordeon .detalle p { margin: 0 0 10px; }
+  .acordeon .detalle ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  .acordeon .detalle ul ul { margin-top: 6px; }
+  .acordeon .detalle strong { color: var(--azul); }
+  .alerta { margin: 12px 0 0; padding: 12px 16px; border-left: 4px solid var(--estrella); background: var(--gris); border-radius: 4px; color: var(--azul); }
+  .nota-uma { margin: 16px 0 0; font-size: 15px; color: var(--azul-suave); max-width: 75ch; }
+  .requisitos-5 { margin-top: 0; }
+
+  /* ===== INFORMACIÓN IMPORTANTE ===== */
+  .importante { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; max-width: 80ch; }
+  .importante li {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 14px;
+    color: var(--blanco);
+  }
+  .importante svg { width: 28px; height: 28px; fill: none; stroke: var(--estrella); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .importante p { margin: 0; }
+  .importante small { display: block; margin-top: 4px; color: var(--linea); font-size: 14px; }
+
+  /* ===== ENLACES OFICIALES ===== */
+  .enlaces { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .enlaces a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+    padding: 16px 20px;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  .enlaces a:hover { border-color: var(--azul); }
+  .enlaces a span { font-weight: 400; font-size: 14px; color: var(--azul-suave); display: block; }
+  .enlaces svg { width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; }
+  .fuente { margin: 0 0 24px; font-size: 15px; color: var(--azul-suave); max-width: 75ch; }
+
+  @media (prefers-reduced-motion: reduce) { .acordeon summary::after { transition: none; } }
 </style>
 </head>
 <body>
@@ -59,6 +205,7 @@
 </div>
 
 <main>
+
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
   <section class="seccion presentacion">
     <div class="contenedor presentacion-grid">
@@ -66,24 +213,285 @@
         <!-- Migas de pan: muestran dónde estás y permiten regresar -->
         <p class="migas"><a href="/visas/">Visas y Pasaportes</a> <span aria-hidden="true">/</span> Visa mexicana</p>
         <h1>Visa mexicana</h1>
-        <p class="resumen">Te acompañamos en el trámite de tu visa mexicana, desde la revisión de tus documentos hasta tu cita.</p>
+        <p class="resumen">Visa de visitante sin permiso para realizar actividades remuneradas: turismo, tránsito o negocios, por hasta 180 días.</p>
+        <div class="acciones">
+          <a class="boton-secundario" href="#requisitos">Ver requisitos</a>
+          <a class="boton-whatsapp" href="https://wa.me/50241077030?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20tr%C3%A1mite%20de%20visa%20mexicana" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Consulta por WhatsApp
+        </a>
+        </div>
       </div>
       <svg class="icono-tramite" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="34" height="46" rx="4"/><path d="M18 22h18M18 30h18M18 38h10"/><path d="M38 40l18-10a3 3 0 0 1 3 5L44 44l-4 10-3-2 1-8-6 1-1-3Z"/></svg>
     </div>
   </section>
 
-  <!-- ===================== 2. CONSULTA ===================== -->
-  <!-- CAMBIAR: cuando tengas requisitos, pasos y costos de este trámite, van aquí (igual que en Visa americana) -->
+  <!-- ===================== 2. ¿PARA QUIÉN ES? ===================== -->
   <section class="seccion seccion-azul">
-    <div class="contenedor consulta">
-      <h2>Requisitos y costos</h2>
-      <p>Escríbenos por WhatsApp y te explicamos los requisitos, los costos y los tiempos de este trámite según tu caso.</p>
-      <a class="boton-whatsapp"
-           href="https://wa.me/50241077030?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20tr%C3%A1mite%20de%20visa%20mexicana"
-           target="_blank" rel="noopener">
+    <div class="contenedor">
+      <h2>¿Para quién es?</h2>
+      <p class="nota-seccion">Para personas extranjeras que quieren entrar a México como visitantes, sin trabajar ni recibir pago en el país.</p>
+      <dl class="datos-visa">
+        <div><dt>Motivo del viaje</dt><dd>Turismo, tránsito o negocios</dd></div>
+        <div><dt>Estancia</dt><dd>Hasta 180 días</dd></div>
+        <div><dt>Actividades pagadas</dt><dd>No permitidas</dd></div>
+      </dl>
+      <p class="supuestos-titulo">Debes acreditar al menos uno de estos supuestos:</p>
+      <ul class="supuestos">
+        <li>Arraigo</li>
+        <li>Solvencia económica</li>
+        <li>Invitación de una organización o institución</li>
+        <li>Chofer de transporte de carga</li>
+        <li>Causa humanitaria</li>
+        <li>Investigación científica</li>
+        <li>Estudios</li>
+        <li>Evento del Gobierno Federal de México</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 3. REQUISITOS PARA TODOS ===================== -->
+  <section class="seccion" id="requisitos">
+    <div class="contenedor">
+      <h2>Requisitos para todos</h2>
+      <p class="nota-seccion">Todas las personas deben cumplir los requisitos 1 al 4. El requisito 5 depende de tu situación.</p>
+      <ol class="req-num">
+        <li><div><h3>Cita en MiConsulado</h3><p>Agenda tu cita en <a href="https://citas.sre.gob.mx/" target="_blank" rel="noopener">MiConsulado</a> y lleva el <strong>comprobante impreso</strong> el día de tu cita.</p></div></li>
+        <li><div><h3>Pasaporte vigente</h3><p>Pasaporte vigente y <strong>1 fotocopia</strong> de la hoja de datos personales. Si no eres guatemalteco, también el original del documento que acredite tu legal estancia en Guatemala.</p></div></li>
+        <li><div><h3>Fotografía</h3><p>A color, tomada en el <strong>último mes</strong>, tamaño cédula, fondo blanco, de frente, rostro descubierto, expresión neutra, sin lentes y sin retoque.</p></div></li>
+        <li><div><h3>Solicitud de visa</h3><p>Impresa, llenada y firmada, con la fotografía pegada en su espacio. <a href="https://embamex.sre.gob.mx/guatemala/images/SeccionConsular/PDF/solvisaespanol.pdf" target="_blank" rel="noopener">Descargar solicitud</a>. En casos particulares pueden pedir documentos adicionales.</p></div></li>
+      </ol>
+
+      <h3 class="subtitulo"><span aria-hidden="true">5</span>Solvencia económica</h3>
+      <p class="nota-seccion">Compruébala con <strong>uno</strong> de estos medios. Toca cada opción para ver qué documentos llevar.</p>
+      <div class="acordeon requisitos-5">
+        <details name="solvencia">
+          <summary><span class="letra" aria-hidden="true">a</span><span class="nombre">Cuenta bancaria</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Estados de cuenta <strong>originales</strong> a tu nombre, firmados y sellados por el banco.</li>
+              <li>Deben mostrar un <strong>saldo promedio mensual equivalente a 680 días de UMA</strong>.</li>
+              <li>Periodo: los últimos <strong>3 meses</strong> (visa de 6 meses) o los últimos <strong>6 meses</strong> (visa de 10 años).</li>
+            </ul>
+          </div>
+        </details>
+        <details name="solvencia">
+          <summary><span class="letra" aria-hidden="true">b</span><span class="nombre">Constancia laboral y cuentas bancarias</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Constancia laboral en papel membretado, con firma y sello originales (máximo <strong>30 días</strong> de emitida), que indique:
+                <ul>
+                  <li>Cargo.</li>
+                  <li>Salario mensual neto en quetzales de al menos <strong>220 días de UMA</strong> durante los últimos 3 meses.</li>
+                  <li>Prestaciones de ley, bonos, comisiones u otros ingresos, si los recibes.</li>
+                  <li>Antigüedad laboral mínima de <strong>1 año</strong>.</li>
+                </ul>
+              </li>
+              <li>Estados de cuenta de los últimos <strong>3 meses</strong> que reflejen un ingreso de al menos 220 días de UMA, certificados por el banco.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="solvencia">
+          <summary><span class="letra" aria-hidden="true">c</span><span class="nombre">Propiedades</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Original y copia de la <strong>escritura pública</strong> de un inmueble a tu nombre, con antigüedad mínima de <strong>2 años</strong>, y su registro en el Registro General de la Propiedad.</li>
+              <li>Comprobante del último pago del <strong>IUSI</strong> a tu nombre.</li>
+              <li>Constancia de empleo estable con antigüedad mínima de 2 años, o escritura de constitución de sociedad con antigüedad mínima de 2 años.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="solvencia">
+          <summary><span class="letra" aria-hidden="true">d</span><span class="nombre">Patente de comercio</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Original y copia de la <strong>patente de comercio y/o RTU</strong> actualizado, con antigüedad mínima de 1 año.</li>
+              <li>Boleta de <strong>Declaraguate</strong>.</li>
+              <li>Formulario del IVA general o del ISR (4 de 4 presentado).</li>
+              <li>Estados de cuenta de los últimos <strong>3 meses</strong> con ingreso de al menos 220 días de UMA, certificados por el banco.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="solvencia">
+          <summary><span class="letra" aria-hidden="true">e</span><span class="nombre">Profesionistas</span></summary>
+          <div class="detalle">
+            <ul>
+              <li><strong>RTU</strong> actualizado, con antigüedad mínima de 1 año.</li>
+              <li>Constancia de <strong>colegiado activo</strong>.</li>
+              <li>Estados de cuenta de los últimos <strong>3 meses</strong> con ingreso de al menos 220 días de UMA, certificados por el banco.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <p class="nota-uma">Los montos se calculan en <strong>UMA</strong> (Unidad de Medida y Actualización de México) y su equivalente en quetzales cambia con el tipo de cambio. Escríbenos y te confirmamos el monto vigente.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 4. REQUISITOS SEGÚN TU CASO ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <h2>Requisitos según tu caso</h2>
+      <p class="nota-seccion">Si estás en alguna de estas situaciones, además necesitas lo siguiente. Toca tu caso para verlo.</p>
+      <div class="acordeon">
+        <details name="casos">
+          <summary><span class="nombre">Menores de edad</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Presentarse <strong>acompañado de ambos padres</strong>.</li>
+              <li>Si uno de los padres está en el extranjero: <strong>poder notarial emitido por la Embajada o Consulado de México</strong> más cercano a donde reside, autorizando al padre o madre que acompaña al menor. Se presenta el documento original.</li>
+              <li>Si uno de los padres tiene la <strong>patria potestad completa</strong>: certificado de nacimiento con la anotación correspondiente y la resolución judicial.</li>
+              <li>Original y copia de las identificaciones de los padres.</li>
+              <li>Certificado de nacimiento original del menor, con antigüedad no mayor a <strong>30 días</strong>.</li>
+              <li><a href="https://embamex.sre.gob.mx/guatemala/images/SeccionConsular/PDF/Carta_responsiva.pdf" target="_blank" rel="noopener">Carta responsiva</a> firmada por quien asume los gastos del menor.</li>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Comprobar la <strong>solvencia económica</strong> de quien asume los gastos (requisito 5).</li>
+            </ul>
+            <p class="alerta"><strong>Importante:</strong> no se aceptan poderes notariales emitidos por notarios en Guatemala.</p>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Dependiente económico</span></summary>
+          <div class="detalle">
+            <ul>
+              <li><a href="https://embamex.sre.gob.mx/guatemala/images/SeccionConsular/PDF/Carta_responsiva.pdf" target="_blank" rel="noopener">Carta responsiva</a> firmada por quien asume los gastos. Solo pueden hacerlo <strong>padres, cónyuges o hijos</strong>, y deben tener visa mexicana o estar exentos de visa.</li>
+              <li>Original y copia de la identificación de quien firma la carta.</li>
+              <li>Certificado de nacimiento o de matrimonio que compruebe el vínculo familiar.</li>
+              <li>Los padres solo pueden responder por hijos menores de edad, o de 18 a 25 años con 11 meses si estudian a tiempo completo en educación superior.</li>
+              <li>Si no están casados: certificación de <strong>unión de hecho</strong> del RENAP, con máximo 1 mes de antigüedad.</li>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Comprobar la <strong>solvencia económica</strong> de quien asume los gastos (requisito 5).</li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Estudiantes con empleo</span></summary>
+          <div class="detalle">
+            <p>Personas que estudian de forma regular en educación superior y trabajan.</p>
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Constancia de estudios original de la institución, con máximo <strong>1 mes</strong> de antigüedad.</li>
+              <li>Constancia original de empleo estable, pensión o beca con ingresos mensuales mayores a <strong>130 días de UMA</strong> durante los últimos 3 meses.</li>
+              <li>Estados de cuenta de los últimos 3 meses que reflejen esos ingresos, certificados por el banco.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Estudiantes</span></summary>
+          <div class="detalle">
+            <p>Personas que estudian a tiempo completo en educación superior y dependen de sus padres.</p>
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Constancia de estudios original de la institución, con máximo <strong>1 mes</strong> de antigüedad.</li>
+              <li>Documentos de <strong>solvencia económica</strong> de uno o ambos padres (requisito 5).</li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Personas mayores de 65 años</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Demostrar en la <strong>entrevista consular</strong> que el propósito del viaje es turístico.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Por invitación de una organización o institución</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Constancia laboral que demuestre la relación con la empresa que invita.</li>
+              <li><strong>Carta responsiva original</strong> de la organización o institución que invita, con:
+                <ul>
+                  <li>Nombre completo y nacionalidad del solicitante.</li>
+                  <li>Denominación o razón social de la organización.</li>
+                  <li>Número de registro oficial o patente.</li>
+                  <li>Objeto de la organización o institución.</li>
+                  <li>Domicilio completo y datos de contacto.</li>
+                  <li>Actividad o proyecto en el que participará, relacionado con los fines de la organización.</li>
+                  <li>Fecha de la actividad o evento.</li>
+                  <li>Compromiso de cubrir la manutención durante la estancia en México y el regreso a Guatemala.</li>
+                </ul>
+              </li>
+              <li>Copia de la identificación oficial, con firma y fotografía, de quien firma la carta.</li>
+              <li>Si es una organización privada: original y copia de comprobantes de inversiones o cuentas bancarias con saldo promedio mensual mayor a <strong>2,290 días de UMA</strong> durante los últimos 12 meses. Las instituciones públicas y las privadas del Sistema Educativo Nacional no lo requieren.</li>
+              <li>Documentos originales que acrediten tu experiencia, capacidad o conocimientos para la actividad.</li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Transportistas de carga</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 5</strong>.</li>
+              <li>Original y copia de la <strong>licencia de conducir tipo A</strong>, válida y vigente.</li>
+              <li>Carta original en papel membretado de la empresa o asociación transportista, dirigida a la autoridad consular, que solicite la visa e indique el tipo de mercancías, las rutas más frecuentes y que la persona cuenta con recursos para su estancia. Debe incluir:
+                <ul>
+                  <li>Nombre completo y nacionalidad del solicitante.</li>
+                  <li>Denominación o razón social de la empresa o asociación.</li>
+                  <li>Domicilio completo y datos de contacto.</li>
+                  <li>Copia de la identificación oficial, con firma, de quien firma la carta.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details name="casos">
+          <summary><span class="nombre">Ministros de culto o asociados religiosos</span></summary>
+          <div class="detalle">
+            <ul>
+              <li>Cumplir los <strong>requisitos 1 al 4</strong>.</li>
+              <li>Carta responsiva emitida por una asociación religiosa.</li>
+              <li>Solvencia económica: la asociación puede emitir una carta indicando que cubrirá los gastos.</li>
+              <li>Anuencia de la SEGOB para quedar exento del requisito de solvencia económica.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. CÓMO ES EL TRÁMITE (3 pasos en orden) ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Cómo es el trámite</h2>
+      <ol class="pasos detallados">
+        <li><div><h3>Reúne tus requisitos</h3><p>Los requisitos 1 al 4, tu comprobante de solvencia económica y, si aplica, los documentos de tu caso. Te ayudamos a revisar que todo esté en orden.</p></div></li>
+        <li><div><h3>Agenda tu cita</h3><p>En el portal <a href="https://citas.sre.gob.mx/" target="_blank" rel="noopener">MiConsulado</a>, elige el trámite y la Embajada o Consulado de México donde te presentarás.</p></div></li>
+        <li><div><h3>Preséntate a tu cita</h3><p>Lleva tus documentos y el comprobante impreso de la cita. En la entrevista consular pueden preguntarte sobre el motivo de tu viaje.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 6. INFORMACIÓN IMPORTANTE ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <h2>Información importante</h2>
+      <ul class="importante">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20Z"/><path d="M12 10v4M12 17v.01"/></svg><p><strong>Tener la visa no garantiza la entrada a México.</strong> Solo permite presentarte en el punto de entrada para solicitar tu ingreso.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20Z"/><path d="M12 10v4M12 17v.01"/></svg><p>El ingreso depende de la aprobación de las autoridades sanitarias y migratorias en el punto de entrada (filtros migratorios), que pueden entrevistarte y verificar tus requisitos.<small>Artículo 37 de la Ley de Migración y artículo 60 de su Reglamento.</small></p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20Z"/><path d="M12 10v4M12 17v.01"/></svg><p>Los documentos emitidos en un país distinto de México o Guatemala deben estar <strong>apostillados o legalizados</strong> y, si corresponde, con <strong>traducción oficial al español</strong>.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 7. ENLACES OFICIALES Y CONTACTO ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Enlaces oficiales</h2>
+      <p class="fuente">Información basada en los requisitos publicados por la Embajada de México en Guatemala. Los requisitos pueden cambiar: confírmalos antes de tu cita.</p>
+      <ul class="enlaces">
+        <li><a href="https://embamex.sre.gob.mx/guatemala/index.php/seccion-consular/servicios-extranjeros?id=1061" target="_blank" rel="noopener"><div>Embajada de México<span>Información detallada del trámite</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
+        <li><a href="https://citas.sre.gob.mx/" target="_blank" rel="noopener"><div>MiConsulado<span>Agenda tu cita</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
+        <li><a href="https://embamex.sre.gob.mx/guatemala/images/SeccionConsular/PDF/solvisaespanol.pdf" target="_blank" rel="noopener"><div>Solicitud de visa<span>Formulario en PDF</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
+        <li><a href="https://embamex.sre.gob.mx/guatemala/images/SeccionConsular/PDF/Carta_responsiva.pdf" target="_blank" rel="noopener"><div>Carta responsiva<span>Formato en PDF</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></li>
+      </ul>
+      <div class="acciones">
+        <a class="boton-whatsapp" href="https://wa.me/50241077030?text=Hola%2C%20quiero%20que%20revisen%20mis%20documentos%20para%20la%20visa%20mexicana" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-          Consulta por WhatsApp
+          Te ayudamos a revisar tus documentos
         </a>
+      </div>
     </div>
   </section>
 
