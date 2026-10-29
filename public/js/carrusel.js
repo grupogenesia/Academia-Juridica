@@ -1,11 +1,11 @@
-// Carrusel de la portada (página principal): cambia de diapositiva cada 7 segundos.
+// Carrusel de la portada (página principal): cambia de diapositiva cada 5 segundos.
 // Se pausa al pasar el mouse o al usar el teclado, y se puede deslizar con el dedo.
 (function () {
   const carrusel = document.querySelector('.carrusel');
   if (!carrusel) return;
   const diapositivas = carrusel.querySelectorAll('.diapositiva');
   const puntos = carrusel.querySelectorAll('.carrusel-punto');
-  const INTERVALO = 7000;
+  const INTERVALO = 5000;   // milisegundos: 5000 = 5 segundos
   const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let actual = 0;
   let temporizador = null;
