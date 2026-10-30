@@ -164,36 +164,53 @@
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 48px 64px;
-    padding-block: 72px;
+    gap: 48px 128px;                  /* más separación entre datos y formulario */
+    padding-block: 48px;
+    align-items: center;
   }
-  @media (max-width: 900px) { .contacto-home-grid { grid-template-columns: 1fr; } }
+  /* Línea divisoria fina en el centro (solo computadora) */
+  .contacto-home-grid::before {
+    content: "";
+    position: absolute;
+    top: 48px;
+    bottom: 48px;
+    left: calc(5 / 12 * (100% - 128px - 2 * max(16px, env(safe-area-inset-left, 0px))) + max(16px, env(safe-area-inset-left, 0px)) + 64px);
+    width: 1px;
+    background: rgba(195, 203, 209, 0.25);
+  }
+  @media (max-width: 900px) {
+    .contacto-home-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contacto-home-grid::before { display: none; }
+  }
 
   /* Datos con íconos dorados */
-  .contacto-home-datos { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px; align-content: start; padding-top: 12px; }
-  .contacto-home-datos li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 22px; align-items: start; }
-  .contacto-home-datos svg { width: 48px; height: 48px; fill: none; stroke: var(--estrella); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .contacto-home-datos h3 { margin: 0 0 4px; font-family: var(--letra-texto); font-size: 20px; font-weight: 600; }
+  .contacto-home-datos { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; align-content: center; }
+  .contacto-home-datos li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 18px; align-items: start; }
+  .contacto-home-datos svg { width: 40px; height: 40px; fill: none; stroke: var(--estrella); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .contacto-home-datos h3 { margin: 0 0 2px; font-family: var(--letra-texto); font-size: 18px; font-weight: 600; }
   .contacto-home-datos p { margin: 0; color: var(--linea); overflow-wrap: anywhere; }
   .contacto-home-datos a { color: var(--blanco); text-underline-offset: 3px; }
-  .contacto-home-datos p + p { margin-top: 8px; }
+  .contacto-home-datos p + p { margin-top: 4px; }
   .contacto-home-datos b { color: var(--blanco); font-weight: 600; }
 
   /* Formulario */
   .contacto-home-form { position: relative; padding-left: 0; }
   /* Balanza dorada de trazo fino, igual que los íconos de los datos */
-  .contacto-home-sello { display: block; width: 56px; height: 56px; margin-bottom: 14px; }
-  .contacto-home-sello svg { width: 56px; height: 56px; fill: none; stroke: var(--estrella); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .contacto-home-etiqueta { margin: 0 0 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--estrella); }
-  .contacto-home h2 { margin: 0 0 18px; color: var(--blanco); font-size: clamp(30px, 4vw, 44px); font-weight: 400; line-height: 1.15; }
-  .contacto-home-intro { margin: 0 0 32px; color: var(--linea); }
-  #form-escribenos { display: grid; gap: 18px; }
-  .fila-dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-  @media (max-width: 560px) { .fila-dos { grid-template-columns: 1fr; } }
+  .contacto-home-encabezado { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .contacto-home-sello { display: block; width: 34px; height: 34px; flex-shrink: 0; }
+  .contacto-home-sello svg { width: 34px; height: 34px; fill: none; stroke: var(--estrella); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .contacto-home-etiqueta { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--estrella); }
+  .contacto-home h2 { margin: 0 0 8px; color: var(--blanco); font-size: clamp(28px, 3vw, 34px); font-weight: 400; line-height: 1.2; }
+  .contacto-home-intro { margin: 0 0 22px; color: var(--linea); }
+  #form-escribenos { display: grid; gap: 14px; }
+  .fila-dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .fila-tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 1100px) { .fila-tres { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fila-tres > select:last-child { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .fila-dos, .fila-tres { grid-template-columns: 1fr; } }
   #form-escribenos input[type="text"], #form-escribenos input[type="email"], #form-escribenos input[type="tel"],
   #form-escribenos select, #form-escribenos textarea {
     width: 100%;
-    padding: 16px;
+    padding: 12px 14px;
     font: inherit;
     color: var(--blanco);
     background: rgba(247, 248, 249, 0.04);
@@ -205,15 +222,17 @@
   #form-escribenos select:valid:not(:has(option[value=""]:checked)) { color: var(--blanco); }
   #form-escribenos option { color: #14374a; background: #f7f8f9; }
   #form-escribenos ::placeholder { color: var(--linea); opacity: 0.9; }
-  #form-escribenos textarea { resize: vertical; min-height: 160px; }
+  #form-escribenos textarea { resize: vertical; min-height: 96px; }
   #form-escribenos :is(input, select, textarea):focus { outline: 2px solid var(--estrella); outline-offset: 1px; border-color: var(--estrella); }
   #form-escribenos [aria-invalid="true"] { border-color: #e08a80; outline: 1px solid #e08a80; }
   .contacto-home-check { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 15px; color: var(--linea); }
   .contacto-home-check input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--estrella); }
   .contacto-home-check[aria-invalid="true"] { color: #f0b3ab; }
+  .contacto-home-final { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; }
+  .contacto-home-final .contacto-home-check { flex: 1 1 260px; }
   .contacto-home-boton {
-    justify-self: start;
-    padding: 18px 30px;
+    flex-shrink: 0;
+    padding: 15px 30px;
     border: none;
     background: var(--blanco);
     color: var(--azul);
@@ -233,10 +252,11 @@
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
-  .servicios .contenedor { padding-block: 48px; }
+  .servicios .contenedor { padding-block: 72px; }
+  .servicios-titulo { margin: 0 0 32px; font-family: var(--letra-titulo); font-size: clamp(28px, 3.5vw, 36px); line-height: 1.2; }
 
   .instruccion {
-    margin: 0 0 20px;
+    margin: 0 0 8px;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -247,18 +267,18 @@
   .tarjetas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  /* 3 columnas en compu, 1 en celular */
-    gap: 20px;
+    gap: 24px;
   }
 
   /* Cada tarjeta es un enlace completo: se puede tocar en cualquier parte */
   .tarjeta {
     background: var(--blanco);
     border: 1px solid var(--linea);
-    border-radius: 6px;
-    padding: 28px 24px;
+    border-radius: 10px;
+    padding: 36px 30px 28px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
     color: var(--azul);
     text-decoration: none;
     transition: border-color 0.15s, transform 0.15s;
@@ -266,11 +286,11 @@
   .tarjeta:hover { border-color: var(--azul); transform: translateY(-3px); }
   .tarjeta:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
 
-  .icono { width: 44px; height: 44px; stroke: var(--azul); fill: none; stroke-width: 1.5; }
+  .icono { width: 54px; height: 54px; stroke: var(--azul); fill: none; stroke-width: 1.5; }
 
   .tarjeta h2 {
     font-family: var(--letra-titulo);
-    font-size: 22px;
+    font-size: 25px;
     line-height: 1.25;
     margin: 0;
   }
@@ -415,6 +435,7 @@
 <main class="servicios" id="servicios">
   <div class="contenedor">
     <p class="instruccion">Elige un servicio</p>
+    <h2 class="servicios-titulo">¿En qué podemos ayudarte?</h2>
 
     <div class="tarjetas">
 
@@ -472,9 +493,11 @@
 
     <!-- Formulario -->
     <div class="contacto-home-form" id="zona-escribenos">
+      <div class="contacto-home-encabezado">
       <span class="contacto-home-sello"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12v38M22 54h20M16 18h32"/><path d="M16 18l-7 15h14ZM48 18l-7 15h14Z"/><path d="M9 33a7 4 0 0 0 14 0M41 33a7 4 0 0 0 14 0"/><circle cx="32" cy="12" r="2.5"/></svg></span>
       <p class="contacto-home-etiqueta">Formulario de contacto</p>
-      <h2>¿Necesitas asesoría legal?<br>Escríbenos</h2>
+      </div>
+      <h2>¿Necesitas asesoría legal? Escríbenos</h2>
       <p class="contacto-home-intro">Contamos con un equipo de profesionales dispuestos a ayudarte.</p>
 
       <form id="form-escribenos" novalidate>
@@ -484,7 +507,7 @@
           <label class="sr-only" for="e-correo">Correo electrónico</label>
           <input id="e-correo" type="email" autocomplete="email" placeholder="Correo electrónico*" required>
         </div>
-        <div class="fila-dos">
+        <div class="fila-dos fila-tres">
           <label class="sr-only" for="e-telefono">Teléfono</label>
           <input id="e-telefono" type="tel" autocomplete="tel" placeholder="Teléfono*" required>
           <label class="sr-only" for="e-departamento">Departamento</label>
@@ -514,28 +537,30 @@
                 <option>Zacapa</option>
                 <option>Fuera de Guatemala</option>
           </select>
+          <label class="sr-only" for="e-servicio">Servicio de interés</label>
+          <select id="e-servicio" required>
+            <option value="">Servicio*</option>
+            <option>Abogados y Notarios</option>
+            <option>Visas y Pasaportes</option>
+            <option>Academia Jurídica</option>
+            <option>Otro</option>
+          </select>
         </div>
-        <label class="sr-only" for="e-servicio">Servicio de interés</label>
-        <select id="e-servicio" required>
-          <option value="">Servicio de interés*</option>
-          <option>Abogados y Notarios</option>
-          <option>Visas y Pasaportes</option>
-          <option>Academia Jurídica</option>
-          <option>Otro</option>
-        </select>
         <label class="sr-only" for="e-mensaje">Mensaje</label>
-        <textarea id="e-mensaje" rows="5" maxlength="4000" placeholder="Escribe aquí tu mensaje…" required></textarea>
+        <textarea id="e-mensaje" rows="3" maxlength="4000" placeholder="Escribe aquí tu mensaje…" required></textarea>
 
         <!-- Campo trampa: invisible para las personas; si se llena, es un robot -->
         <div class="trampa" aria-hidden="true"><input id="e-sitio" type="text" tabindex="-1" autocomplete="off"></div>
 
+        <div class="contacto-home-error" id="e-error" role="alert" hidden></div>
+
+        <div class="contacto-home-final">
         <label class="contacto-home-check" id="e-acepta-caja">
           <input id="e-acepta" type="checkbox" required>
           <span>Autorizo a Grupo Genesia a usar mis datos para responder a mi mensaje.*</span>
         </label>
-
-        <div class="contacto-home-error" id="e-error" role="alert" hidden></div>
         <button class="contacto-home-boton" type="submit">Envíalo ahora</button>
+        </div>
       </form>
     </div>
 
@@ -543,10 +568,7 @@
 </section>
 
 <!-- ===================== PIE DE PÁGINA ===================== -->
-<footer class="pie">
-  <div class="contenedor">
-    <p><strong>Grupo Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz · Ciudad de Guatemala</p>
-  </div>
+<footer class="pie pie-solo-legal">
   <!-- Franja final: derechos reservados y enlaces legales -->
   <div class="pie-legal">
     <div class="contenedor">

@@ -363,6 +363,7 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 }
 
 /* ===== FRANJA FINAL: derechos reservados y enlaces legales ===== */
+.pie-solo-legal { border-top: none; }   /* página principal: solo la franja final */
 .pie-legal { background: #0f2a39; color: var(--linea); font-size: 14px; }
 .pie-legal .contenedor {
   display: flex;
