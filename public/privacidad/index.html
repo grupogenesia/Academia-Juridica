@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cómo Grupo Genesia usa los datos que envías por los formularios, el chat y WhatsApp de su sitio web.">
+<title>Política de privacidad · Grupo Genesia</title>
+
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
+<style>
+  .texto-legal { max-width: 75ch; }
+  .texto-legal h2 { font-size: 24px; margin: 36px 0 12px; }
+  .texto-legal h2:first-child { margin-top: 0; }
+  .texto-legal p, .texto-legal li { color: var(--azul-suave); }
+  .texto-legal ul { padding-left: 22px; display: grid; gap: 6px; }
+  .texto-legal a { color: var(--azul); font-weight: 600; }
+  .actualizado { margin-top: 36px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO (igual en todas las páginas) ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
+
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <a class="logo" href="/"><img src="/img/logo.png" alt="Grupo Genesia, ir al inicio" width="746" height="505"></a>
+
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha: aria-current marca la página en la que estás -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quienes-somos/">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<main>
+
+  <section class="seccion presentacion">
+    <div class="contenedor">
+      <p class="etiqueta">Grupo Genesia</p>
+      <h1>Política de privacidad</h1>
+      <p class="resumen">Cómo usamos los datos que nos envías a través de este sitio web.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor texto-legal">
+      <!-- REVISAR: texto base. Conviene que lo revise un abogado del equipo antes de darlo por definitivo. -->
+      <h2>Qué datos recibimos</h2>
+      <p>Solo recibimos los datos que tú escribes en nuestros formularios (consulta gratuita, "Escríbenos" e inscripción a la Academia): nombre, teléfono, correo electrónico, ubicación o departamento, el servicio que te interesa y la descripción de tu caso o tu mensaje.</p>
+
+      <h2>Para qué los usamos</h2>
+      <ul>
+        <li>Para responder tu consulta y contactarte por teléfono, WhatsApp o correo.</li>
+        <li>Para darte seguimiento al servicio que solicitaste.</li>
+      </ul>
+      <p>No vendemos ni compartimos tus datos con terceros para publicidad.</p>
+
+      <h2>Cómo nos llegan</h2>
+      <p>Los formularios de consulta y "Escríbenos" se envían a nuestro correo institucional a través de los servicios de Cloudflare, donde está alojado este sitio. El formulario de inscripción de la Academia y los botones de WhatsApp abren la aplicación de WhatsApp en tu dispositivo: el mensaje solo se envía si tú lo confirmas.</p>
+
+      <h2>Confidencialidad</h2>
+      <p>Tratamos la información de tu caso con absoluta reserva, conforme al secreto profesional de abogados y notarios.</p>
+
+      <h2>El chat del sitio</h2>
+      <p>El asistente de chat muestra respuestas preparadas y no guarda tus conversaciones. Solo recuerda, durante tu visita, si ya cerraste el aviso "¿Tienes dudas?".</p>
+
+      <h2>Tus derechos</h2>
+      <p>Puedes pedirnos en cualquier momento que corrijamos o eliminemos tus datos escribiendo a <a href="mailto:grupogenesia@gmail.com">grupogenesia@gmail.com</a> o al WhatsApp +502 4107 7030.</p>
+
+      <p class="actualizado">Última actualización: octubre de 2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>Grupo Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz · Ciudad de Guatemala</p>
+  </div>
+  <!-- Franja final: derechos reservados y enlaces legales -->
+  <div class="pie-legal">
+    <div class="contenedor">
+      <p>© 2026 Grupo Genesia. Todos los derechos reservados.</p>
+      <ul>
+        <li><a href="/privacidad/">Política de privacidad</a></li>
+        <li><a href="/derechos-de-autor/">Derechos de autor</a></li>
+        <li><a href="/quienes-somos/">Nuestra historia</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
+<!-- Asistente de chat (cuadrito de la esquina) -->
+<script src="/js/chat.js"></script>
+</body>
+</html>
