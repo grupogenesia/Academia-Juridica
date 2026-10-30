@@ -44,6 +44,29 @@
   .portada-foto-derecha { object-position: 75% 50%; }
   /* Abogados: el escritorio y los cuadros están al centro-derecha de la foto */
   .portada-foto-oficina { object-position: 70% 45%; }
+  /* Grupo Genesia: la imagen completa a la derecha (el letrero con el logo queda visible);
+     a la izquierda se funde con el azul para que el título se lea limpio */
+  .portada-foto-genesia {
+    left: auto;
+    right: 0;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    /* el borde izquierdo de la foto se desvanece: se funde con el azul en cualquier ancho de pantalla */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+  }
+  .diapositiva:has(.portada-foto-genesia)::after {
+    background: linear-gradient(90deg, rgba(20, 55, 74, 0.9) 0%, rgba(20, 55, 74, 0.75) 45%, rgba(20, 55, 74, 0) 70%);
+  }
+  /* Pantallas medianas y celular: la imagen de fondo con capa azul (no cabe al lado del texto) */
+  @media (max-width: 1100px) {
+    .portada-foto-genesia { width: 100%; object-fit: cover; object-position: 85% 40%; -webkit-mask-image: none; mask-image: none; }
+    .diapositiva:has(.portada-foto-genesia)::after { background: rgba(20, 55, 74, 0.88); }
+  }
+
+
   /* Capa azul encima de la foto: más oscura a la izquierda, donde va el texto */
   .diapositiva::after {
     content: "";
@@ -344,7 +367,7 @@
   <div class="diapositivas">
     <!-- Diapositiva 1 -->
     <div class="diapositiva activa" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
-      <img class="portada-foto" src="/img/presentacion.jpg" alt="" width="711" height="431">
+      <img class="portada-foto portada-foto-genesia" src="/img/genesia-portada.jpg" alt="" width="1536" height="1024">
       <div class="contenedor portada-texto">
         <p class="portada-etiqueta">Grupo Genesia</p>
         <p class="portada-titulo">Servicios jurídicos y formación integral</p>
