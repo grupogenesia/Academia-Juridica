@@ -352,6 +352,21 @@
   .icono { animation: encender 1.6s ease-out both; }
   .tarjeta:nth-child(2) .icono { animation-delay: 0.2s; }
   .tarjeta:nth-child(3) .icono { animation-delay: 0.4s; }
+  /* ===== Tarjetas azul marino: el neón dorado brilla sobre fondo oscuro (sin círculo) ===== */
+  .tarjetas-oscuras .tarjeta {
+    background: linear-gradient(160deg, #1b4660 0%, #14374a 45%, #0c222e 100%);
+    border-color: rgba(232, 190, 92, 0.25);
+    color: var(--blanco);
+    box-shadow: 0 14px 34px rgba(12, 34, 46, 0.28);
+  }
+  .tarjetas-oscuras .tarjeta:hover { border-color: rgba(232, 190, 92, 0.7); box-shadow: 0 0 0 1px rgba(232, 190, 92, 0.35), 0 20px 44px rgba(12, 34, 46, 0.4); }
+  .tarjetas-oscuras .tarjeta:focus-visible { outline-color: var(--estrella); }
+  .tarjetas-oscuras .tarjeta p { color: var(--linea); }
+  .tarjetas-oscuras .ir { color: #f2cf7a; border-top-color: rgba(195, 203, 209, 0.25); }
+  .tarjetas-oscuras .icono-neon { width: auto; height: auto; background: none; box-shadow: none; border-radius: 0; place-items: start; }
+  .tarjetas-oscuras .tarjeta:hover .icono-neon { box-shadow: none; }
+  .tarjetas-oscuras .icono { width: 64px; height: 64px; stroke-width: 1.4; }
+
   @keyframes encender { 0% { opacity: 0.2; } 12% { opacity: 1; } 18% { opacity: 0.4; } 26%, 100% { opacity: 1; } }
 
   .tarjeta h2 {
@@ -505,7 +520,7 @@
     <p class="instruccion">Elige un servicio</p>
     <h2 class="servicios-titulo">¿En qué podemos ayudarte?</h2>
 
-    <div class="tarjetas">
+    <div class="tarjetas tarjetas-oscuras">
 
       <!-- Tarjeta 1: lleva a /visas/ -->
       <a class="tarjeta" href="/visas/">
