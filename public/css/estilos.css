@@ -290,6 +290,7 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .contacto-lista dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 .contacto-lista a { color: var(--azul); }
 .contacto-lista dd span { display: block; }
+.contacto-lista dd span + span { margin-top: 6px; }   /* separa las dos direcciones */
 
 /* ===== FORMULARIOS (los usan Contacto y Academia) ===== */
 .formulario {
