@@ -288,8 +288,8 @@
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
-  .servicios .contenedor { padding-block: 72px; }
-  .servicios-titulo { margin: 0 0 32px; font-family: var(--letra-titulo); font-size: clamp(28px, 3.5vw, 36px); line-height: 1.2; }
+  .servicios .contenedor { padding-block: 96px; }
+  .servicios-titulo { margin: 0 0 44px; font-family: var(--letra-titulo); font-size: clamp(32px, 4.2vw, 44px); line-height: 1.15; }
 
   .instruccion {
     margin: 0 0 8px;
@@ -303,35 +303,66 @@
   .tarjetas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  /* 3 columnas en compu, 1 en celular */
-    gap: 24px;
+    gap: 28px;
   }
 
   /* Cada tarjeta es un enlace completo: se puede tocar en cualquier parte */
   .tarjeta {
     background: var(--blanco);
     border: 1px solid var(--linea);
-    border-radius: 10px;
-    padding: 36px 30px 28px;
+    border-radius: 14px;
+    padding: 44px 36px 32px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
+    box-shadow: 0 10px 30px rgba(20, 55, 74, 0.08);
     color: var(--azul);
     text-decoration: none;
     transition: border-color 0.15s, transform 0.15s;
   }
-  .tarjeta:hover { border-color: var(--azul); transform: translateY(-3px); }
+  .tarjeta:hover { border-color: var(--azul); transform: translateY(-5px); box-shadow: 0 18px 40px rgba(20, 55, 74, 0.16); }
   .tarjeta:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
 
-  .icono { width: 54px; height: 54px; stroke: var(--azul); fill: none; stroke-width: 1.5; }
+  /* Ícono con efecto neón dorado: trazo dorado brillante sobre un círculo azul marino */
+  .icono-neon {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #1b4660 0%, #0c222e 75%);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 0 1px rgba(232, 190, 92, 0.35), 0 8px 20px rgba(12, 34, 46, 0.25);
+    transition: box-shadow 0.3s;
+  }
+  .icono {
+    width: 48px;
+    height: 48px;
+    fill: none;
+    stroke: #f2cf7a;                  /* dorado claro: el centro del "tubo" de neón */
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 2px rgba(255, 214, 120, 0.95)) drop-shadow(0 0 6px rgba(232, 178, 60, 0.75)) drop-shadow(0 0 14px rgba(214, 150, 40, 0.5));
+    transition: filter 0.3s;
+  }
+  /* Al pasar el mouse, el neón brilla más */
+  .tarjeta:hover .icono-neon { box-shadow: 0 0 0 1px rgba(232, 190, 92, 0.6), 0 0 26px rgba(232, 178, 60, 0.35), 0 8px 20px rgba(12, 34, 46, 0.25); }
+  .tarjeta:hover .icono { filter: drop-shadow(0 0 3px rgba(255, 220, 130, 1)) drop-shadow(0 0 9px rgba(232, 178, 60, 0.9)) drop-shadow(0 0 20px rgba(214, 150, 40, 0.65)); }
+  /* Parpadeo suave de neón al cargar la página */
+  .icono { animation: encender 1.6s ease-out both; }
+  .tarjeta:nth-child(2) .icono { animation-delay: 0.2s; }
+  .tarjeta:nth-child(3) .icono { animation-delay: 0.4s; }
+  @keyframes encender { 0% { opacity: 0.2; } 12% { opacity: 1; } 18% { opacity: 0.4; } 26%, 100% { opacity: 1; } }
 
   .tarjeta h2 {
     font-family: var(--letra-titulo);
-    font-size: 25px;
-    line-height: 1.25;
+    font-size: 28px;
+    line-height: 1.2;
     margin: 0;
   }
   .tarjeta p {
     margin: 0;
+    font-size: 17px;
     color: var(--azul-suave);
     flex-grow: 1;
   }
@@ -343,8 +374,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tarjeta { transition: none; }
+    .tarjeta, .icono, .icono-neon { transition: none; }
     .tarjeta:hover { transform: none; }
+    .icono { animation: none; }
   }
 </style>
 </head>
@@ -477,11 +509,11 @@
 
       <!-- Tarjeta 1: lleva a /visas/ -->
       <a class="tarjeta" href="/visas/">
-        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+        <span class="icono-neon"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
           <rect x="10" y="5" width="28" height="38" rx="3"/>
           <circle cx="24" cy="21" r="7"/>
           <path d="M17 21h14M24 14c-3 4-3 10 0 14M24 14c3 4 3 10 0 14M17 35h14"/>
-        </svg>
+        </svg></span>
         <h2>Visas y Pasaportes</h2>
         <p>Visa americana, visa mexicana, pasaporte guatemalteco y residencias en Guatemala.</p>
         <span class="ir">Ver servicio →</span>
@@ -489,10 +521,10 @@
 
       <!-- Tarjeta 2: lleva a /academia/ -->
       <a class="tarjeta" href="/academia/">
-        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+        <span class="icono-neon"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
           <path d="M4 18 24 9l20 9-20 9Z"/>
           <path d="M12 22v10c0 3 5 6 12 6s12-3 12-6V22M44 18v12"/>
-        </svg>
+        </svg></span>
         <h2>Academia Jurídica</h2>
         <p>Curso Fase Privada para títulos. Inicio de enero a junio 2027.</p>
         <span class="ir">Ver curso →</span>
@@ -500,11 +532,11 @@
 
       <!-- Tarjeta 3: lleva a /abogados/ -->
       <a class="tarjeta" href="/abogados/">
-        <svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+        <span class="icono-neon"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
           <path d="M24 6v34M14 42h20M10 12h28"/>
           <path d="M10 12 4 26h12ZM38 12l-6 14h12Z"/>
           <path d="M4 26a6 4 0 0 0 12 0M32 26a6 4 0 0 0 12 0"/>
-        </svg>
+        </svg></span>
         <h2>Abogados y Notarios</h2>
         <p>Asesoría legal, procesos judiciales y servicios notariales.</p>
         <span class="ir">Ver servicio →</span>
