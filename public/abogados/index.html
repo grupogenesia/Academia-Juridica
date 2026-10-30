@@ -31,6 +31,48 @@
   .seccion-azul .contacto-lista dd,
   .seccion-azul .contacto-lista a { color: var(--blanco); }
 
+  /* ===== ASUNTOS LEGALES COMUNES: íconos minimalistas que llevan a su página ===== */
+  .asuntos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 16px;
+  }
+  @media (max-width: 760px) { .asuntos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .asunto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 12px;
+    border-radius: 12px;
+    color: var(--azul);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: background 0.2s;
+  }
+  .asunto svg {
+    width: 64px;
+    height: 64px;
+    fill: none;
+    stroke: var(--azul);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s;
+  }
+  .asunto svg .acento { stroke: var(--estrella); }      /* el detalle dorado de cada ícono */
+  .asunto .flecha { display: inline-block; color: var(--estrella); transition: transform 0.2s; }
+  .asunto:hover { background: var(--blanco); }
+  .asunto:hover svg { transform: translateY(-4px); }
+  .asunto:hover .flecha { transform: translateX(4px); }
+  .asunto:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .asunto, .asunto svg, .asunto .flecha { transition: none; } .asunto:hover svg, .asunto:hover .flecha { transform: none; } }
+
   /* ===== TARJETA "HABLA CON UN ABOGADO Y NOTARIO" ===== */
   .ficha-consulta {
     display: grid;
@@ -201,8 +243,54 @@
     </div>
   </section>
 
-  <!-- ===================== 3. NUESTROS SERVICIOS ===================== -->
-  <section class="seccion" id="servicios">
+  <!-- ===================== 3. ASUNTOS LEGALES COMUNES ===================== -->
+  <!-- Para agregar un asunto: copia un bloque <li>, cambia el enlace, el ícono y el nombre -->
+  <section class="seccion" id="asuntos">
+    <div class="contenedor">
+      <h2>Asuntos legales comunes</h2>
+      <ul class="asuntos">
+        <li>
+          <a class="asunto" href="/abogados/divorcio/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="36" r="13"/><circle cx="42" cy="36" r="13"/><path class="acento" d="M32 8v6M26 12l6 6 6-6M30 46l3-5-3-4 3-5"/></svg>
+            <span>Divorcio&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="asunto" href="/abogados/pension-alimenticia/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="14" r="6"/><path d="M12 56V36a10 10 0 0 1 20 0v20"/><circle cx="44" cy="30" r="4.5"/><path d="M37 56V45a7 7 0 0 1 14 0v11"/><circle class="acento" cx="50" cy="12" r="7"/><path class="acento" d="M50 8.5v7M47.5 10h3.5a1.5 1.5 0 0 1 0 3H49"/></svg>
+            <span>Pensión alimenticia&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="asunto" href="/abogados/herencias/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 30 26 14l18 16"/><path d="M13 26v28h26V26"/><rect x="21" y="38" width="10" height="16"/><path class="acento" d="M42 30h14v24H42zM46 36h6M46 41h6M46 46h4"/></svg>
+            <span>Herencias&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="asunto" href="/abogados/estafas-electronicas/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="6" width="28" height="52" rx="4"/><path d="M26 52h8"/><path class="acento" d="M30 18 20 36h20Z"/><path class="acento" d="M30 25v5M30 33v.01"/></svg>
+            <span>Estafas electrónicas&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="asunto" href="/abogados/constitucion-de-empresas/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 56V22l16-8v42M26 56V8l24 10v38"/><path d="M6 56h52M16 28v.01M16 36v.01M16 44v.01M34 24h8M34 32h8M34 40h8"/><path class="acento" d="M42 48h0M38 56v-8h8v8"/></svg>
+            <span>Constitución de empresas&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="asunto" href="/abogados/deudas/">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="16" width="44" height="28" rx="3"/><path d="M6 25h44M13 35h10"/><circle class="acento" cx="47" cy="44" r="11"/><path class="acento" d="M42 44h10"/></svg>
+            <span>Deudas&nbsp;<span class="flecha" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 4. NUESTROS SERVICIOS ===================== -->
+  <section class="seccion seccion-azul" id="servicios">
     <div class="contenedor">
       <h2>Nuestros servicios</h2>
 
@@ -335,8 +423,8 @@
     </div>
   </section>
 
-  <!-- ===================== 4. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
-  <section class="seccion seccion-azul">
+  <!-- ===================== 5. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
+  <section class="seccion">
     <div class="contenedor">
       <h2>Cómo trabajamos tu caso</h2>
       <ol class="pasos detallados">
@@ -374,8 +462,8 @@
     </div>
   </section>
 
-  <!-- ===================== 5. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
-  <section class="seccion">
+  <!-- ===================== 6. QUIÉNES SOMOS, MISIÓN Y VISIÓN ===================== -->
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Quiénes somos</h2>
       <div class="nosotros">
@@ -399,8 +487,8 @@
     </div>
   </section>
 
-  <!-- ===================== 6. NUESTROS VALORES ===================== -->
-  <section class="seccion seccion-azul">
+  <!-- ===================== 7. NUESTROS VALORES ===================== -->
+  <section class="seccion">
     <div class="contenedor">
       <h2>Nuestros valores</h2>
       <dl class="valores">
@@ -414,8 +502,8 @@
     </div>
   </section>
 
-  <!-- ===================== 7. RESULTADOS ===================== -->
-  <section class="seccion resultados">
+  <!-- ===================== 8. RESULTADOS ===================== -->
+  <section class="seccion seccion-azul resultados">
     <div class="contenedor">
       <h2>Nuestros resultados</h2>
       <p>Nuestro compromiso con la excelencia se refleja en nuestros resultados. Hasta la fecha hemos gestionado con éxito una amplia variedad de casos, asegurando la mejor defensa y asesoría para nuestros clientes.</p>
@@ -428,8 +516,8 @@
     </div>
   </section>
 
-  <!-- ===================== 8. CONTÁCTENOS ===================== -->
-  <section class="seccion seccion-azul">
+  <!-- ===================== 9. CONTÁCTENOS ===================== -->
+  <section class="seccion">
     <div class="contenedor">
       <h2>Contáctenos</h2>
       <dl class="contacto-lista">
