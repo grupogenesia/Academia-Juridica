@@ -14,37 +14,6 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
-  /* ===== PRESENTACIÓN: texto a la izquierda, foto a la derecha =====
-     La foto se ajusta al alto del texto: nunca hace crecer la sección */
-  .presentacion-visas {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
-    gap: 32px 48px;
-    align-items: center;
-  }
-  .foto-visas {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center 30%;
-    justify-self: end;
-    border-radius: 16px;
-    box-shadow: 0 14px 32px rgba(20, 55, 74, 0.16);
-    filter: saturate(1.08) contrast(1.04) sepia(0.06);   /* mismo tono cálido que el carrusel */
-  }
-  /* Tableta: columnas más parejas y foto más pequeña */
-  @media (max-width: 960px) {
-    .presentacion-visas { grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 28px; }
-  }
-  /* Celular: la foto pasa abajo, ancha y baja (formato panorámico) */
-  @media (max-width: 680px) {
-    .presentacion-visas { grid-template-columns: 1fr; gap: 24px; }
-    .foto-visas { aspect-ratio: 16 / 9; max-height: 210px; justify-self: stretch; object-position: center 35%; }
-  }
-
   /* ===== TARJETAS DE TRÁMITES: 2 por fila en computadora, 1 en celular ===== */
   .tramites {
     list-style: none;
@@ -148,7 +117,7 @@
 <main>
   <!-- ===================== 1. PRESENTACIÓN ===================== -->
   <section class="seccion presentacion">
-    <div class="contenedor presentacion-visas">
+    <div class="contenedor presentacion-con-foto">
       <div>
         <p class="etiqueta">Visas y Pasaportes Genesia</p>
         <h1>Visas y Pasaportes</h1>
@@ -158,7 +127,7 @@
         </div>
       </div>
       <!-- Foto a la derecha del título -->
-      <img class="foto-visas" src="/img/familia-viaje.jpg" alt="Familia feliz en el aeropuerto mostrando sus pasaportes con visa" width="1448" height="1086">
+      <img class="foto-presentacion" src="/img/familia-viaje.jpg" alt="Familia feliz en el aeropuerto mostrando sus pasaportes con visa" width="1448" height="1086">
     </div>
   </section>
 

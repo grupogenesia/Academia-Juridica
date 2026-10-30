@@ -149,6 +149,38 @@ h2 { font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin-bottom: 28px;
 .seccion-azul .pasos li::before { background: var(--blanco); color: var(--azul); }   /* círculos con número: blancos */
 .seccion-azul .pasos.detallados p { color: var(--linea); }
 
+/* ===== PRESENTACIÓN CON FOTO: texto a la izquierda, foto a la derecha =====
+   La foto se ajusta al alto del texto: nunca hace crecer la sección.
+   Uso: <div class="contenedor presentacion-con-foto"> <div>…texto…</div> <img class="foto-presentacion" …> </div> */
+.presentacion-con-foto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  gap: 32px 48px;
+  align-items: center;
+}
+.foto-presentacion {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center 30%;
+  justify-self: end;
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(20, 55, 74, 0.16);
+  filter: saturate(1.08) contrast(1.04) sepia(0.06);   /* mismo tono cálido que el carrusel */
+}
+/* Tableta: foto más pequeña */
+@media (max-width: 960px) {
+  .presentacion-con-foto { grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 28px; }
+}
+/* Celular: la foto pasa abajo, ancha y baja (formato panorámico) */
+@media (max-width: 680px) {
+  .presentacion-con-foto { grid-template-columns: 1fr; gap: 24px; }
+  .foto-presentacion { aspect-ratio: 16 / 9; max-height: 210px; justify-self: stretch; object-position: center 35%; }
+}
+
 /* ===== MARCA DE AGUA: una foto muy tenue detrás de la presentación =====
    Uso: <section class="seccion presentacion marca-agua" style="--marca-foto: url('/img/foto.jpg')">
    Opcional: --marca-opacidad (qué tan visible es: 0 = invisible, 1 = foto normal) */
