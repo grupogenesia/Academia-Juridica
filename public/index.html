@@ -46,8 +46,8 @@
   /* Movimiento lento "Ken Burns": la foto se acerca despacio mientras su diapositiva está activa */
   .diapositiva.activa .portada-foto { animation: acercar 7s ease-out forwards; }
   @keyframes acercar { from { transform: scale(1); } to { transform: scale(1.06); } }
-  /* Promoción de visa: el pasaporte está a la derecha de la foto; se mantiene visible */
-  .portada-foto-derecha { object-position: 75% 50%; }
+  /* Promoción de visa: el pasaporte y las banderas están a la derecha; se mantienen visibles */
+  .portada-foto-derecha { object-position: 85% 55%; }
   /* Abogados: el escritorio y los cuadros están al centro-derecha de la foto */
   .portada-foto-oficina { object-position: 70% 45%; }
   /* Grupo Genesia: la imagen completa a la derecha (el letrero con el logo queda visible);
@@ -454,7 +454,7 @@
     </div>
     <!-- Diapositiva 2 -->
     <div class="diapositiva" role="group" aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true" inert>
-      <img class="portada-foto portada-foto-derecha" src="/img/promo-visa.jpg" alt="" width="1200" height="630" loading="lazy">
+      <img class="portada-foto portada-foto-derecha" src="/img/promo-visa.jpg" alt="" width="1536" height="1024" loading="lazy">
       <div class="contenedor portada-texto">
         <p class="portada-etiqueta promo">Promoción · Visa americana</p>
         <h2 class="portada-titulo">Tu visa americana, con acompañamiento legal</h2>
