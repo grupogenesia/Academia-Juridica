@@ -145,6 +145,99 @@
     .diapositiva, .carrusel-punto { transition: none; }
   }
 
+  /* ===== FORMULARIO DE CONTACTO (fondo azul oscuro con foto tenue) ===== */
+  .contacto-home {
+    position: relative;
+    overflow: hidden;
+    background: #0f2a39;
+    color: var(--blanco);
+  }
+  .contacto-home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/img/presentacion.jpg") center / cover no-repeat;
+    filter: grayscale(100%);
+    opacity: 0.12;
+  }
+  .contacto-home-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 48px 64px;
+    padding-block: 72px;
+  }
+  @media (max-width: 900px) { .contacto-home-grid { grid-template-columns: 1fr; } }
+
+  /* Datos con íconos dorados */
+  .contacto-home-datos { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px; align-content: start; padding-top: 12px; }
+  .contacto-home-datos li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 22px; align-items: start; }
+  .contacto-home-datos svg { width: 48px; height: 48px; fill: none; stroke: var(--estrella); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .contacto-home-datos h3 { margin: 0 0 4px; font-family: var(--letra-texto); font-size: 20px; font-weight: 600; }
+  .contacto-home-datos p { margin: 0; color: var(--linea); overflow-wrap: anywhere; }
+  .contacto-home-datos a { color: var(--blanco); text-underline-offset: 3px; }
+
+  /* Formulario */
+  .contacto-home-form { position: relative; padding-left: 0; }
+  .contacto-home-sello {
+    width: 68px;
+    margin-bottom: 18px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--estrella);
+    border: 4px solid var(--blanco);
+    display: grid;
+    place-items: center;
+  }
+  .contacto-home-sello svg { width: 36px; height: 36px; fill: none; stroke: var(--blanco); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .contacto-home-etiqueta { margin: 0 0 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--estrella); }
+  .contacto-home h2 { margin: 0 0 18px; color: var(--blanco); font-size: clamp(30px, 4vw, 44px); font-weight: 400; line-height: 1.15; }
+  .contacto-home-intro { margin: 0 0 32px; color: var(--linea); }
+  #form-escribenos { display: grid; gap: 18px; }
+  .fila-dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  @media (max-width: 560px) { .fila-dos { grid-template-columns: 1fr; } }
+  #form-escribenos input[type="text"], #form-escribenos input[type="email"], #form-escribenos input[type="tel"],
+  #form-escribenos select, #form-escribenos textarea {
+    width: 100%;
+    padding: 16px;
+    font: inherit;
+    color: var(--blanco);
+    background: rgba(247, 248, 249, 0.04);
+    border: 1px solid rgba(195, 203, 209, 0.55);
+    border-radius: 2px;
+    color-scheme: dark;
+  }
+  #form-escribenos select { color: var(--linea); }
+  #form-escribenos select:valid:not(:has(option[value=""]:checked)) { color: var(--blanco); }
+  #form-escribenos option { color: #14374a; background: #f7f8f9; }
+  #form-escribenos ::placeholder { color: var(--linea); opacity: 0.9; }
+  #form-escribenos textarea { resize: vertical; min-height: 160px; }
+  #form-escribenos :is(input, select, textarea):focus { outline: 2px solid var(--estrella); outline-offset: 1px; border-color: var(--estrella); }
+  #form-escribenos [aria-invalid="true"] { border-color: #e08a80; outline: 1px solid #e08a80; }
+  .contacto-home-check { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 15px; color: var(--linea); }
+  .contacto-home-check input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--estrella); }
+  .contacto-home-check[aria-invalid="true"] { color: #f0b3ab; }
+  .contacto-home-boton {
+    justify-self: start;
+    padding: 18px 30px;
+    border: none;
+    background: var(--blanco);
+    color: var(--azul);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .contacto-home-boton:hover { background: var(--estrella); color: #ffffff; }
+  .contacto-home-boton:focus-visible { outline: 3px solid var(--estrella); outline-offset: 3px; }
+  .contacto-home-boton[disabled] { opacity: 0.7; cursor: wait; }
+  .contacto-home-error { padding: 14px 16px; border-left: 4px solid #e08a80; background: rgba(247, 248, 249, 0.06); color: var(--blanco); }
+  .contacto-home-error p { margin: 0 0 10px; }
+  .contacto-home-error p:last-child { margin: 0; }
+  .contacto-home-gracias { padding-top: 12px; }
+  .contacto-home-gracias p { color: var(--linea); }
+  .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
   /* ===== LAS TRES TARJETAS DE SERVICIOS ===== */
   .servicios .contenedor { padding-block: 48px; }
 
@@ -370,6 +463,91 @@
   </div>
 </main>
 
+<!-- ===================== FORMULARIO DE CONTACTO ===================== -->
+<!-- Datos a la izquierda; formulario a la derecha. Llega por correo (src/index.js, formulario "contacto") -->
+<section class="contacto-home" id="escribenos">
+  <div class="contenedor contacto-home-grid">
+
+    <!-- Datos de contacto -->
+    <ul class="contacto-home-datos">
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 42V12l14-6v36M22 42V16l18 6v20"/><path d="M4 42h40M13 16v.01M13 22v.01M13 28v.01M13 34v.01M28 26h6M28 32h6"/></svg><div><h3>Oficinas</h3><p>San Jerónimo, Baja Verapaz, a 2 cuadras de Panadería Doña Lucía.</p></div></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="2"/><path d="m5 11 19 16 19-16M5 37l14-13M43 37 29 24"/></svg><div><h3>Correo</h3><p><a href="mailto:grupogenesia@gmail.com">grupogenesia@gmail.com</a></p></div></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6l6 10-4 4a24 24 0 0 0 12 12l4-4 10 6-3 7c-17 1-34-16-32-32Z"/><path d="M28 8a14 14 0 0 1 12 12M28 15a7 7 0 0 1 5 5"/></svg><div><h3>Teléfono</h3><p>+502 4107 7030 · +502 4102 4701</p></div></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M24 12v12l8 6M24 6v2M24 40v2M6 24h2M40 24h2"/></svg><div><h3>Horario</h3><p>Lunes a viernes: 8:00 a 22:00<br>Sábado: 8:00 a 13:00 · Domingo cerrado</p></div></li>
+    </ul>
+
+    <!-- Formulario -->
+    <div class="contacto-home-form" id="zona-escribenos">
+      <span class="contacto-home-sello"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12v38M22 54h20M16 18h32"/><path d="M16 18l-7 15h14ZM48 18l-7 15h14Z"/><path d="M9 33a7 4 0 0 0 14 0M41 33a7 4 0 0 0 14 0"/><circle cx="32" cy="12" r="2.5"/></svg></span>
+      <p class="contacto-home-etiqueta">Formulario de contacto</p>
+      <h2>¿Necesitas asesoría legal?<br>Escríbenos</h2>
+      <p class="contacto-home-intro">Contamos con un equipo de profesionales dispuestos a ayudarte.</p>
+
+      <form id="form-escribenos" novalidate>
+        <div class="fila-dos">
+          <label class="sr-only" for="e-nombre">Nombre</label>
+          <input id="e-nombre" type="text" autocomplete="name" placeholder="Nombre*" required>
+          <label class="sr-only" for="e-correo">Correo electrónico</label>
+          <input id="e-correo" type="email" autocomplete="email" placeholder="Correo electrónico*" required>
+        </div>
+        <div class="fila-dos">
+          <label class="sr-only" for="e-telefono">Teléfono</label>
+          <input id="e-telefono" type="tel" autocomplete="tel" placeholder="Teléfono*" required>
+          <label class="sr-only" for="e-departamento">Departamento</label>
+          <select id="e-departamento">
+            <option value="">Departamento</option>
+                <option>Alta Verapaz</option>
+                <option>Baja Verapaz</option>
+                <option>Chimaltenango</option>
+                <option>Chiquimula</option>
+                <option>El Progreso</option>
+                <option>Escuintla</option>
+                <option>Guatemala</option>
+                <option>Huehuetenango</option>
+                <option>Izabal</option>
+                <option>Jalapa</option>
+                <option>Jutiapa</option>
+                <option>Petén</option>
+                <option>Quetzaltenango</option>
+                <option>Quiché</option>
+                <option>Retalhuleu</option>
+                <option>Sacatepéquez</option>
+                <option>San Marcos</option>
+                <option>Santa Rosa</option>
+                <option>Sololá</option>
+                <option>Suchitepéquez</option>
+                <option>Totonicapán</option>
+                <option>Zacapa</option>
+                <option>Fuera de Guatemala</option>
+          </select>
+        </div>
+        <label class="sr-only" for="e-servicio">Servicio de interés</label>
+        <select id="e-servicio" required>
+          <option value="">Servicio de interés*</option>
+          <option>Abogados y Notarios</option>
+          <option>Visas y Pasaportes</option>
+          <option>Academia Jurídica</option>
+          <option>Otro</option>
+        </select>
+        <label class="sr-only" for="e-mensaje">Mensaje</label>
+        <textarea id="e-mensaje" rows="5" maxlength="4000" placeholder="Escribe aquí tu mensaje…" required></textarea>
+
+        <!-- Campo trampa: invisible para las personas; si se llena, es un robot -->
+        <div class="trampa" aria-hidden="true"><input id="e-sitio" type="text" tabindex="-1" autocomplete="off"></div>
+
+        <label class="contacto-home-check" id="e-acepta-caja">
+          <input id="e-acepta" type="checkbox" required>
+          <span>Autorizo a Grupo Genesia a usar mis datos para responder a mi mensaje.*</span>
+        </label>
+
+        <div class="contacto-home-error" id="e-error" role="alert" hidden></div>
+        <button class="contacto-home-boton" type="submit">Envíalo ahora</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===================== PIE DE PÁGINA ===================== -->
 <footer class="pie">
   <div class="contenedor">
@@ -383,5 +561,62 @@
 <script src="/js/chat.js"></script>
 <!-- Carrusel de la portada -->
 <script src="/js/carrusel.js"></script>
+
+<!-- ===================== JAVASCRIPT: envía el formulario "Escríbenos" ===================== -->
+<script>
+  (function () {
+    const form = document.getElementById('form-escribenos');
+    const error = document.getElementById('e-error');
+    const boton = form.querySelector('.contacto-home-boton');
+    const inicio = Date.now();
+    const v = id => document.getElementById(id).value.trim();
+    const marcar = (id, ok) => { document.getElementById(id === 'e-acepta' ? 'e-acepta-caja' : id).setAttribute('aria-invalid', ok ? 'false' : 'true'); return ok; };
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const faltan = [];
+      if (!marcar('e-nombre', v('e-nombre') !== '')) faltan.push('Nombre');
+      if (!marcar('e-correo', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('e-correo')))) faltan.push('Correo');
+      if (!marcar('e-telefono', /^[+\d\s()-]{8,}$/.test(v('e-telefono')))) faltan.push('Teléfono');
+      if (!marcar('e-servicio', v('e-servicio') !== '')) faltan.push('Servicio de interés');
+      if (!marcar('e-mensaje', v('e-mensaje').length >= 5)) faltan.push('Mensaje');
+      if (!marcar('e-acepta', document.getElementById('e-acepta').checked)) faltan.push('Autorización de datos');
+      if (faltan.length) { error.innerHTML = ''; const p = document.createElement('p'); p.textContent = 'Revisa estos campos: ' + faltan.join(', ') + '.'; error.append(p); error.hidden = false; return; }
+      error.hidden = true;
+
+      boton.disabled = true; boton.textContent = 'Enviando…';
+      const d = { formulario: 'contacto', nombre: v('e-nombre'), correo: v('e-correo'), telefono: v('e-telefono'),
+        departamento: v('e-departamento'), servicio: v('e-servicio'), mensaje: v('e-mensaje'),
+        acepta: document.getElementById('e-acepta').checked, sitio_web: document.getElementById('e-sitio').value, inicio: inicio };
+      try {
+        const r = await fetch('/api/consulta', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+        const res = await r.json().catch(() => ({ ok: false }));
+        if (!r.ok || !res.ok) throw new Error(res.error || '');
+        const zona = document.getElementById('zona-escribenos');
+        zona.innerHTML = '<div class="contacto-home-gracias" role="status" tabindex="-1"><p class="contacto-home-etiqueta">Mensaje enviado</p><h2>¡Gracias por escribirnos!</h2><p>Te responderemos en horario de atención.</p></div>';
+        zona.querySelector('.contacto-home-gracias').focus();
+      } catch (err) {
+        boton.disabled = false; boton.textContent = 'Envíalo ahora';
+        // Si falla, se ofrece mandar el mismo mensaje por WhatsApp (Academia a su número; lo demás al general)
+        const num = d.servicio === 'Academia Jurídica' ? '50237964043' : '50241077030';
+        const texto = 'Hola, soy ' + d.nombre + '. Me interesa: ' + d.servicio + '.\n\n' + d.mensaje + '\n\nCorreo: ' + d.correo + ' · Tel: ' + d.telefono;
+        error.innerHTML = '';
+        const p = document.createElement('p');
+        p.textContent = (err.message.startsWith('Revisa') ? err.message : 'No pudimos enviar tu mensaje en este momento.') + ' Puedes enviarlo por WhatsApp:';
+        const a = document.createElement('a');
+        a.className = 'boton-whatsapp'; a.target = '_blank'; a.rel = 'noopener';
+        a.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(texto);
+        a.textContent = 'Enviar por WhatsApp';
+        const p2 = document.createElement('p'); p2.append(a);
+        error.append(p, p2); error.hidden = false;
+      }
+    });
+    form.addEventListener('input', function (e) {
+      const el = e.target.id === 'e-acepta' ? document.getElementById('e-acepta-caja') : e.target;
+      if (el.getAttribute('aria-invalid') === 'true') el.setAttribute('aria-invalid', 'false');
+      if (!form.querySelector('[aria-invalid="true"]')) error.hidden = true;   // todo corregido: se quita el aviso
+    });
+  })();
+</script>
 </body>
 </html>

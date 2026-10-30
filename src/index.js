@@ -1,8 +1,10 @@
 // =====================================================================
 // SERVIDOR DEL SITIO (Cloudflare Worker)
 // - Las páginas (HTML, CSS, imágenes) las sirve Cloudflare desde /public.
-// - Este código solo atiende /api/consulta: recibe el formulario de
-//   "Habla con un Abogado y Notario" y lo envía por correo.
+// - Este código solo atiende /api/consulta: recibe los formularios y los
+//   envía por correo. Hay dos formularios:
+//     · "consulta" → Habla con un Abogado y Notario (/abogados/consulta/)
+//     · "contacto" → Escríbenos (página principal)
 //
 // Configuración (en wrangler.jsonc):
 //   send_email → CORREO: el correo verificado que recibe las consultas.
@@ -12,6 +14,8 @@
 import { EmailMessage } from 'cloudflare:email';
 
 const CORREO_DESTINO = 'grupogenesia@gmail.com';
+const SERVICIOS = ['Abogados y Notarios', 'Visas y Pasaportes', 'Academia Jurídica', 'Otro'];
+const DEPARTAMENTOS = ['Alta Verapaz', 'Baja Verapaz', 'Chimaltenango', 'Chiquimula', 'El Progreso', 'Escuintla', 'Guatemala', 'Huehuetenango', 'Izabal', 'Jalapa', 'Jutiapa', 'Petén', 'Quetzaltenango', 'Quiché', 'Retalhuleu', 'Sacatepéquez', 'San Marcos', 'Santa Rosa', 'Sololá', 'Suchitepéquez', 'Totonicapán', 'Zacapa', 'Fuera de Guatemala'];
 const AREAS = ['Civil', 'Penal', 'Familiar', 'Notarial', 'Migratorio', 'Mercantil', 'Administrativo', 'Laboral', 'No estoy seguro'];
 
 export default {
@@ -47,6 +51,7 @@ async function recibirConsulta(request, env, url) {
 
   // 4. Revisar los campos
   const limpio = (v, max) => String(v || '').trim().slice(0, max);
+  if (datos.formulario === 'contacto') return enviarContacto(datos, limpio, env, url);
   const c = {
     nombre: limpio(datos.nombre, 120),
     telefono: limpio(datos.telefono, 40),
@@ -65,11 +70,8 @@ async function recibirConsulta(request, env, url) {
   if (faltan.length) return respuesta({ ok: false, error: 'Revisa estos datos: ' + faltan.join(', ') + '.' }, 400);
 
   // 5. Armar y enviar el correo
-  const dominio = url.hostname.replace(/^www\./, '');
-  const remitente = env.CORREO_REMITENTE || 'formulario@' + dominio;
-  const fecha = new Intl.DateTimeFormat('es-GT', { timeZone: 'America/Guatemala', dateStyle: 'full', timeStyle: 'short' }).format(new Date());
   const asunto = `Nueva consulta: ${c.area} — ${c.nombre}`;
-  const cuerpo = [
+  return enviar(env, url, asunto, c.correo, [
     'Nueva solicitud de consulta gratuita desde la página web.',
     '',
     `Nombre:     ${c.nombre}`,
@@ -79,16 +81,59 @@ async function recibirConsulta(request, env, url) {
     `Área:       ${c.area}`,
     '',
     'Caso:',
-    c.caso,
+    c.caso
+  ]);
+}
+
+// Formulario "Escríbenos" de la página principal
+function enviarContacto(datos, limpio, env, url) {
+  const c = {
+    nombre: limpio(datos.nombre, 120),
+    correo: limpio(datos.correo, 160),
+    telefono: limpio(datos.telefono, 40),
+    departamento: limpio(datos.departamento, 40),
+    servicio: limpio(datos.servicio, 40),
+    mensaje: limpio(datos.mensaje, 4000)
+  };
+  const faltan = [];
+  if (!c.nombre) faltan.push('nombre');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.correo)) faltan.push('correo');
+  if (!/^[+\d\s()-]{8,}$/.test(c.telefono)) faltan.push('teléfono');
+  if (c.departamento && !DEPARTAMENTOS.includes(c.departamento)) faltan.push('departamento');
+  if (!SERVICIOS.includes(c.servicio)) faltan.push('servicio');
+  if (c.mensaje.length < 5) faltan.push('mensaje');
+  if (datos.acepta !== true) faltan.push('autorización de datos');
+  if (faltan.length) return respuesta({ ok: false, error: 'Revisa estos datos: ' + faltan.join(', ') + '.' }, 400);
+
+  return enviar(env, url, `Nuevo mensaje: ${c.servicio} — ${c.nombre}`, c.correo, [
+    'Nuevo mensaje desde el formulario "Escríbenos" de la página principal.',
+    '',
+    `Nombre:        ${c.nombre}`,
+    `Correo:        ${c.correo}`,
+    `Teléfono:      ${c.telefono}`,
+    `Departamento:  ${c.departamento || '(no indicó)'}`,
+    `Servicio:      ${c.servicio}`,
+    '',
+    'Mensaje:',
+    c.mensaje
+  ]);
+}
+
+// Envía el correo a CORREO_DESTINO; responderA es el correo del cliente
+async function enviar(env, url, asunto, responderA, lineas) {
+  const dominio = url.hostname.replace(/^www\./, '');
+  const remitente = env.CORREO_REMITENTE || 'formulario@' + dominio;
+  const fecha = new Intl.DateTimeFormat('es-GT', { timeZone: 'America/Guatemala', dateStyle: 'full', timeStyle: 'short' }).format(new Date());
+  const cuerpo = lineas.concat([
     '',
     '—',
     `Recibido: ${fecha} (hora de Guatemala)`,
     'Para responder, contesta este correo: la respuesta le llega directo al cliente.'
-  ].join('\r\n');
+  ]).join('\r\n');
 
   try {
     const mensaje = new EmailMessage(remitente, CORREO_DESTINO, armarCorreo({
-      de: remitente, para: CORREO_DESTINO, responderA: c.correo, asunto, cuerpo, dominio
+      de: remitente, para: CORREO_DESTINO, responderA, asunto, cuerpo, dominio
     }));
     await env.CORREO.send(mensaje);
   } catch (error) {
