@@ -42,26 +42,14 @@
   }
   /* Promoción de visa: el pasaporte está a la derecha de la foto; se mantiene visible */
   .portada-foto-derecha { object-position: 75% 50%; }
+  /* Abogados: el escritorio y los cuadros están al centro-derecha de la foto */
+  .portada-foto-oficina { object-position: 70% 45%; }
   /* Capa azul encima de la foto: más oscura a la izquierda, donde va el texto */
   .diapositiva::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(20, 55, 74, 0.94) 0%, rgba(20, 55, 74, 0.8) 45%, rgba(20, 55, 74, 0.3) 100%);
-  }
-  /* Diapositiva sin foto: balanza grande y tenue a la derecha */
-  .portada-dibujo {
-    position: absolute;
-    right: 6%;
-    top: 50%;
-    width: min(340px, 40vw);
-    height: auto;
-    transform: translateY(-50%);
-    fill: none;
-    stroke: var(--azul-suave);
-    stroke-width: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
   }
   .portada-texto {
     position: relative;
@@ -141,7 +129,6 @@
   /* En el celular la capa es pareja, para que el texto se lea sobre toda la foto */
   @media (max-width: 600px) {
     .diapositiva::after { background: rgba(20, 55, 74, 0.85); }
-    .portada-dibujo { opacity: 0.4; }
   }
   @media (prefers-reduced-motion: reduce) {
     .diapositiva, .carrusel-punto { transition: none; }
@@ -402,7 +389,7 @@
     </div>
     <!-- Diapositiva 4 -->
     <div class="diapositiva" role="group" aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true" inert>
-      <svg class="portada-dibujo" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8v44M20 56h24M14 16h36"/><path d="M14 16 6 34h16ZM50 16l-8 18h16Z"/><path d="M6 34a8 5 0 0 0 16 0M42 34a8 5 0 0 0 16 0"/><circle cx="32" cy="8" r="2.5"/></svg>
+      <img class="portada-foto portada-foto-oficina" src="/img/oficina-abogados.jpg" alt="" width="1672" height="941" loading="lazy">
       <div class="contenedor portada-texto">
         <p class="portada-etiqueta">Abogados y Notarios</p>
         <h2 class="portada-titulo">Derecho que protege. Experiencia que respalda.</h2>
