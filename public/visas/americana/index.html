@@ -15,30 +15,36 @@
 <!-- Estilos que solo usa esta página -->
 <style>
   /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
-  .seccion-azul .intro { color: var(--blanco); }
-  .seccion-azul .aviso { border-left-color: var(--azul-suave); }
   .seccion-azul .inversion p { color: var(--blanco); }
   .seccion-azul .contado { border-color: var(--linea); color: var(--blanco); }
 
   /* ===== PRESENTACIÓN: texto sobre la foto de marca de agua ===== */
   .presentacion-texto { max-width: 640px; }
 
-  /* Texto de introducción */
-  .intro { margin: 0; font-size: 18px; max-width: 65ch; }
-
-  /* ===== AVISO "UN DETALLE PUEDE CAMBIARLO TODO" ===== */
-  .aviso {
-    margin-top: 28px;
-    padding: 24px 28px;
+  /* ===== DETALLES IMPORTANTES: dos destacados lado a lado ===== */
+  .destacados { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 760px) { .destacados { grid-template-columns: 1fr; } }
+  .destacado {
+    padding: 28px;
     background: var(--blanco);
     border: 1px solid var(--linea);
-    border-left: 4px solid var(--azul);
-    border-radius: 6px;
-    max-width: 75ch;
+    border-top: 4px solid var(--azul);
+    border-radius: 12px;
   }
-  .aviso h3 { font-size: 20px; margin-bottom: 10px; }
-  .aviso p { margin: 0 0 10px; }
-  .aviso p:last-child { margin-bottom: 0; font-weight: 600; }
+  .destacado-icono {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: var(--gris);
+    display: grid;
+    place-items: center;
+  }
+  .destacado-icono svg { width: 30px; height: 30px; fill: none; stroke: var(--azul); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .destacado h3 { font-size: 20px; margin-bottom: 10px; }
+  .destacado p { margin: 0 0 10px; color: var(--azul-suave); }
+  .destacado p:last-child { margin-bottom: 0; }
+  .destacado-cierre { color: var(--azul) !important; font-weight: 600; }
 
   /* ===== REQUISITOS (lista con palomitas) ===== */
   .requisitos {
@@ -312,20 +318,7 @@
     </div>
   </section>
 
-  <!-- ===================== 2. INTRODUCCIÓN ===================== -->
-  <section class="seccion seccion-azul">
-    <div class="contenedor">
-      <p class="intro">Sabemos que un trámite de visa no es solo llenar formularios, es un paso que puede cambiar tu vida y la de tu familia. Por eso en Abogados y Notarios Genesia nos especializamos en trámites migratorios: te acompañamos en cada etapa con el conocimiento legal y la preparación que este proceso exige, para que llegues a tu cita con la mayor confianza posible.</p>
-
-      <div class="aviso">
-        <h3>Un detalle puede cambiarlo todo</h3>
-        <p>El DS-160 parece un formulario sencillo, pero no lo es. Una inconsistencia entre lo que declaras ahí y lo que respondes en la entrevista, un dato que no coincide con tu pasaporte, o una foto que no cumple las especificaciones exactas del consulado son errores comunes.</p>
-        <p>Por eso revisamos cada detalle contigo antes de que llegue ese momento. No se trata de llenar un formulario, se trata de hacerlo bien desde la primera vez.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 3. TU TRÁMITE PASO A PASO ===================== -->
+  <!-- ===================== 2. TU TRÁMITE PASO A PASO ===================== -->
   <!-- Cada paso es un <details>: se abre al tocarlo. name="pasos-visa" hace que al abrir uno se cierre el anterior -->
   <section class="seccion" id="pasos">
     <div class="contenedor">
@@ -378,7 +371,7 @@
     </div>
   </section>
 
-  <!-- ===================== 4. INVERSIÓN ===================== -->
+  <!-- ===================== 3. INVERSIÓN ===================== -->
   <section class="seccion seccion-azul" id="inversion">
     <div class="contenedor">
       <h2>Inversión</h2>
@@ -420,8 +413,28 @@
     </div>
   </section>
 
-  <!-- ===================== 5. TESTIMONIOS ===================== -->
+  <!-- ===================== 4. DETALLES IMPORTANTES (dos destacados) ===================== -->
   <section class="seccion">
+    <div class="contenedor">
+      <h2>Detalles importantes</h2>
+      <div class="destacados">
+        <article class="destacado">
+          <span class="destacado-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="16" r="6"/><circle cx="33" cy="18" r="5"/><path d="M5 40v-4a12 12 0 0 1 24 0v4M27 30a10 10 0 0 1 16 8v2"/></svg></span>
+          <h3>Te acompañamos en cada etapa</h3>
+          <p>Un trámite de visa puede cambiar tu vida y la de tu familia. Por eso nos especializamos en trámites migratorios: te damos el conocimiento legal y la preparación que el proceso exige, para que llegues a tu cita con la mayor confianza posible.</p>
+        </article>
+        <article class="destacado">
+          <span class="destacado-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 5H12a3 3 0 0 0-3 3v32a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3V14Z"/><path d="M30 5v9h9M15 22h12M15 28h8"/><circle cx="33" cy="33" r="7"/><path d="m38 38 5 5"/></svg></span>
+          <h3>Un detalle puede cambiarlo todo</h3>
+          <p>El DS-160 parece sencillo, pero no lo es. Una inconsistencia con lo que respondes en la entrevista, un dato que no coincide con tu pasaporte o una foto fuera de especificaciones son errores comunes.</p>
+          <p class="destacado-cierre">Revisamos cada detalle contigo para hacerlo bien desde la primera vez.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. TESTIMONIOS ===================== -->
+  <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Quienes ya confiaron en nosotros</h2>
       <div class="testimonios">
