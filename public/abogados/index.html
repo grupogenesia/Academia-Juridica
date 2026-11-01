@@ -14,6 +14,75 @@
 
 <!-- Estilos que solo usa esta página -->
 <style>
+  /* ===== ESQUEMA "CÓMO TRABAJAMOS TU CASO": 5 pasos con ícono, unidos por una línea ===== */
+  .esquema {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    position: relative;
+  }
+  /* Línea que une los círculos (pasa por el centro de los íconos) */
+  .esquema::before {
+    content: "";
+    position: absolute;
+    top: 44px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--estrella) 8%, var(--estrella) 92%, transparent);
+    opacity: 0.6;
+  }
+  .esquema-paso { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .esquema-icono {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--azul);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 0 6px var(--gris), 0 10px 24px rgba(20, 55, 74, 0.2);   /* aro del color del fondo: corta la línea */
+  }
+  .esquema-icono svg { width: 44px; height: 44px; fill: none; stroke: #f2cf7a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px rgba(232, 178, 60, 0.6)); }
+  .esquema-num {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--estrella);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-family: var(--letra-titulo);
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px var(--gris);
+  }
+  .esquema-paso h3 { margin: 8px 0 0; font-size: 18px; line-height: 1.3; }
+  .esquema-paso p { margin: 0; font-size: 15px; color: var(--azul-suave); }
+
+  /* Tableta: 3 + 2 sin línea */
+  @media (max-width: 1000px) {
+    .esquema { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 40px; }
+    .esquema-paso { grid-column: span 2; }
+    .esquema-paso:nth-child(4) { grid-column: 2 / span 2; }
+    .esquema::before { display: none; }
+  }
+  /* Celular: en columna, ícono a la izquierda y línea vertical */
+  @media (max-width: 640px) {
+    .esquema { grid-template-columns: 1fr; row-gap: 28px; }
+    .esquema-paso, .esquema-paso:nth-child(4) { grid-column: auto; display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 18px; text-align: left; align-items: start; }
+    .esquema-icono { width: 72px; height: 72px; grid-row: span 2; }
+    .esquema-icono svg { width: 36px; height: 36px; }
+    .esquema-paso h3 { margin: 4px 0 0; }
+    .esquema::before { display: block; top: 36px; bottom: 36px; left: 35px; right: auto; width: 2px; height: auto; background: var(--estrella); }
+  }
+
   /* La persona que presenta y la pantalla están a la derecha de la foto */
   .foto-abogados { object-position: 62% 40%; }
 
@@ -607,40 +676,36 @@
     </div>
   </section>
 
-  <!-- ===================== 5. CÓMO TRABAJAMOS (5 pasos en orden) ===================== -->
+  <!-- ===================== 5. CÓMO TRABAJAMOS (esquema de 5 pasos en orden) ===================== -->
   <section class="seccion">
     <div class="contenedor">
       <h2>Cómo trabajamos tu caso</h2>
-      <ol class="pasos detallados">
-        <li>
-          <div>
-            <h3>Primera consulta y evaluación del caso</h3>
-            <p>Te escuchamos y reunimos la información clave: fechas, documentos y antecedentes. Te explicamos de forma clara y honesta si tu caso es viable, y firmamos un contrato de servicios con honorarios y alcances.</p>
-          </div>
+      <!-- Esquema: en computadora, 5 pasos en fila unidos por una línea; en celular, en columna -->
+      <ol class="esquema">
+        <li class="esquema-paso">
+          <span class="esquema-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h24a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-7 6v-6H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3Z"/><path d="M33 18h9a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5h-8a3 3 0 0 1-3-3v-2"/><path d="M11 18h14M11 22h9"/></svg><span class="esquema-num" aria-hidden="true">1</span></span>
+          <h3>Primera consulta y evaluación del caso</h3>
+          <p>Te escuchamos y reunimos la información clave: fechas, documentos y antecedentes. Te explicamos de forma clara y honesta si tu caso es viable, y firmamos un contrato de servicios con honorarios y alcances.</p>
         </li>
-        <li>
-          <div>
-            <h3>Recolección de documentos y pruebas</h3>
-            <p>Reunimos los documentos esenciales (DPI, contratos, pruebas, antecedentes), solicitamos certificaciones si hacen falta y organizamos todo en un expediente digital y físico.</p>
-          </div>
+        <li class="esquema-paso">
+          <span class="esquema-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 14a3 3 0 0 1 3-3h9l4 4h19a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3Z"/><path d="M14 23h20M14 29h20M14 35h12"/></svg><span class="esquema-num" aria-hidden="true">2</span></span>
+          <h3>Recolección de documentos y pruebas</h3>
+          <p>Reunimos los documentos esenciales (DPI, contratos, pruebas, antecedentes), solicitamos certificaciones si hacen falta y organizamos todo en un expediente digital y físico.</p>
         </li>
-        <li>
-          <div>
-            <h3>Estrategia legal y presentación de la demanda o defensa</h3>
-            <p>Definimos la vía (judicial, administrativa o extrajudicial), redactamos los documentos legales y los presentamos ante el juzgado u organismo competente.</p>
-          </div>
+        <li class="esquema-paso">
+          <span class="esquema-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 5H11a3 3 0 0 0-3 3v32a3 3 0 0 0 3 3h22a3 3 0 0 0 3-3V11Z"/><path d="M30 5v6h6M14 18h14M14 24h14M14 30h8"/><path d="m40 22 4 4-12 12-5 1 1-5Z"/></svg><span class="esquema-num" aria-hidden="true">3</span></span>
+          <h3>Estrategia legal y presentación de la demanda o defensa</h3>
+          <p>Definimos la vía (judicial, administrativa o extrajudicial), redactamos los documentos legales y los presentamos ante el juzgado u organismo competente.</p>
         </li>
-        <li>
-          <div>
-            <h3>Seguimiento del caso y representación legal</h3>
-            <p>Te representamos en audiencias y comparecencias, te mantenemos informado de cada avance y, cuando es posible, buscamos conciliaciones para resolver sin llegar a juicio.</p>
-          </div>
+        <li class="esquema-paso">
+          <span class="esquema-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7v33M15 42h18M10 13h28"/><path d="M10 13 4 27h12ZM38 13l-6 14h12Z"/><path d="M4 27a6 4 0 0 0 12 0M32 27a6 4 0 0 0 12 0"/><circle cx="24" cy="7" r="2"/></svg><span class="esquema-num" aria-hidden="true">4</span></span>
+          <h3>Seguimiento del caso y representación legal</h3>
+          <p>Te representamos en audiencias y comparecencias, te mantenemos informado de cada avance y, cuando es posible, buscamos conciliaciones para resolver sin llegar a juicio.</p>
         </li>
-        <li>
-          <div>
-            <h3>Resolución y cierre del caso</h3>
-            <p>Una vez dictada la resolución, te informamos y evaluamos contigo los próximos pasos.</p>
-          </div>
+        <li class="esquema-paso">
+          <span class="esquema-icono"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m21 9 14 14M15 15l14 14M18 12l-5 5M32 26l-5 5"/><path d="m25 19-16 16a3 3 0 0 0 4 4l16-16"/><path d="M28 43h16M31 43v-4h10v4"/></svg><span class="esquema-num" aria-hidden="true">5</span></span>
+          <h3>Resolución y cierre del caso</h3>
+          <p>Una vez dictada la resolución, te informamos y evaluamos contigo los próximos pasos.</p>
         </li>
       </ol>
     </div>
