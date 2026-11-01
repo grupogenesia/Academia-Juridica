@@ -23,6 +23,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
+  /* Si el número de tarjetas es impar, la última ocupa toda la fila */
+  .tramites > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   @media (max-width: 700px) {
     .tramites { grid-template-columns: 1fr; }
     .tramite { min-height: 260px; }
@@ -131,7 +133,7 @@
     </div>
   </section>
 
-  <!-- ===================== 2. TRÁMITES (4 tarjetas) ===================== -->
+  <!-- ===================== 2. TRÁMITES (5 tarjetas) ===================== -->
   <!-- Para agregar otro trámite, copia un bloque <li> completo y cambia el enlace, la etiqueta, el título y el ícono -->
   <section class="seccion" id="tramites">
     <div class="contenedor">
@@ -143,6 +145,14 @@
             <span class="tramite-titulo">Visa americana<span class="flecha" aria-hidden="true">→</span></span>
             <span class="tramite-ir">Ver trámite</span>
             <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="6" width="36" height="52" rx="4"/><circle cx="32" cy="27" r="9"/><path d="M23 27h18M32 18c-4 5-4 13 0 18M32 18c4 5 4 13 0 18M22 46h20"/><path d="m50 44 2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a class="tramite" href="/visas/americana/proceso-departamental/">
+            <span class="tramite-etiqueta">Estados Unidos · 100% en línea</span>
+            <span class="tramite-titulo">Tu visa en línea desde tu departamento<span class="flecha" aria-hidden="true">→</span></span>
+            <span class="tramite-ir">Ver trámite</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="20" width="44" height="28" rx="3"/><path d="M4 54h56l-4-6H8Z"/><path d="M32 42s-8-7.5-8-13a8 8 0 0 1 16 0c0 5.5-8 13-8 13Z"/><circle cx="32" cy="29" r="3"/></svg>
           </a>
         </li>
         <li>
