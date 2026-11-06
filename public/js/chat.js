@@ -9,7 +9,7 @@
 (function () {
   // ---------- Números de WhatsApp de cada área ----------
   const WHATSAPP = {
-    academia: '50241024701',     // Academia: atención personalizada
+    academia: '50241077030',     // Academia: bot de WhatsApp (ManyChat)
     general: '50241077030'      // Abogados, Visas y consultas generales
   };
 

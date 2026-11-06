@@ -712,8 +712,8 @@
         zona.querySelector('.contacto-home-gracias').focus();
       } catch (err) {
         boton.disabled = false; boton.textContent = 'Envíalo ahora';
-        // Si falla, se ofrece mandar el mismo mensaje por WhatsApp (Academia a su número; lo demás al general)
-        const num = d.servicio === 'Academia Jurídica' ? '50241024701' : '50241077030';
+        // Si falla, se ofrece mandar el mismo mensaje por WhatsApp (todo llega al bot del 4107 7030)
+        const num = '50241077030';
         const texto = 'Hola, soy ' + d.nombre + '. Me interesa: ' + d.servicio + '.\n\n' + d.mensaje + '\n\nCorreo: ' + d.correo + ' · Tel: ' + d.telefono;
         error.innerHTML = '';
         const p = document.createElement('p');
