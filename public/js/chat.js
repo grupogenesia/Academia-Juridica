@@ -9,7 +9,7 @@
 (function () {
   // ---------- Números de WhatsApp de cada área ----------
   const WHATSAPP = {
-    academia: '50237964043',
+    academia: '50241024701',     // Academia: atención personalizada
     general: '50241077030'      // Abogados, Visas y consultas generales
   };
 
@@ -124,7 +124,7 @@
     ubicacion: {
       boton: '📍 Ubicación y horario',
       area: 'general',
-      texto: '<b>Oficinas:</b><br>• San Jerónimo, Baja Verapaz, ruta principal, a 2 cuadras de Panadería Doña Lucía.<br>• Edificio Santo Domingo, 11 calle 10-56, zona 1, Ciudad de Guatemala.<br><br><b>Horario:</b> lunes a viernes de 8:00 a 22:00, sábado de 8:00 a 13:00. Domingo cerrado.<br><br><b>WhatsApp:</b> +502 4107 7030 (Abogados y Visas) · +502 3796 4043 (Academia).',
+      texto: '<b>Oficinas:</b><br>• San Jerónimo, Baja Verapaz, zona 0, Barrio Abajo, a 2 cuadras de Panadería Doña Lucía.<br>• Edificio Santo Domingo, 11 calle 10-56, zona 1, Ciudad de Guatemala.<br><br><b>Horario:</b> lunes a viernes de 8:00 a 22:00, sábado de 8:00 a 13:00. Domingo cerrado.<br><br><b>WhatsApp:</b> +502 4107 7030 · Atención a clientes: +502 4102 4701.',
       opciones: ['persona', 'inicio']
     },
 
