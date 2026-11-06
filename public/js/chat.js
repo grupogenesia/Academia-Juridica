@@ -72,7 +72,7 @@
     visa_americana: {
       boton: 'Visa americana',
       area: 'general',
-      texto: 'Te acompañamos en 3 fases: preparación de tu expediente (DS-160), programación de tu cita en la Embajada y preparación para tu entrevista.<br><br><b>Inversión:</b> Q 3,000 en 3 pagos de Q 1,000, o <b>Q 2,800</b> al contado.<br><br><b>Requisitos:</b> pasaporte vigente, DPI, formulario DS-160 y fotografía digital.',
+      texto: 'Te acompañamos en 3 fases: preparación de tu expediente (DS-160), programación de tu cita en la Embajada y preparación para tu entrevista.<br><br><b>Inversión:</b> Q 2,997 por persona, en un pago o en hasta 3 cuotas sin recargo. Promoción navideña: <b>Q 2,497</b> en noviembre y diciembre. Precios especiales para familias.<br><br><b>Requisitos:</b> pasaporte vigente, DPI, formulario DS-160 y fotografía digital.',
       enlace: ['Ver visa americana', '/visas/americana/'],
       opciones: ['persona', 'visas']
     },

@@ -253,6 +253,8 @@
   .contado strong { display: block; margin-top: 4px; font-family: var(--letra-titulo); font-size: 24px; }
 
   .familia { margin-top: 16px; font-weight: 600; }
+  .contado .fila { display: flex; justify-content: space-between; gap: 16px; margin-top: 6px; }
+  .contado .fila strong { display: inline; margin: 0; font-size: 20px; font-variant-numeric: tabular-nums; }
 
   /* ===== TESTIMONIOS ===== */
   .testimonios {
@@ -439,8 +441,8 @@
       <div class="inversion">
         <div>
           <p>La tarifa que se paga directamente en la embajada al solicitar tu visa no se devuelve si la solicitud no se prepara correctamente. <strong>Nuestro acompañamiento existe para proteger esa inversión desde el inicio.</strong></p>
-          <p>El proceso completo tiene un valor de Q 3,000, dividido en 3 pagos de Q 1,000, uno por cada fase de acompañamiento.</p>
-          <p class="familia">¿Varios miembros de tu familia van a tramitar su visa? Pregúntanos por nuestras tarifas especiales para grupos familiares.</p>
+          <p>El precio regular del trámite es de <strong>Q 2,997 por persona</strong>. Puedes pagarlo en un solo pago o en hasta 3 cuotas, sin recargo: la primera al iniciar y las siguientes cada 15 días o al recibir el avance de tu trámite, lo que ocurra después.</p>
+          <p>Recibes factura por cada pago. La tarifa consular se paga aparte, directo al banco autorizado.</p>
         </div>
 
         <div>
@@ -452,22 +454,25 @@
             </div>
             <div class="fase">
               <span class="fase-nombre">Fase 2</span>
-              <span class="fase-cuando">Según fecha programada</span>
+              <span class="fase-cuando">15 días después o al recibir tu avance</span>
               <span class="fase-monto">Q 1,000</span>
             </div>
             <div class="fase">
               <span class="fase-nombre">Fase 3</span>
-              <span class="fase-cuando">Según fecha programada</span>
-              <span class="fase-monto">Q 1,000</span>
+              <span class="fase-cuando">15 días después o al recibir tu avance</span>
+              <span class="fase-monto">Q 997</span>
             </div>
             <div class="total">
-              <span>Total del proceso</span>
-              <strong>Q 3,000</strong>
+              <span>Total por persona</span>
+              <strong>Q 2,997</strong>
             </div>
           </div>
 
           <div class="contado">
-            <p>¿Prefieres pagar todo de una vez? Pagando al contado tienes Q 200 de descuento.<strong>Q 2,800</strong></p>
+            <p class="familia" style="margin-top:0">¿Tu familia tramita junta? Precio por persona:</p>
+            <p class="fila">2 personas <strong>Q 2,847</strong></p>
+            <p class="fila">3 personas <strong>Q 2,697</strong></p>
+            <p class="fila">4 o más personas <strong>Q 2,447</strong></p>
           </div>
         </div>
       </div>
@@ -483,7 +488,8 @@
         <div class="promo-texto">
           <p class="promo-etiqueta">Noviembre y diciembre</p>
           <h2>Promoción navideña</h2>
-          <p>Durante noviembre y diciembre, el trámite de tu visa americana tiene un costo de <strong>Q&nbsp;2,497</strong> exactos.</p>
+          <p>Durante noviembre y diciembre, el trámite de tu visa americana cuesta <strong>Q&nbsp;2,497</strong> por persona: ahorras Q&nbsp;500 sobre el precio regular de Q&nbsp;2,997.</p>
+          <p>Para familias que tramitan juntas: 2 personas, <strong>Q&nbsp;2,347</strong> por persona; 3 o más personas, <strong>Q&nbsp;2,197</strong> por persona.</p>
           <p>Además, participas en la <strong>rifa de una canasta navideña</strong>, que se realizará el <strong>20 de diciembre de 2026</strong>.</p>
         </div>
         <div class="promo-precio">
@@ -518,7 +524,8 @@
   </section>
 
   <!-- ===================== 6. TESTIMONIOS ===================== -->
-  <section class="seccion">
+  <!-- Oculta hasta tener testimonios reales de visa americana: quita "hidden" para mostrarla -->
+  <section class="seccion" hidden>
     <div class="contenedor">
       <h2>Quienes ya confiaron en nosotros</h2>
       <div class="testimonios">
