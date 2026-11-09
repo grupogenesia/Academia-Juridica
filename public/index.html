@@ -306,9 +306,11 @@
 
   .tarjetas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  /* 3 columnas en compu, 1 en celular */
-    gap: 28px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));  /* 4 columnas en compu */
+    gap: 24px;
   }
+  @media (max-width: 960px) { .tarjetas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }  /* 2 en tablet */
+  @media (max-width: 600px) { .tarjetas { grid-template-columns: 1fr; } }                        /* 1 en celular */
 
   /* Cada tarjeta es un enlace completo: se puede tocar en cualquier parte */
   .tarjeta {
@@ -559,6 +561,18 @@
         </svg></span>
         <h2>Abogados y Notarios</h2>
         <p>Asesoría legal, procesos judiciales y servicios notariales.</p>
+        <span class="ir">Ver servicio →</span>
+      </a>
+
+      <!-- Tarjeta 4: lleva a /tesis/ -->
+      <a class="tarjeta" href="/tesis/">
+        <span class="icono-neon"><svg class="icono" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M10 4h20l8 8v32H10Z"/>
+          <path d="M30 4v8h8M16 20h16M16 26h16M16 32h9"/>
+          <path d="m29 38 9-9 3 3-9 9-4 1Z"/>
+        </svg></span>
+        <h2>Tesis y trabajos</h2>
+        <p>Asesoría en tesis y trabajos universitarios, desde el tema hasta la presentación.</p>
         <span class="ir">Ver servicio →</span>
       </a>
 
