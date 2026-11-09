@@ -155,7 +155,28 @@
   @media (max-width: 800px) { .pagos-grid { grid-template-columns: 1fr; } }
   @media (max-width: 420px) { .tabla-pagos th, .tabla-pagos td { padding: 12px; } }
 
-  /* ===== 6. FORMULARIO ===== */
+  /* Beneficios de cada plan (se acumulan de un plan al siguiente) */
+  .beneficios { margin: 0 0 22px; padding: 16px; background: #fbf5e6; border-radius: 8px; }
+  .beneficios-titulo { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--estrella); }
+  .beneficios-intro { margin: 0 0 8px; font-size: 14px; color: var(--azul-suave); }
+  .beneficios ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .beneficios li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 15px; font-weight: 600; color: var(--azul); line-height: 1.4; }
+  .beneficios li::before { content: "+"; color: var(--estrella); font-weight: 700; font-size: 17px; line-height: 1.2; }
+  .plan-inicio .beneficios { margin: 18px 0 0; }
+
+  /* ===== 6. PREGUNTAS FRECUENTES (se abren al tocarlas) ===== */
+  .preguntas { display: grid; gap: 12px; max-width: 820px; }
+  .preguntas details { background: var(--blanco); border-radius: 6px; }
+  .preguntas summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; list-style: none; font-family: var(--letra-titulo); font-size: 18px; font-weight: 700; }
+  .preguntas summary::-webkit-details-marker { display: none; }
+  .preguntas summary:focus-visible { outline: 3px solid var(--blanco); outline-offset: 2px; border-radius: 6px; }
+  .preguntas summary::after { content: "+"; flex-shrink: 0; font-family: var(--letra-texto); font-size: 26px; font-weight: 400; line-height: 1; color: var(--azul-suave); transition: transform 0.2s; }
+  .preguntas details[open] summary::after { transform: rotate(45deg); }
+  .preguntas details p { margin: 0; padding: 0 22px 20px; color: var(--azul-suave); }
+  .preguntas details p + p { margin-top: -8px; }
+  .sedes { margin: 0; padding: 0 22px 20px 40px; color: var(--azul-suave); display: grid; gap: 6px; }
+
+  /* ===== 7. FORMULARIO ===== */
   .solicitud { max-width: 760px; margin-inline: auto; }
   .solicitud h2 { text-align: center; }
   .solicitud .nota-seccion { text-align: center; margin-inline: auto; }
@@ -360,6 +381,13 @@
           <h3>Plan de investigación</h3>
           <span class="plan-precio">Q&nbsp;3,000</span>
           <span class="plan-pagos">En 2 pagos de Q&nbsp;1,500</span>
+          <div class="beneficios">
+            <p class="beneficios-titulo">🎁 Beneficios</p>
+            <ul>
+              <li>Plantilla con el formato de tu universidad</li>
+              <li>Lista de leyes, doctrina y jurisprudencia guatemalteca para tu tema</li>
+            </ul>
+          </div>
         </div>
         <ul class="requisitos">
           <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>3 propuestas de tema</li>
@@ -388,6 +416,16 @@
             <div><dt>Preparación para la defensa</dt><dd>+ Q&nbsp;1,500</dd></div>
             <div><dt>Atención prioritaria</dt><dd>+ Q&nbsp;1,000</dd></div>
           </dl>
+          <div class="beneficios">
+            <p class="beneficios-titulo">🎁 Beneficios</p>
+            <p class="beneficios-intro">Incluye:</p>
+            <ul>
+              <li>Plantilla con el formato de tu universidad</li>
+              <li>Lista de leyes, doctrina y jurisprudencia para tu tema</li>
+              <li>Calendario de trabajo personalizado, con fechas por etapa</li>
+              <li>WhatsApp directo con tu asesor, en horario de atención</li>
+            </ul>
+          </div>
           <a class="boton-secundario" href="#solicitud" data-plan="Esencial">Elegir Esencial</a>
         </li>
         <li class="plan plan-destacado">
@@ -405,6 +443,14 @@
             <div><dt>Preparación para la defensa</dt><dd>+ Q&nbsp;1,500</dd></div>
             <div><dt>Atención prioritaria</dt><dd>+ Q&nbsp;1,000</dd></div>
           </dl>
+          <div class="beneficios">
+            <p class="beneficios-titulo">🎁 Beneficios</p>
+            <p class="beneficios-intro">Todo lo del Esencial, más:</p>
+            <ul>
+              <li>Revisión de redacción y ortografía en cada etapa</li>
+              <li>10% de descuento en la Academia Jurídica Genesia</li>
+            </ul>
+          </div>
           <a class="boton-secundario" href="#solicitud" data-plan="Full">Elegir Full</a>
         </li>
         <li class="plan">
@@ -421,6 +467,14 @@
             <div><dt>Preparación para la defensa</dt><dd class="si">✓ Incluida</dd></div>
             <div><dt>Atención prioritaria</dt><dd class="si">✓ Incluida</dd></div>
           </dl>
+          <div class="beneficios">
+            <p class="beneficios-titulo">🎁 Beneficios</p>
+            <p class="beneficios-intro">Todo lo del Full, más:</p>
+            <ul>
+              <li>Banco de preguntas para tu defensa</li>
+              <li>35% de descuento en la Academia Jurídica Genesia</li>
+            </ul>
+          </div>
           <a class="boton-secundario" href="#solicitud" data-plan="Premium">Elegir Premium</a>
         </li>
       </ul>
@@ -440,6 +494,7 @@
           <h3>💎 ¿Por qué el Premium?</h3>
           <p>Full Q&nbsp;8,997 + defensa Q&nbsp;1,500 + prioridad Q&nbsp;1,000 + 4 rondas extra Q&nbsp;2,000 + 2 sesiones extra Q&nbsp;400 = <strong>Q&nbsp;13,897</strong>.</p>
           <p><strong>Con el Premium ahorras casi Q&nbsp;1,900.</strong></p>
+          <p>Y además, <strong>35% de descuento</strong> en la Academia Jurídica Genesia.</p>
         </div>
       </div>
 
@@ -476,8 +531,67 @@
     </div>
   </section>
 
-  <!-- ===================== 6. FORMULARIO: se envía por WhatsApp ===================== -->
-  <section class="seccion seccion-azul" id="solicitud">
+  <!-- ===================== 6. PREGUNTAS FRECUENTES ===================== -->
+  <!-- Para agregar otra pregunta, copia un bloque <details> completo -->
+  <section class="seccion seccion-azul" id="preguntas">
+    <div class="contenedor">
+      <h2>Preguntas frecuentes</h2>
+      <div class="preguntas">
+        <details name="preguntas-tesis">
+          <summary>¿Ustedes hacen mi tesis?</summary>
+          <p>Trabajamos contigo en cada etapa: te orientamos en la investigación, la estructura y la redacción, y corregimos contigo cada observación. Tú participas en todo el proceso, porque eres quien la presenta y la defiende.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Garantizan que mi tesis será aprobada?</summary>
+          <p>La aprobación depende de tu universidad. Lo que sí hacemos es trabajar según su instructivo y acompañarte en cada corrección que te pidan.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Con qué universidades trabajan?</summary>
+          <p>Universidad de San Carlos de Guatemala, Mariano Gálvez, Rafael Landívar, Da Vinci y Panamericana. Si tu universidad no está en la lista, escríbenos y revisamos su instructivo.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Tengo que viajar a la capital?</summary>
+          <p>No. Todo tu proceso puede ser en línea, por Google Meet o Zoom, desde cualquier departamento.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Puedo hacer mi trámite de manera presencial?</summary>
+          <p>Sí. Puedes atenderte en cualquiera de nuestras 2 sedes, <strong>con cita previa</strong>:</p>
+          <ul class="sedes">
+            <li><strong>Baja Verapaz:</strong> San Jerónimo, ruta principal, a 2 cuadras de Panadería Doña Lucía.</li>
+            <li><strong>Ciudad de Guatemala:</strong> Edificio Santo Domingo, 11 calle 10-56, zona 1.</li>
+          </ul>
+          <p>Agenda tu cita por WhatsApp o con el formulario de abajo.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Cuánto tiempo tarda mi tesis?</summary>
+          <p>Depende de tu universidad y de los tiempos de revisión de tu asesor. En la primera reunión te damos un calendario estimado.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Cómo pago?</summary>
+          <p>Por depósito o transferencia, por etapas: pagas cada etapa antes de empezarla. También tenemos opciones de 6 u 8 pagos.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Qué pasa si mi asesor pide más correcciones de las que incluye mi plan?</summary>
+          <p>Puedes agregar rondas extra por Q&nbsp;500 cada una, o subir a un plan con más correcciones.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Puedo cambiar de plan?</summary>
+          <p>Sí. Si empezaste con el Plan de investigación y sigues dentro de los 30 días, tus Q&nbsp;3,000 cuentan completos. Entre planes de tesis, pagas solo la diferencia.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>Ya tengo avance, ¿puedo empezar en otra etapa?</summary>
+          <p>Sí, te aceptamos. Evaluamos lo que llevas y te enviamos una propuesta personalizada para tu caso.</p>
+        </details>
+        <details name="preguntas-tesis">
+          <summary>¿Mi información es confidencial?</summary>
+          <p>Sí. Somos abogados y manejamos tu trabajo con total reserva profesional.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. FORMULARIO: se envía por WhatsApp ===================== -->
+  <section class="seccion" id="solicitud">
     <div class="contenedor solicitud">
       <h2>¿Listo para empezar tu tesis?</h2>
       <p class="nota-seccion">Llena tus datos y se abrirá WhatsApp con tu solicitud lista para enviar.</p>
