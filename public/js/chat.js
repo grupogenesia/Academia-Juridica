@@ -43,7 +43,7 @@
     academia_precios: {
       boton: 'Planes y precios',
       area: 'academia',
-      texto: '<b>Presencial:</b> Q 1,800 pago único o Q 350 mensuales.<br><b>Virtual:</b> Q 1,300 pago único o Q 300 mensuales.<br><br>Puedes pagar por depósito o transferencia a la cuenta oficial.',
+      texto: '<b>Presencial:</b> Q 2,500 pago único o 6 mensualidades de Q 500.<br><b>Virtual:</b> Q 1,300 pago único o 6 mensualidades de Q 300.<br><br>Puedes pagar por depósito o transferencia a la cuenta oficial.',
       enlace: ['Ver planes y costos', '/academia/#planes'],
       opciones: ['academia_inscripcion', 'persona', 'academia']
     },
