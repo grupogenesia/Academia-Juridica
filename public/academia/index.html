@@ -20,7 +20,7 @@
   /* ===== AJUSTES DE ESTA PÁGINA PARA LAS SECCIONES AZULES (lo común está en estilos.css) ===== */
   .seccion-azul .bonus h3,
   .seccion-azul .por-que p { color: var(--blanco); }
-  .seccion-azul :is(.metodos li, .resena) { border-color: transparent; }
+  .seccion-azul .resena { border-color: transparent; }
   .seccion-azul .plan { border: none; }
   .seccion-azul .plan-titulo { background: var(--azul-suave); }   /* gris azulado: se distingue del fondo azul */
   .seccion-azul .bonus-titulo span { color: var(--linea); }
@@ -69,26 +69,86 @@
   .bonus-icono svg { width: 36px; height: 36px; stroke: var(--azul); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .bonus h3 { font-size: 19px; line-height: 1.35; }
 
-  /* ===== METODOLOGÍA ===== */
-  .metodos {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 20px;
+  /* ===== METODOLOGÍA: MÉTODO GENESIA (letras que muestran cada pilar) ===== */
+  .metodo-etiqueta { margin: -12px 0 6px; font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #f2cf7a; }
+  .metodo-titulo { color: var(--blanco); font-size: clamp(24px, 4vw, 32px); line-height: 1.2; }
+  .metodo-intro { margin: 14px 0 28px; max-width: 65ch; color: var(--linea); font-size: 18px; }
+  .metodo-intro strong { color: var(--blanco); }
+  .metodo-letras { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; }
+  .metodo-letra {
+    display: grid; justify-items: center; gap: 6px; padding: 16px 6px 14px;
+    background: rgba(247, 248, 249, 0.06); border: 1px solid rgba(242, 207, 122, 0.35); border-radius: 12px;
+    color: var(--blanco); font: inherit; cursor: pointer; transition: background 0.2s, transform 0.2s, border-color 0.2s;
   }
-  .metodos li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px;
-    background: var(--blanco);
-    border: 1px solid var(--linea);
-    border-radius: 6px;
-    font-weight: 600;
+  .metodo-letra b {
+    font-family: var(--letra-titulo); font-size: 40px; line-height: 1; color: #f2cf7a;
+    text-shadow: 0 0 8px rgba(232, 178, 60, 0.6);
   }
-  .metodos svg { width: 40px; height: 40px; flex-shrink: 0; stroke: var(--azul); fill: none; stroke-width: 1.5; }
+  .metodo-letra span { font-size: 13px; font-weight: 600; line-height: 1.25; text-align: center; color: var(--linea); }
+  .metodo-letra:hover { transform: translateY(-3px); border-color: #f2cf7a; }
+  .metodo-letra:focus-visible { outline: 3px solid #f2cf7a; outline-offset: 3px; }
+  .metodo-letra[aria-selected="true"] { background: #f2cf7a; border-color: #f2cf7a; }
+  .metodo-letra[aria-selected="true"] b { color: var(--azul); text-shadow: none; }
+  .metodo-letra[aria-selected="true"] span { color: var(--azul); }
+
+  .metodo-panel { margin-top: 16px; background: var(--blanco); border-radius: 14px; overflow: hidden; animation: aparecer 0.35s ease-out; }
+  @keyframes aparecer { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .metodo-panel-cabeza { display: flex; align-items: center; gap: 20px; padding: 22px 28px; background: linear-gradient(120deg, #fbf0d0 0%, #f7f8f9 100%); border-bottom: 1px solid var(--linea); }
+  .metodo-panel-letra { flex-shrink: 0; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--azul); color: #f2cf7a; font-family: var(--letra-titulo); font-size: 34px; font-weight: 700; }
+  .metodo-panel h4 { margin: 0; font-family: var(--letra-titulo); font-size: 26px; line-height: 1.2; }
+  .metodo-gancho { margin: 4px 0 0; color: #8a5a00; font-weight: 700; }
+  .metodo-panel-cuerpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 36px; padding: 24px 28px 28px; }
+  .metodo-panel-cuerpo > div > p { margin: 0; font-size: 17px; color: var(--azul-suave); }
+  .metodo-panel h5 { margin: 0 0 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--azul-suave); }
+  .metodo-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .metodo-lista li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font-weight: 600; }
+  .metodo-check { width: 22px; height: 22px; stroke: var(--whatsapp); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .metodo-porque { margin: 18px 0 0; padding: 12px 14px; background: var(--gris); border-radius: 8px; font-size: 15px; color: var(--azul-suave); }
+  .metodo-porque strong { color: var(--azul); }
+  /* Extras visuales de algunos pilares */
+  .metodo-linea { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; counter-reset: x; }
+  .metodo-linea li { padding: 10px 6px; border-top: 4px solid #e8be5c; background: var(--gris); border-radius: 4px; text-align: center; font-size: 13px; color: var(--azul-suave); }
+  .metodo-linea strong { display: block; color: var(--azul); font-size: 14px; }
+  .metodo-chips { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .metodo-chips li { padding: 7px 14px; border: 1px solid #e8be5c; border-radius: 999px; background: #fbf5e6; font-weight: 600; font-size: 15px; }
+  .metodo-frase { margin: 18px 0 0 !important; padding: 14px 18px; border-left: 4px solid #e8be5c; background: #fbf5e6; font-family: var(--letra-titulo); font-size: 20px !important; color: var(--azul) !important; }
+  .metodo-palacio { display: grid; gap: 8px; margin-top: 18px; }
+  .metodo-palacio span { padding: 10px 14px; background: var(--gris); border-radius: 8px; }
+  .metodo-caso { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+  .metodo-caso span { display: grid; justify-items: center; gap: 4px; padding: 12px 4px; background: var(--azul); color: var(--linea); border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .metodo-caso b { font-family: var(--letra-titulo); font-size: 30px; color: #f2cf7a; line-height: 1; }
+
+  /* Botón del video "Así es un sábado en Genesia" */
+  .sabado { margin-top: 24px; }
+  .sabado summary {
+    display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; list-style: none; cursor: pointer;
+    background: var(--blanco); color: var(--azul); border-radius: 999px; font-weight: 700; font-size: 17px;
+  }
+  .sabado summary::-webkit-details-marker { display: none; }
+  .sabado summary:hover { background: #fbf0d0; }
+  .sabado summary:focus-visible { outline: 3px solid #f2cf7a; outline-offset: 3px; }
+  .sabado-play { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--azul); color: #f2cf7a; font-size: 13px; padding-left: 2px; }
+  .sabado-play.grande { width: 72px; height: 72px; font-size: 26px; padding-left: 4px; background: rgba(242, 207, 122, 0.15); border: 2px solid #f2cf7a; }
+  .sabado-video { margin-top: 16px; max-width: 760px; }
+  .metodo-panel-cuerpo .metodo-porque { margin-top: 20px; }
+  .video-pendiente { aspect-ratio: 16 / 9; display: grid; place-content: center; justify-items: center; gap: 12px; border: 2px dashed rgba(242, 207, 122, 0.5); border-radius: 14px; background: rgba(0, 0, 0, 0.2); }
+  .video-pendiente p { margin: 0; color: var(--linea); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .metodo-letras { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .metodo-panel-cuerpo { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .metodo-letras { gap: 8px; }
+    .metodo-letra b { font-size: 32px; }
+    .metodo-letra span { font-size: 11px; }
+    .metodo-panel-cabeza { padding: 18px; gap: 14px; }
+    .metodo-panel-letra { width: 52px; height: 52px; font-size: 28px; }
+    .metodo-panel h4 { font-size: 22px; }
+    .metodo-panel-cuerpo { padding: 20px 18px 22px; }
+    .metodo-linea { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .metodo-panel { animation: none; } .metodo-letra { transition: none; } }
 
   /* ===== CURSOS: una tarjeta por fase, con portada y lista de materias ===== */
   .cursos {
@@ -478,28 +538,202 @@
   <section class="seccion seccion-azul">
     <div class="contenedor">
       <h2>Metodología</h2>
-      <ul class="metodos">
-        <li>
-          <!-- Ícono: hoja de examen con palomita -->
-          <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="8" y="4" width="24" height="32" rx="2"/><path d="M13 12h14M13 18h14M13 24h6M22 27l3 3 6-7"/></svg>
-          Simulacros de examen
-        </li>
-        <li>
-          <!-- Ícono: diana -->
-          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="9"/><circle cx="20" cy="20" r="3"/><path d="M20 20 33 7M28 7h5v5"/></svg>
-          Técnicas de estudio y enfoque
-        </li>
-        <li>
-          <!-- Ícono: dos personas conversando -->
-          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="12" cy="16" r="4"/><circle cx="28" cy="16" r="4"/><path d="M4 32c0-5 4-8 8-8s8 3 8 8M20 32c0-5 4-8 8-8s8 3 8 8M16 4h10a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-5l-3 3v-3a3 3 0 0 1-2-3V7"/></svg>
-          Mentorías personalizadas
-        </li>
-        <li>
-          <!-- Ícono: pizarra con profesor -->
-          <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="12" y="5" width="24" height="17" rx="1"/><circle cx="8" cy="15" r="3"/><path d="M8 18v14M4 22l4-2 9-5M5 32h6M20 30h14M22 26v4M28 26v4M34 26v4"/></svg>
-          Clases presenciales
-        </li>
-      </ul>
+
+      <!-- MÉTODO GENESIA: cada letra es un botón que muestra su pilar abajo -->
+      <div class="metodo">
+        <p class="metodo-etiqueta">Método Genesia</p>
+        <h3 class="metodo-titulo">Tu examen privado es oral. Tu preparación también.</h3>
+        <p class="metodo-intro">La mayoría estudia en silencio para un examen que se responde hablando frente a un tribunal. En Genesia entrenas como te van a evaluar, con 7 pilares basados en la ciencia del aprendizaje. <strong>Toca cada letra para conocerlo.</strong></p>
+
+        <div class="metodo-letras" role="tablist" aria-label="Pilares del Método Genesia">
+          <button type="button" class="metodo-letra" role="tab" id="tab-g" aria-controls="panel-g" aria-selected="true" tabindex="0"><b>G</b><span>Gimnasio oral</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-e1" aria-controls="panel-e1" aria-selected="false" tabindex="-1"><b>E</b><span>Espaciado</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-n" aria-controls="panel-n" aria-selected="false" tabindex="-1"><b>N</b><span>Nervios bajo control</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-e2" aria-controls="panel-e2" aria-selected="false" tabindex="-1"><b>E</b><span>Evocación activa</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-s" aria-controls="panel-s" aria-selected="false" tabindex="-1"><b>S</b><span>Simulacro real</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-i" aria-controls="panel-i" aria-selected="false" tabindex="-1"><b>I</b><span>Imaginación</span></button>
+          <button type="button" class="metodo-letra" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="false" tabindex="-1"><b>A</b><span>Argumentación C.A.S.O.</span></button>
+        </div>
+
+        <div class="metodo-panel" role="tabpanel" id="panel-g" aria-labelledby="tab-g">
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">G</span>
+            <div>
+              <h4>Gimnasio oral</h4>
+              <p class="metodo-gancho">Entrenas tu voz como un músculo</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Tu examen privado se responde hablando. Por eso aquí no estudias en silencio: desde el primer día explicas, argumentas y respondes en voz alta.</p>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Explicas cada tema con tus propias palabras, en voz alta.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Eres <strong>“profesor por un día”</strong> frente a tus compañeros.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Llamado en frío:</strong> cualquiera puede ser llamado a responder, como frente al tribunal.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> Decir la información en voz alta se recuerda mejor que leerla en silencio, y enseñar a otros refuerza lo que sabes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-e1" aria-labelledby="tab-e1" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">E</span>
+            <div>
+              <h4>Espaciado</h4>
+              <p class="metodo-gancho">Repasas justo antes de olvidar</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Estudiar todo de golpe se olvida rápido. En Genesia cada tema regresa en el momento justo, una y otra vez, hasta que se queda contigo.</p>
+              <ol class="metodo-linea"><li><strong>Día 1</strong>Clase</li><li><strong>Día 3</strong>Repaso</li><li><strong>Semana 1</strong>Repaso</li><li><strong>Semana 3</strong>Repaso</li><li><strong>Cada mes</strong>Hasta tu examen</li></ol>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Cada tema vuelve en un calendario de repaso.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Tarjetas de pregunta y respuesta para repasar en minutos.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Cada sábado empieza con preguntas de semanas anteriores.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> Repasar en sesiones separadas en el tiempo es una de las técnicas con más evidencia en la ciencia del aprendizaje.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-n" aria-labelledby="tab-n" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">N</span>
+            <div>
+              <h4>Nervios bajo control</h4>
+              <p class="metodo-gancho">Llegas al tribunal con seguridad, no con miedo</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Saber no basta: también hay que demostrarlo bajo presión. Entrenamos tu presencia y tu manejo de los nervios para que el día del examen se sienta como un simulacro más.</p>
+              <ul class="metodo-chips"><li>👁️ Mirada</li><li>🧍 Postura</li><li>🤲 Manos</li><li>🗣️ Voz</li><li>⏸️ Pausa</li></ul>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>Presencia Genesia:</strong> mirada, postura, manos, voz y pausa antes de responder.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Aprendes a convertir los nervios en energía para rendir.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Técnicas de respiración y de preparación antes de cada simulacro.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> El lenguaje corporal influye en cómo te perciben los evaluadores, y practicar bajo presión protege tu memoria el día del examen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-e2" aria-labelledby="tab-e2" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">E</span>
+            <div>
+              <h4>Evocación activa</h4>
+              <p class="metodo-gancho">Aprendes respondiendo, no releyendo</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Releer da la sensación de que ya lo sabes, pero en el examen nadie te deja leer. Aquí entrenas lo que de verdad te van a pedir: sacar la respuesta de tu memoria.</p>
+              <p class="metodo-frase">“Si te cuesta, está funcionando.”</p>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Preguntas rápidas en cada clase, sin abrir el cuaderno.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Retos de preguntas entre una clase y otra.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Detectas a tiempo lo que todavía no dominas.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> Intentar recordar una respuesta fija el conocimiento mucho mejor que volver a leerlo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-s" aria-labelledby="tab-s" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">S</span>
+            <div>
+              <h4>Simulacro real</h4>
+              <p class="metodo-gancho">Practicas frente a un tribunal examinador</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>El día del examen no debe ser la primera vez que te sientas frente a un tribunal. En Genesia lo vives muchas veces antes, cada vez más parecido al real.</p>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Tribunales de práctica con preguntas encadenadas y repreguntas.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Preguntas de varias áreas sin aviso, como en el examen.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Retroalimentación de <strong>lo que dijiste</strong> y de <strong>cómo lo dijiste</strong>.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> Practicar en condiciones parecidas a las del examen mejora tu desempeño el día real.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-i" aria-labelledby="tab-i" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">I</span>
+            <div>
+              <h4>Imaginación</h4>
+              <p class="metodo-gancho">Palacios de la memoria para no olvidar ningún proceso</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Los campeones de memoria no tienen un cerebro distinto: usan una técnica. Te enseñamos a guardar procesos, etapas, requisitos y plazos en lugares que ya conoces.</p>
+              <div class="metodo-palacio"><span>🚪 <strong>Puerta</strong> → primera etapa</span><span>🛋️ <strong>Sala</strong> → segunda etapa</span><span>🍳 <strong>Cocina</strong> → tercera etapa</span></div>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Construyes tu propio palacio de la memoria, como tu casa o tu universidad.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Cada etapa de un proceso se vuelve una imagen fácil de recordar.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>Recorres tu palacio y el proceso aparece completo, en orden.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> El palacio de la memoria es una técnica milenaria, y estudios recientes muestran mejoras de memoria que duran meses.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metodo-panel" role="tabpanel" id="panel-a" aria-labelledby="tab-a" hidden>
+          <div class="metodo-panel-cabeza">
+            <span class="metodo-panel-letra" aria-hidden="true">A</span>
+            <div>
+              <h4>Argumentación C.A.S.O.</h4>
+              <p class="metodo-gancho">Nunca te quedas en blanco</p>
+            </div>
+          </div>
+          <div class="metodo-panel-cuerpo">
+            <div>
+              <p>Frente al tribunal, el orden da seguridad. Toda respuesta se arma con la misma estructura, así siempre sabes por dónde empezar y cómo terminar.</p>
+              <div class="metodo-caso"><span><b>C</b>Concepto</span><span><b>A</b>Artículo</span><span><b>S</b>Supuesto</span><span><b>O</b>Opinión</span></div>
+            </div>
+            <div>
+              <h5>Qué haces</h5>
+              <ul class="metodo-lista">
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>C</strong>oncepto: qué es la institución.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>A</strong>rtículo: su fundamento legal.</span></li>
+                <li><svg class="metodo-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span><strong>S</strong>upuesto y <strong>O</strong>pinión: un ejemplo práctico y tu conclusión.</span></li>
+              </ul>
+              <p class="metodo-porque"><strong>🔬 Por qué funciona:</strong> Inspirado en el método de casos de las facultades de derecho: responder con estructura muestra dominio y criterio.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video "Así es un sábado en Genesia" -->
+        <!-- CAMBIAR: cuando tengas el video, reemplaza el <div class="video-pendiente"> por el <iframe> de YouTube -->
+        <details class="sabado">
+          <summary><span class="sabado-play" aria-hidden="true">▶</span> Así es un sábado en Genesia</summary>
+          <div class="sabado-video">
+            <div class="video-pendiente">
+              <span class="sabado-play grande" aria-hidden="true">▶</span>
+              <p>Video próximamente</p>
+            </div>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -817,6 +1051,34 @@
 <script src="/js/menu.js"></script>
 <!-- Asistente de chat (cuadrito de la esquina) -->
 <script src="/js/chat.js"></script>
+
+<!-- ===================== JAVASCRIPT: Método Genesia (al tocar una letra se muestra su pilar) ===================== -->
+<script>
+  (function () {
+    const letras = Array.from(document.querySelectorAll('.metodo-letra'));
+    function mostrar(boton, enfocar) {
+      letras.forEach(function (b) {
+        const activo = b === boton;
+        b.setAttribute('aria-selected', activo ? 'true' : 'false');
+        b.tabIndex = activo ? 0 : -1;
+        document.getElementById(b.getAttribute('aria-controls')).hidden = !activo;
+      });
+      if (enfocar) boton.focus();
+    }
+    letras.forEach(function (boton, i) {
+      boton.addEventListener('click', function () { mostrar(boton, false); });
+      // Flechas del teclado para moverse entre letras
+      boton.addEventListener('keydown', function (e) {
+        let j = null;
+        if (e.key === 'ArrowRight') j = (i + 1) % letras.length;
+        if (e.key === 'ArrowLeft') j = (i - 1 + letras.length) % letras.length;
+        if (e.key === 'Home') j = 0;
+        if (e.key === 'End') j = letras.length - 1;
+        if (j !== null) { e.preventDefault(); mostrar(letras[j], true); }
+      });
+    });
+  })();
+</script>
 
 <!-- ===================== JAVASCRIPT: selector Mensual / Pago único ===================== -->
 <script>
