@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Academia Jurídica Genesia · Grupo Genesia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --azul: #14374a; --azul-2: #1d4b63; --noche: #0c222e; --suave: #4c6878; --gris: #eef1f3; --blanco: #ffffff;
+    --linea: #d5dce1; --oro: #b7851f; --oro-claro: #f2cf7a; --oro-medio: #e8be5c; --crema: #fbf5e6; --verde: #1f8f4e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Source Sans 3", Arial, sans-serif; color: var(--azul); font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3, h4 { font-family: "Libre Baskerville", Georgia, serif; margin: 0; line-height: 1.15; }
+  p { margin: 0; }
+
+  .pagina { width: 210mm; height: 297mm; position: relative; overflow: hidden; break-after: page; page-break-after: always; background: var(--blanco); }
+  .pagina:last-child { break-after: auto; page-break-after: auto; }
+
+  /* ---------- Banda superior con foto ---------- */
+  .banda { height: 78mm; position: relative; background-size: cover; background-position: center; border-bottom: 2.2mm solid var(--oro-claro); }
+  .banda::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,34,46,0.96) 0%, rgba(20,55,74,0.88) 45%, rgba(20,55,74,0.35) 100%); }
+  .banda .logo-mini { position: absolute; top: 11mm; left: 18mm; height: 10mm; filter: brightness(0) invert(1); }
+  .banda .texto { position: absolute; left: 18mm; right: 18mm; bottom: 13mm; color: #fff; }
+  .kicker { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--oro-claro); margin-bottom: 2.5mm; }
+  .banda h2 { font-size: 27pt; color: #fff; max-width: 140mm; }
+  .banda .num { position: absolute; right: 16mm; top: 6mm; font-family: "Libre Baskerville", serif; font-size: 72pt; font-weight: 700; color: rgba(242,207,122,0.22); line-height: 1; }
+
+  .cuerpo { padding: 11mm 18mm 0; }
+  .pie { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between; align-items: center; padding-top: 3mm; border-top: 0.4mm solid var(--oro-medio); font-size: 8pt; color: var(--suave); }
+  .pie b { color: var(--azul); letter-spacing: 0.08em; }
+
+  /* ---------- Iconos ---------- */
+  .ico { width: 13mm; height: 13mm; flex-shrink: 0; border-radius: 50%; background: var(--azul); display: grid; place-items: center; }
+  .ico svg { width: 6.6mm; height: 6.6mm; fill: none; stroke: var(--oro-claro); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* =========================== PORTADA =========================== */
+  .portada { background: url(academia-portada.jpg) center / cover; color: #fff; }
+  .portada::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,34,46,0.55) 0%, rgba(12,34,46,0.35) 30%, rgba(12,34,46,0.92) 58%, #0c222e 100%); }
+  .portada .marca { position: absolute; top: 15mm; left: 18mm; display: flex; align-items: center; gap: 4mm; }
+  .portada .marca img { height: 15mm; filter: brightness(0) invert(1); }
+  .portada .marca span { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--oro-claro); border-left: 0.4mm solid rgba(242,207,122,0.6); padding-left: 4mm; }
+  .portada .abajo { position: absolute; left: 18mm; right: 18mm; bottom: 26mm; }
+  .portada .barra { width: 24mm; height: 1.4mm; background: var(--oro-claro); border-radius: 1mm; margin-bottom: 7mm; }
+  .portada .chip { display: inline-block; padding: 2mm 5mm; border: 0.35mm solid rgba(242,207,122,0.7); border-radius: 20mm; font-size: 9.5pt; font-weight: 700; color: var(--oro-claro); margin-bottom: 7mm; }
+  .portada h1 { font-size: 50pt; color: #fff; line-height: 1.02; }
+  .portada h1 em { display: block; font-style: italic; font-weight: 400; color: var(--oro-claro); }
+  .portada .lema { margin-top: 6mm; font-size: 14pt; color: #e3e8eb; max-width: 135mm; }
+  .portada .fila { margin-top: 11mm; display: flex; align-items: center; gap: 7mm; }
+  .portada .gratis { padding: 3.6mm 8mm; background: var(--oro-claro); color: var(--azul); border-radius: 20mm; font-weight: 700; font-size: 12pt; }
+  .portada .contacto { font-size: 10pt; color: #d5dce1; line-height: 1.5; }
+  .portada .contacto b { color: #fff; }
+
+  /* =========================== PÁGINA 2 =========================== */
+  .intro-grande { font-family: "Libre Baskerville", serif; font-size: 13.5pt; line-height: 1.55; color: var(--azul); padding-left: 5mm; border-left: 1.2mm solid var(--oro-claro); margin-bottom: 9mm; }
+  .razones { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 8mm; }
+  .razon { display: flex; gap: 4.5mm; align-items: flex-start; }
+  .razon h3 { font-size: 12.5pt; margin: 1mm 0 1.5mm; }
+  .razon p { color: var(--suave); font-size: 10pt; }
+  .unis { margin-top: 10mm; padding: 6mm 7mm; background: var(--gris); border-radius: 3mm; }
+  .unis .t { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oro); margin-bottom: 3.5mm; }
+  .unis ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 6mm; }
+  .unis li { display: flex; align-items: center; gap: 2.5mm; font-weight: 600; font-size: 10pt; }
+  .unis li::before { content: ""; width: 2mm; height: 2mm; border-radius: 50%; background: var(--oro-medio); flex-shrink: 0; }
+  .unis .nota { margin-top: 3.5mm; font-size: 9pt; color: var(--suave); }
+  .banner-gratis { margin-top: 8mm; display: flex; align-items: center; gap: 6mm; padding: 6.5mm 8mm; border-radius: 3mm; background: linear-gradient(115deg, #f6dc94 0%, #e8be5c 100%); }
+  .banner-gratis .ico { background: var(--azul); width: 15mm; height: 15mm; }
+  .banner-gratis h3 { font-size: 15pt; margin-bottom: 1mm; }
+  .banner-gratis p { font-size: 10.5pt; }
+
+  /* =========================== PÁGINA 3 =========================== */
+  .dos-col { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 9mm; }
+  .linea-tiempo { list-style: none; margin: 0; padding: 0; position: relative; counter-reset: n; }
+  .linea-tiempo::before { content: ""; position: absolute; left: 5.5mm; top: 4mm; bottom: 8mm; width: 0.5mm; background: var(--oro-medio); }
+  .linea-tiempo li { counter-increment: n; position: relative; padding: 0 0 6mm 17mm; }
+  .linea-tiempo li::before { content: counter(n); position: absolute; left: 0; top: 0; width: 11mm; height: 11mm; border-radius: 50%; background: var(--azul); color: var(--oro-claro); display: grid; place-items: center; font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 12pt; box-shadow: 0 0 0 1.2mm #fff; }
+  .linea-tiempo h3 { font-size: 11.5pt; margin: 0.6mm 0 1mm; }
+  .linea-tiempo p { font-size: 9.6pt; color: var(--suave); }
+  .tag-gratis { display: inline-block; margin-left: 1.5mm; padding: 0.2mm 2.3mm; border-radius: 5mm; background: var(--oro-claro); font-family: "Source Sans 3", sans-serif; font-size: 7.5pt; font-weight: 700; vertical-align: 1px; }
+  .panel-etapas { background: linear-gradient(170deg, var(--azul-2) 0%, var(--azul) 40%, var(--noche) 100%); color: #fff; border-radius: 4mm; padding: 7mm 6.5mm; }
+  .panel-etapas .kicker { margin-bottom: 1.5mm; }
+  .panel-etapas h3 { font-size: 15pt; color: #fff; margin-bottom: 5mm; }
+  .etapa { display: grid; grid-template-columns: 10mm 1fr; gap: 3.5mm; padding: 3.5mm 0; border-top: 0.3mm solid rgba(242,207,122,0.3); }
+  .etapa b { font-family: "Libre Baskerville", serif; font-size: 19pt; color: var(--oro-claro); line-height: 1; }
+  .etapa h4 { font-family: "Source Sans 3", sans-serif; font-size: 10.5pt; color: #fff; margin-bottom: 0.6mm; }
+  .etapa p { font-size: 8.8pt; color: #c9d3d9; line-height: 1.35; }
+  .panel-etapas .def { margin-top: 3mm; padding: 3mm 3.5mm; background: rgba(242,207,122,0.12); border-radius: 2mm; font-size: 8.6pt; color: #e3e8eb; }
+  .panel-etapas .def b { color: var(--oro-claro); }
+
+  /* =========================== PÁGINA 4 · PLANES (oscura) =========================== */
+  .oscura { background: radial-gradient(circle at 85% 0%, #24597a 0%, var(--azul) 38%, var(--noche) 100%); color: #fff; }
+  .oscura .cab { padding: 15mm 18mm 0; display: flex; justify-content: space-between; align-items: flex-start; }
+  .oscura .cab img { height: 10mm; filter: brightness(0) invert(1); }
+  .oscura .cab .num { font-family: "Libre Baskerville", serif; font-size: 50pt; font-weight: 700; color: rgba(242,207,122,0.22); line-height: 0.9; }
+  .oscura .titulo { padding: 6mm 18mm 0; }
+  .oscura h2 { font-size: 27pt; color: #fff; }
+  .oscura .chip { display: inline-block; margin-top: 3mm; padding: 1.5mm 4.5mm; border: 0.35mm solid rgba(242,207,122,0.6); border-radius: 20mm; font-size: 9pt; font-weight: 600; color: var(--oro-claro); }
+  .plan-inv { margin: 7mm 18mm 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6mm; padding: 5mm 6mm; background: rgba(255,255,255,0.07); border: 0.35mm solid rgba(242,207,122,0.45); border-radius: 3mm; }
+  .plan-inv .k { font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro-claro); }
+  .plan-inv h3 { font-size: 14pt; color: #fff; margin: 1mm 0 1.5mm; }
+  .plan-inv p { font-size: 9pt; color: #c9d3d9; }
+  .plan-inv .precio { text-align: right; }
+  .plan-inv .precio b { display: block; font-family: "Libre Baskerville", serif; font-size: 22pt; color: #fff; }
+  .plan-inv .precio span { font-size: 8.8pt; color: var(--oro-claro); }
+  .tarjetas { margin: 11mm 18mm 0; display: grid; grid-template-columns: 1fr 1.08fr 1fr; gap: 4mm; align-items: stretch; }
+  .tarjeta { position: relative; background: #fff; color: var(--azul); border-radius: 3.5mm; padding: 7mm 5mm 5mm; display: flex; flex-direction: column; }
+  .tarjeta.full { margin-top: -5mm; padding-top: 11mm; box-shadow: 0 0 0 0.8mm var(--oro-medio), 0 6mm 14mm rgba(0,0,0,0.35); }
+  .cinta { position: absolute; top: -3.3mm; left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 1.3mm 4mm; background: var(--oro-claro); color: var(--azul); border-radius: 20mm; font-size: 8pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .tarjeta h3 { font-size: 17pt; }
+  .tarjeta .res { font-size: 8.6pt; color: var(--suave); margin: 1.2mm 0 3.5mm; min-height: 8mm; }
+  .tarjeta .precio { font-family: "Libre Baskerville", serif; font-size: 21pt; font-weight: 700; line-height: 1; }
+  .tarjeta .mes { font-size: 8.8pt; color: var(--suave); margin-top: 1.5mm; }
+  .tarjeta .ahorro { display: inline-block; margin-top: 2.5mm; padding: 0.6mm 3mm; border-radius: 5mm; background: var(--crema); color: #8a5a00; font-size: 8.4pt; font-weight: 700; }
+  .tarjeta.full .ahorro { background: var(--oro-medio); color: var(--azul); }
+  .tarjeta ul { list-style: none; margin: 4mm 0 0; padding: 3.5mm 0 0; border-top: 0.3mm solid var(--linea); display: grid; gap: 2mm; }
+  .tarjeta li { position: relative; padding-left: 4.5mm; font-size: 8.8pt; line-height: 1.3; }
+  .tarjeta li::before { content: "✓"; position: absolute; left: 0; color: var(--verde); font-weight: 700; }
+  .tarjeta li.mas::before { content: "+"; color: var(--oro); }
+  .tarjeta .ben { margin-top: auto; padding-top: 4mm; }
+  .tarjeta .ben div { padding: 3mm; background: var(--crema); border-radius: 2mm; font-size: 8.3pt; line-height: 1.35; }
+  .tarjeta .ben b { display: block; font-size: 7.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oro); margin-bottom: 1mm; }
+  .incluyen { margin: 8mm 18mm 0; text-align: center; font-size: 9.5pt; color: #c9d3d9; }
+  .incluyen b { color: var(--oro-claro); }
+  .oscura .pie { border-top-color: rgba(242,207,122,0.4); color: #c9d3d9; }
+  .oscura .pie b { color: #fff; }
+
+  /* =========================== PÁGINA 5 · INVERSIÓN =========================== */
+  .tabla-pagos { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 10pt; border-radius: 3mm; overflow: hidden; border: 0.3mm solid var(--linea); }
+  .tabla-pagos th, .tabla-pagos td { padding: 3mm 4.5mm; text-align: left; border-bottom: 0.3mm solid var(--linea); }
+  .tabla-pagos thead th { background: var(--azul); color: #fff; font-size: 7.8pt; letter-spacing: 0.14em; text-transform: uppercase; }
+  .tabla-pagos tbody tr:last-child td { border-bottom: none; }
+  .tabla-pagos td.p { font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 11pt; }
+  .tabla-pagos tr.full td { background: var(--crema); }
+  .tabla-pagos .pct { display: inline-block; padding: 0.4mm 2.6mm; border-radius: 5mm; background: var(--gris); font-weight: 700; font-size: 9pt; }
+  .tabla-pagos tr.full .pct { background: var(--oro-medio); }
+  .nota { margin-top: 2.5mm; font-size: 8.6pt; color: var(--suave); }
+  .destacados { margin-top: 8mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .dest { padding: 5.5mm 5mm; border-radius: 3mm; background: var(--gris); }
+  .dest .grande { font-family: "Libre Baskerville", serif; font-size: 25pt; font-weight: 700; line-height: 1; color: var(--azul); margin-bottom: 2mm; }
+  .dest h4 { font-family: "Source Sans 3", sans-serif; font-size: 10.5pt; margin-bottom: 1mm; }
+  .dest p { font-size: 8.8pt; color: var(--suave); line-height: 1.35; }
+  .dest.oro { background: linear-gradient(130deg, #f6dc94, #e8be5c); }
+  .dest.oro p { color: var(--azul); }
+  .dest.azul { background: var(--azul); color: #fff; }
+  .dest.azul .grande { color: var(--oro-claro); }
+  .dest.azul h4 { color: #fff; }
+  .dest.azul p { color: #c9d3d9; }
+  .extras { margin-top: 8mm; display: grid; grid-template-columns: 1fr 1fr; gap: 0 8mm; }
+  .extras h3 { grid-column: 1 / -1; font-size: 13.5pt; margin-bottom: 3mm; }
+  .extra { display: flex; justify-content: space-between; gap: 3mm; padding: 2.4mm 0; border-bottom: 0.3mm dashed var(--linea); font-size: 9.5pt; }
+  .extra b { color: var(--oro); white-space: nowrap; }
+  .maestria { margin-top: 8mm; display: flex; align-items: center; gap: 5mm; padding: 5mm 6mm; border: 0.4mm solid var(--oro-medio); border-radius: 3mm; }
+  .maestria h3 { font-size: 12pt; margin-bottom: 1mm; }
+  .maestria p { font-size: 9.5pt; color: var(--suave); }
+
+  /* =========================== PÁGINA 6 · PREGUNTAS =========================== */
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 5.5mm 9mm; }
+  .q { display: grid; grid-template-columns: 7.5mm 1fr; gap: 3mm; align-items: start; }
+  .q::before { content: "?"; width: 7.5mm; height: 7.5mm; border-radius: 50%; background: var(--oro-claro); color: var(--azul); display: grid; place-items: center; font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 10.5pt; }
+  .q h3 { font-size: 10.6pt; margin: 0.8mm 0 1.2mm; }
+  .q p { font-size: 9.2pt; color: var(--suave); line-height: 1.4; }
+  .q.ancha { grid-column: 1 / -1; }
+
+  /* =========================== CONTRAPORTADA =========================== */
+  .final { background: url(genesia-portada.jpg) center / cover; color: #fff; }
+  .final::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,34,46,0.93) 0%, rgba(12,34,46,0.88) 55%, rgba(12,34,46,0.97) 100%); }
+  .final .centro { position: absolute; top: 34mm; left: 22mm; right: 22mm; text-align: center; }
+  .final .barra { width: 24mm; height: 1.4mm; background: var(--oro-claro); border-radius: 1mm; margin: 0 auto 8mm; }
+  .final h2 { font-size: 30pt; color: #fff; }
+  .final h2 em { font-style: italic; font-weight: 400; color: var(--oro-claro); }
+  .final .sub { margin-top: 4mm; font-size: 12.5pt; color: #d5dce1; }
+  .final .cta { display: inline-flex; align-items: center; gap: 3mm; margin-top: 10mm; padding: 5mm 11mm; background: var(--verde); border-radius: 3mm; font-weight: 700; font-size: 15pt; color: #fff; }
+  .final .datos { margin: 14mm auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; text-align: left; }
+  .final .dato { padding: 5mm 5.5mm; background: rgba(255,255,255,0.06); border: 0.35mm solid rgba(242,207,122,0.4); border-radius: 3mm; }
+  .final .dato.ancho { grid-column: 1 / -1; text-align: center; }
+  .final .dato b { display: block; font-size: 7.8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oro-claro); margin-bottom: 1.5mm; }
+  .final .dato span { font-size: 10pt; color: #e3e8eb; }
+  .final .logo { position: absolute; bottom: 22mm; left: 0; right: 0; text-align: center; }
+  .final .logo img { height: 17mm; filter: brightness(0) invert(1); }
+  .final .legal { position: absolute; bottom: 13mm; left: 0; right: 0; text-align: center; font-size: 8pt; color: #a9b7bf; }
+  .extras { margin-top: 7mm; }
+  .maestria { margin-top: 6mm; }
+  .destacados { margin-top: 7mm; }
+  .linea-tiempo li { padding-bottom: 8.5mm; }
+  .linea-tiempo h3 { font-size: 12.5pt; }
+  .linea-tiempo p { font-size: 10pt; }
+  .banda { height: 72mm; }
+  .tabla-pagos th, .tabla-pagos td { padding: 2.5mm 4.5mm; }
+  .dest { padding: 4.8mm 5mm; }
+  .tarjeta .ahorro { align-self: flex-start; }
+</style>
+<style>
+  /* ===== Ajustes propios del folleto de la Academia ===== */
+  .portada { background-image: url(academia-aula.jpg); }
+  .portada h1 { font-size: 44pt; }
+  .portada .inicio { display: inline-block; margin-top: 8mm; padding: 3.6mm 8mm; background: var(--oro-claro); color: var(--azul); border-radius: 20mm; font-weight: 700; font-size: 12.5pt; }
+
+  .promesas { display: grid; gap: 6mm; }
+  .promesa { display: flex; gap: 5mm; align-items: flex-start; }
+  .promesa h3 { font-size: 13pt; margin: 1mm 0 1.2mm; }
+  .promesa p { color: var(--suave); font-size: 10pt; }
+  .modalidades { margin-top: 9mm; display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .modalidad { padding: 6mm; border-radius: 3mm; background: var(--gris); }
+  .modalidad.azul { background: var(--azul); color: #fff; }
+  .modalidad .k { font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro); margin-bottom: 1.5mm; }
+  .modalidad.azul .k { color: var(--oro-claro); }
+  .modalidad h3 { font-size: 16pt; margin-bottom: 2mm; }
+  .modalidad.azul h3 { color: #fff; }
+  .modalidad p { font-size: 9.8pt; color: var(--suave); }
+  .modalidad.azul p { color: #c9d3d9; }
+  .banner-inicio { margin-top: 8mm; display: flex; align-items: center; gap: 6mm; padding: 6mm 8mm; border-radius: 3mm; background: linear-gradient(115deg, #f6dc94 0%, #e8be5c 100%); }
+  .banner-inicio .ico { width: 15mm; height: 15mm; }
+  .banner-inicio h3 { font-size: 16pt; margin-bottom: 1mm; }
+
+  /* Método Genesia (página oscura) */
+  .metodo-intro { padding: 4mm 18mm 0; color: #c9d3d9; font-size: 10.5pt; max-width: 175mm; }
+  .pilares { margin: 7mm 18mm 0; display: grid; gap: 3.2mm; }
+  .pilar { display: grid; grid-template-columns: 15mm 1fr; gap: 5mm; align-items: center; padding: 3.6mm 5mm 3.6mm 4mm; background: rgba(255,255,255,0.06); border: 0.3mm solid rgba(242,207,122,0.3); border-radius: 3mm; }
+  .pilar > b { width: 15mm; height: 15mm; border-radius: 3mm; background: var(--oro-claro); color: var(--azul); display: grid; place-items: center; font-family: "Libre Baskerville", serif; font-size: 22pt; line-height: 1; }
+  .pilar h3 { font-size: 12.5pt; color: #fff; }
+  .pilar h3 span { font-family: "Source Sans 3", sans-serif; font-size: 9.5pt; font-weight: 700; color: var(--oro-claro); margin-left: 2mm; }
+  .pilar p { margin-top: 0.8mm; font-size: 9.2pt; color: #c9d3d9; line-height: 1.38; }
+  .caso { display: inline-flex; gap: 1.5mm; margin-left: 2mm; vertical-align: 1px; }
+  .caso i { font-style: normal; display: inline-grid; place-items: center; width: 5mm; height: 5mm; border-radius: 1mm; background: rgba(242,207,122,0.2); color: var(--oro-claro); font-size: 8pt; font-weight: 700; }
+  .lema-metodo { margin: 6mm 18mm 0; text-align: center; font-family: "Libre Baskerville", serif; font-style: italic; font-size: 12pt; color: var(--oro-claro); }
+
+  /* Cursos */
+  .cursos { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .curso { border-radius: 3.5mm; overflow: hidden; border: 0.3mm solid var(--linea); }
+  .curso .tapa { padding: 6mm 6mm 5mm; background: var(--azul); color: #fff; }
+  .curso.publica .tapa { background: linear-gradient(130deg, var(--azul-2), var(--noche)); }
+  .curso .tapa small { font-size: 8pt; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--oro-claro); }
+  .curso .tapa h3 { font-size: 22pt; color: #fff; margin-top: 1mm; }
+  .curso ul { list-style: none; margin: 0; padding: 4mm 6mm 5mm; }
+  .curso li { display: flex; gap: 3mm; align-items: center; padding: 2.4mm 0; border-bottom: 0.3mm solid var(--linea); font-weight: 600; font-size: 10.5pt; }
+  .curso li:last-child { border-bottom: none; }
+  .curso li::before { content: "§"; color: var(--oro); font-family: "Libre Baskerville", serif; font-weight: 700; }
+  .bonus-t { margin: 9mm 0 4mm; font-size: 15pt; }
+  .bonus-t span { color: var(--oro); }
+  .bonus { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+  .bono { padding: 5mm 4mm; border-radius: 3mm; background: var(--gris); text-align: center; }
+  .bono .ico { margin: 0 auto 3mm; }
+  .bono p { font-size: 9.4pt; font-weight: 700; line-height: 1.3; }
+
+  /* Planes */
+  .planes-ac { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .plan-ac { border-radius: 3.5mm; overflow: hidden; border: 0.3mm solid var(--linea); display: flex; flex-direction: column; }
+  .plan-ac .tapa { padding: 5.5mm 6mm; background: var(--azul); color: #fff; }
+  .plan-ac .tapa h3 { font-size: 19pt; color: #fff; }
+  .plan-ac .tapa p { font-size: 9pt; color: #c9d3d9; margin-top: 1mm; }
+  .plan-ac dl { margin: 0; padding: 2mm 6mm; flex-grow: 1; }
+  .plan-ac dl div { display: grid; grid-template-columns: 22mm 1fr; gap: 3mm; padding: 2.6mm 0; border-bottom: 0.3mm solid var(--linea); font-size: 9.8pt; }
+  .plan-ac dl div:last-child { border-bottom: none; }
+  .plan-ac dt { font-size: 7.8pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--suave); padding-top: 0.6mm; }
+  .plan-ac dd { margin: 0; font-weight: 700; }
+  .plan-ac dd small { display: block; font-weight: 400; color: var(--suave); font-size: 8.8pt; }
+  .plan-ac .precios { display: grid; grid-template-columns: 1fr 1fr; background: var(--gris); }
+  .plan-ac .precios div { padding: 4.5mm 5mm; }
+  .plan-ac .precios div + div { border-left: 0.3mm solid var(--linea); }
+  .plan-ac .precios small { display: block; font-size: 7.6pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--suave); }
+  .plan-ac .precios b { display: block; font-family: "Libre Baskerville", serif; font-size: 19pt; margin: 1mm 0; }
+  .plan-ac .precios b i { font-style: normal; font-family: "Source Sans 3", sans-serif; font-size: 10pt; font-weight: 400; color: var(--suave); }
+  .plan-ac .precios span { font-size: 8.4pt; color: var(--suave); }
+  .plan-ac .precios .ah { display: inline-block; padding: 0.4mm 2.5mm; border-radius: 5mm; background: var(--oro-medio); color: var(--azul); font-weight: 700; }
+  .extras-ac { margin-top: 7mm; display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .extras-ac .dest h4 { font-size: 11pt; }
+  .inscribete { margin-top: 7mm; padding: 5mm 6mm; border: 0.4mm solid var(--oro-medio); border-radius: 3mm; display: flex; gap: 5mm; align-items: center; }
+  .inscribete h3 { font-size: 12pt; margin-bottom: 1mm; }
+  .inscribete p { font-size: 9.6pt; color: var(--suave); }
+
+  /* Testimonios + preguntas */
+  .resenas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4.5mm; }
+  .resena { padding: 5.5mm 5mm; border-radius: 3mm; background: var(--gris); position: relative; }
+  .resena::before { content: "“"; position: absolute; top: 1mm; right: 4mm; font-family: "Libre Baskerville", serif; font-size: 40pt; color: rgba(183,133,31,0.25); line-height: 1; }
+  .estrellas { color: var(--oro); letter-spacing: 1mm; font-size: 11pt; }
+  .resena blockquote { margin: 2.5mm 0 4mm; font-family: "Libre Baskerville", serif; font-style: italic; font-size: 10pt; line-height: 1.5; }
+  .resena b { display: block; font-size: 10pt; }
+  .resena small { color: var(--suave); font-size: 8.6pt; }
+  .faq-t { margin: 10mm 0 5mm; font-size: 16pt; }
+  .faq4 { display: grid; grid-template-columns: 1fr 1fr; gap: 5.5mm 9mm; }
+</style>
+<style>
+  .oscura h2 { font-size: 24pt; }
+  .pilares { gap: 2.6mm; margin-top: 6mm; }
+  .pilar { padding: 3mm 5mm 3mm 4mm; }
+  .lema-metodo { margin-top: 5mm; }
+  .plan-ac .precios b { font-size: 16pt; white-space: nowrap; }
+  .plan-ac .precios div { padding: 4mm 4.5mm; }
+  .resena { padding: 7mm 6mm; }
+  .resena blockquote { font-size: 11pt; margin: 3.5mm 0 5mm; }
+  .faq4 .q h3 { font-size: 11.5pt; }
+  .faq4 .q p { font-size: 10pt; }
+  .cta-final { margin-top: 10mm; display: flex; align-items: center; justify-content: space-between; gap: 6mm; padding: 7mm 8mm; border-radius: 3.5mm; background: linear-gradient(120deg, var(--azul-2), var(--noche)); color: #fff; }
+  .cta-final h3 { font-size: 16pt; color: #fff; margin-bottom: 1.5mm; }
+  .cta-final p { color: #c9d3d9; font-size: 10pt; }
+  .cta-final .btn { flex-shrink: 0; padding: 4mm 7mm; background: var(--verde); border-radius: 3mm; font-weight: 700; font-size: 12pt; color: #fff; }
+</style>
+</head>
+<body>
+
+
+<!-- ======================= 1. PORTADA ======================= -->
+<section class="pagina portada">
+  <div class="marca"><img src="logo.png" alt="Genesia"><span>Grupo Genesia</span></div>
+  <div class="abajo">
+    <div class="barra"></div>
+    <span class="chip">⚖️ Fase Privada · Fase Pública</span>
+    <h1>Academia <em>Jurídica Genesia</em></h1>
+    <p class="lema">Preparación para tu examen de Fase Privada y Fase Pública, en modalidad presencial o virtual, con el Método Genesia.</p>
+    <div class="fila">
+      <span class="gratis">📅 ¡Inicio de clases: Enero 2027!</span>
+      <span class="contacto">WhatsApp <b>+502 4107 7030</b><br>Instagram <b>@grupogenesia</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. POR QUÉ ELEGIRNOS ======================= -->
+<section class="pagina">
+  <header class="banda" style="background-image:url(academia-portada.jpg)">
+    <img class="logo-mini" src="logo.png" alt="">
+    <span class="num">01</span>
+    <div class="texto"><p class="kicker">Tu preparación</p><h2>¿Por qué elegirnos?</h2></div>
+  </header>
+  <div class="cuerpo">
+    <p class="intro-grande">Transformamos la preparación jurídica tradicional en una experiencia formativa moderna, práctica y orientada a resultados, que integra el conocimiento teórico con la aplicación real del Derecho.</p>
+    <div class="promesas">
+      <div class="promesa"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><div><h3>Aprendes lo que evalúan</h3><p>Entrenas para el examen oral tal como te van a evaluar: hablando, argumentando y respondiendo frente a un tribunal.</p></div></div>
+      <div class="promesa"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6M17 11l2 2 4-4"/></svg></span><div><h3>Recibes una guía personalizada</h3><p>Mentorías, calendario de estudios personalizado y acompañamiento en cada tema.</p></div></div>
+      <div class="promesa"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><div><h3>Alcanzas tu objetivo</h3><p>Llegas a tu examen preparado, con práctica real y con seguridad para responder.</p></div></div>
+    </div>
+    <div class="modalidades">
+      <div class="modalidad"><p class="k">Fin de semana</p><h3>Presencial</h3><p>Sábados en San Jerónimo, Baja Verapaz. Domingo a requerimiento.</p></div>
+      <div class="modalidad azul"><p class="k">Entre semana</p><h3>Virtual</h3><p>Martes y jueves por Google Meet, desde cualquier lugar.</p></div>
+    </div>
+    <div class="banner-inicio">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+      <div><h3>¡Inicio de clases: Enero 2027!</h3><p>Curso de Enero a Junio 2027. Reserva tu lugar desde ahora.</p></div>
+    </div>
+  </div>
+  <div class="pie"><b>ACADEMIA JURÍDICA GENESIA</b><span>Grupo Genesia · 2</span></div>
+</section>
+
+<!-- ======================= 3. MÉTODO GENESIA ======================= -->
+<section class="pagina oscura">
+  <div class="cab"><img src="logo.png" alt=""><span class="num">02</span></div>
+  <div class="titulo">
+    <p class="kicker">Metodología · Método Genesia</p>
+    <h2>Tu examen privado es oral. Tu preparación también.</h2>
+  </div>
+  <p class="metodo-intro">La mayoría estudia en silencio para un examen que se responde hablando frente a un tribunal. En Genesia entrenas como te van a evaluar, con 7 pilares basados en la ciencia del aprendizaje.</p>
+  <div class="pilares">
+    <div class="pilar"><b>G</b><div><h3>Gimnasio oral <span>Entrenas tu voz como un músculo</span></h3><p>Explicas cada tema con tus propias palabras, en voz alta, y respondes preguntas sin previo aviso, igual que frente al tribunal examinador.</p></div></div>
+    <div class="pilar"><b>E</b><div><h3>Espaciado <span>Repasas justo antes de olvidar</span></h3><p>Cada tema regresa en un calendario de repaso: día 1, día 3, semana 1, semana 3 y cada mes hasta tu examen.</p></div></div>
+    <div class="pilar"><b>N</b><div><h3>Nervios bajo control <span>Seguridad, no miedo</span></h3><p>Presencia Genesia: mirada, postura, manos, voz y pausa antes de responder. Conviertes los nervios en energía para rendir.</p></div></div>
+    <div class="pilar"><b>E</b><div><h3>Evocación activa <span>Aprendes respondiendo, no releyendo</span></h3><p>Preguntas rápidas en cada clase, sin abrir el cuaderno. Si te cuesta, está funcionando.</p></div></div>
+    <div class="pilar"><b>S</b><div><h3>Simulacro real <span>Frente a un tribunal examinador</span></h3><p>Tribunales de práctica con preguntas encadenadas, repreguntas y áreas mezcladas, con retroalimentación de lo que dijiste y de cómo lo dijiste.</p></div></div>
+    <div class="pilar"><b>I</b><div><h3>Imaginación <span>Palacios de la memoria</span></h3><p>Guardas procesos, etapas, requisitos y plazos en lugares que ya conoces, para no olvidar ningún proceso.</p></div></div>
+    <div class="pilar"><b>A</b><div><h3>Argumentación <span class="caso"><i>C</i><i>A</i><i>S</i><i>O</i></span></h3><p>Toda respuesta con la misma estructura: Concepto, Artículo, Supuesto y Opinión. Nunca te quedas en blanco.</p></div></div>
+  </div>
+  <p class="lema-metodo">“No solo memorizas: aprendes a responder y defender frente al tribunal.”</p>
+  <div class="pie"><b>ACADEMIA JURÍDICA GENESIA</b><span>Grupo Genesia · 3</span></div>
+</section>
+
+<!-- ======================= 4. CURSOS Y BONUS ======================= -->
+<section class="pagina">
+  <header class="banda" style="background-image:url(abogados-reunion.jpg)">
+    <img class="logo-mini" src="logo.png" alt="">
+    <span class="num">03</span>
+    <div class="texto"><p class="kicker">Lo que estudias</p><h2>Nuestros cursos</h2></div>
+  </header>
+  <div class="cuerpo">
+    <div class="cursos">
+      <div class="curso">
+        <div class="tapa"><small>Curso de</small><h3>Fase Privada</h3></div>
+        <ul><li>Derecho Constitucional</li><li>Derecho Mercantil</li><li>Derecho Notarial</li><li>Derecho Civil y Procesal Civil</li><li>Leyes especiales</li></ul>
+      </div>
+      <div class="curso publica">
+        <div class="tapa"><small>Curso de</small><h3>Fase Pública</h3></div>
+        <ul><li>Derecho Constitucional</li><li>Derecho Administrativo</li><li>Derecho Penal</li><li>Derecho Laboral</li><li>Leyes especiales</li></ul>
+      </div>
+    </div>
+    <h3 class="bonus-t">Bonus <span>+</span> incluidos en tu curso</h3>
+    <div class="bonus">
+      <div class="bono"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></span><p>Material didáctico en Drive</p></div>
+      <div class="bono"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-3-3"/></svg></span><p>Grupo de WhatsApp para preguntas</p></div>
+      <div class="bono"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><path d="M3 20c0-4 2-6 5-6s5 2 5 6M14 4h7v8h-7M17 12l-2 4"/></svg></span><p>Clases magistrales con expertos</p></div>
+      <div class="bono"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg></span><p>Calendario de estudios personalizado</p></div>
+    </div>
+    <div class="banner-inicio" style="margin-top:9mm">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4Z"/><path d="M8 9h8M8 12h5"/></svg></span>
+      <div><h3>Así es un sábado en Genesia</h3><p>Calentamiento oral, clase con estructura C.A.S.O., práctica en tríos, tribunal en vivo y casos mezclados. Muy pronto, en video.</p></div>
+    </div>
+  </div>
+  <div class="pie"><b>ACADEMIA JURÍDICA GENESIA</b><span>Grupo Genesia · 4</span></div>
+</section>
+
+<!-- ======================= 5. PLANES Y COSTOS ======================= -->
+<section class="pagina">
+  <header class="banda" style="background-image:url(oficina-abogados.jpg)">
+    <img class="logo-mini" src="logo.png" alt="">
+    <span class="num">04</span>
+    <div class="texto"><p class="kicker">Inversión</p><h2>Planes y costos</h2></div>
+  </header>
+  <div class="cuerpo">
+    <div class="planes-ac">
+      <div class="plan-ac">
+        <div class="tapa"><h3>Presencial</h3><p>Plan fin de semana · Duración 6 meses</p></div>
+        <dl>
+          <div><dt>Lugar</dt><dd>San Jerónimo, Baja Verapaz</dd></div>
+          <div><dt>Días</dt><dd>Sábado<small>Domingo a requerimiento</small></dd></div>
+          <div><dt>Horario</dt><dd>08:00 a 17:00 hrs<small>Almuerzo de 13:00 a 14:00 hrs</small></dd></div>
+          <div><dt>Fechas</dt><dd>Enero a Junio 2027</dd></div>
+        </dl>
+        <div class="precios">
+          <div><small>Pago único</small><b>Q 2,500</b><span class="ah">Ahorras Q 500</span></div>
+          <div><small>Mensual</small><b>Q 500 <i>/mes</i></b><span>6 mensualidades · Q 3,000</span></div>
+        </div>
+      </div>
+      <div class="plan-ac">
+        <div class="tapa"><h3>Virtual</h3><p>Plan entre semana · Por Google Meet</p></div>
+        <dl>
+          <div><dt>Lugar</dt><dd>Google Meet</dd></div>
+          <div><dt>Días</dt><dd>Martes y jueves</dd></div>
+          <div><dt>Horario</dt><dd>18:30 a 21:00 h</dd></div>
+          <div><dt>Fechas</dt><dd>Enero a Junio 2027</dd></div>
+        </dl>
+        <div class="precios">
+          <div><small>Pago único</small><b>Q 1,800</b><span class="ah">Ahorras Q 600</span></div>
+          <div><small>Mensual</small><b>Q 400 <i>/mes</i></b><span>6 mensualidades · Q 2,400</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="extras-ac">
+      <div class="dest oro"><div class="grande">Q 600</div><h4>Ahorra con el pago único</h4><p>Paga de contado y ahorra hasta Q 600 frente a las mensualidades.</p></div>
+      <div class="dest azul"><div class="grande">40%</div><h4>Academia + Tesis</h4><p>Estudiantes de la Academia: 40% en el plan Full de asesoría de tesis. Con tu plan Full: 40% en la Academia.</p></div>
+    </div>
+    <div class="inscribete">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+      <div><h3>Para inscribirte necesitas</h3><p>DPI escaneado y comprobante de pago. Pagas por depósito o transferencia a la cuenta oficial.</p></div>
+    </div>
+  </div>
+  <div class="pie"><b>ACADEMIA JURÍDICA GENESIA</b><span>Grupo Genesia · 5</span></div>
+</section>
+
+<!-- ======================= 6. ALUMNOS Y PREGUNTAS ======================= -->
+<section class="pagina">
+  <header class="banda" style="background-image:url(presentacion.jpg)">
+    <img class="logo-mini" src="logo.png" alt="">
+    <span class="num">05</span>
+    <div class="texto"><p class="kicker">Confianza</p><h2>Lo que dicen nuestros alumnos</h2></div>
+  </header>
+  <div class="cuerpo">
+    <div class="resenas">
+      <div class="resena"><div class="estrellas">★★★★★</div><blockquote>Muy buen curso, bien explicado, se aclaran muy bien las dudas, lo recomiendo 100 %.</blockquote><b>Luis Cifuentes</b><small>Alumno · 2026</small></div>
+      <div class="resena"><div class="estrellas">★★★★★</div><blockquote>Me encantó aprender con el Método Genesia, excelente forma de enseñar.</blockquote><b>Oscar Ruiz</b><small>Alumno · 2026</small></div>
+      <div class="resena"><div class="estrellas">★★★★★</div><blockquote>Sin dudarlo volvería a tomar el curso, excelente servicio.</blockquote><b>Andres Ramírez</b><small>Alumno · 2026</small></div>
+    </div>
+    <h3 class="faq-t">Preguntas frecuentes</h3>
+    <div class="faq4">
+      <div class="q"><div><h3>¿Cuál es el método de pago?</h3><p>Depósito o transferencia a la cuenta oficial, en un solo pago o en 6 mensualidades.</p></div></div>
+      <div class="q"><div><h3>¿Qué documentos necesito para inscribirme?</h3><p>DPI escaneado y comprobante de pago.</p></div></div>
+      <div class="q"><div><h3>¿Cuándo inicia el curso?</h3><p>En enero de 2027. El curso dura 6 meses, de enero a junio.</p></div></div>
+      <div class="q"><div><h3>¿Dónde son las clases presenciales?</h3><p>En San Jerónimo, Baja Verapaz, zona 0. La modalidad virtual es por Google Meet.</p></div></div>
+    </div>
+    <div class="cta-final">
+      <div><h3>¡Inicio de clases: Enero 2027!</h3><p>Reserva tu lugar: escríbenos y te ayudamos con tu inscripción.</p></div>
+      <span class="btn">💬 +502 4107 7030</span>
+    </div>
+  </div>
+  <div class="pie"><b>ACADEMIA JURÍDICA GENESIA</b><span>Grupo Genesia · 6</span></div>
+</section>
+
+<!-- ======================= 7. CONTRAPORTADA ======================= -->
+<section class="pagina final">
+  <div class="centro">
+    <div class="barra"></div>
+    <h2>Reserva tu lugar<br>para <em>Enero 2027</em></h2>
+    <p class="sub">Escríbenos y te ayudamos con tu inscripción.</p>
+    <span class="cta">💬 WhatsApp +502 4107 7030</span>
+    <div class="datos">
+      <div class="dato"><b>Sede Academia</b><span>San Jerónimo, Baja Verapaz, zona 0</span></div>
+      <div class="dato"><b>Oficina en la capital</b><span>Edificio Santo Domingo, 11 calle 10-56, zona 1</span></div>
+      <div class="dato"><b>Correo</b><span>academiajuridicagenesia@gmail.com</span></div>
+      <div class="dato"><b>Síguenos</b><span>Instagram @grupogenesia · Facebook Grupo Genesia</span></div>
+    </div>
+  </div>
+  <div class="logo"><img src="logo.png" alt="Grupo Genesia"></div>
+  <p class="legal">© 2026 Grupo Genesia · Academia Jurídica Genesia</p>
+</section>
+
+</body>
+</html>
