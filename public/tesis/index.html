@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Asesoría y acompañamiento de tesis de Licenciatura en Ciencias Jurídicas y Sociales con Grupo Genesia: plan de investigación, planes Esencial, Full y Premium, pagos por etapas.">
+<meta name="description" content="Asesoría y acompañamiento de tesis de Licenciatura en Ciencias Jurídicas y Sociales con Grupo Genesia: plan de investigación, planes Esencial, Full y Premium, en pago único o 6 mensualidades.">
 <title>Asesoría de tesis y trabajos · Grupo Genesia</title>
 
 <!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
@@ -137,6 +137,18 @@
   }
   @media (max-width: 520px) { .plan-inicio .requisitos { grid-template-columns: 1fr; } }
 
+  /* Selector Mensual / Pago único (igual que en la Academia) */
+  .selector-pago { position: relative; display: inline-flex; gap: 4px; margin: 34px 0 26px; padding: 5px; background: var(--blanco); border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); }
+  .opcion-pago { padding: 12px 26px; border: none; border-radius: 999px; background: transparent; color: var(--azul); font: inherit; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .opcion-pago[aria-pressed="true"] { background: var(--azul); color: var(--blanco); }
+  .opcion-pago:focus-visible { outline: 3px solid #f2cf7a; outline-offset: 2px; }
+  .ahorro-burbuja { position: absolute; right: 8px; bottom: calc(100% + 8px); padding: 5px 12px; background: #f2cf7a; color: var(--azul); border-radius: 6px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .ahorro-burbuja::after { content: ""; position: absolute; top: 100%; right: 40px; border: 6px solid transparent; border-top-color: #f2cf7a; }
+  .precio-tesis .plan-precio small { font-size: 18px; font-weight: 400; color: var(--azul-suave); }
+  .precio-detalle { display: block; margin-top: 2px; color: var(--azul-suave); font-size: 15px; }
+  .precio-ahorro { display: inline-block; margin-top: 6px; padding: 3px 10px; background: #fbf0d0; border-radius: 999px; color: #8a5a00; font-size: 14px; font-weight: 700; }
+  @media (max-width: 420px) { .opcion-pago { padding: 11px 18px; } }
+
   /* ===== 5. FORMA DE PAGO ===== */
   .pagos-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
   .tabla-pagos { width: 100%; border-collapse: collapse; background: var(--blanco); border-radius: 10px; overflow: hidden; }
@@ -251,7 +263,7 @@
       <!-- Migas de pan: muestran dónde estás y permiten regresar -->
       <p class="migas"><a href="/">Home</a> <span aria-hidden="true">/</span> Asesoría de tesis y trabajos</p>
       <h1>Asesoría de tesis y trabajos</h1>
-      <p class="resumen">Te acompañamos en tu tesis de Licenciatura en Ciencias Jurídicas y Sociales: desde elegir el tema hasta tu defensa. Pagas por etapas, solo por lo que vas avanzando.</p>
+      <p class="resumen">Te acompañamos en tu tesis de Licenciatura en Ciencias Jurídicas y Sociales: desde elegir el tema hasta tu defensa. Paga en un solo pago o en 6 mensualidades.</p>
       <p class="sello-gratis"><svg class="icono-regalo" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8S10.5 3 7.5 4 9 8 12 8Zm0 0s1.5-5 4.5-4S15 8 12 8Z"/></svg><span><strong>Primera reunión GRATIS</strong> · Recibe toda la información, sin compromiso</span></p>
       <div class="acciones">
         <a class="boton-secundario" href="#planes">Ver planes</a>
@@ -280,8 +292,8 @@
         </li>
         <li>
           <svg class="icono-dorado" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40h10v-9h10v-9h10v-9h8"/><path d="M38 7h6v6"/></svg>
-          <h3>Pagas por etapas</h3>
-          <p>Pagas cada etapa antes de empezarla, solo por lo que vas avanzando.</p>
+          <h3>Pago único o mensualidades</h3>
+          <p>Elige pagar en un solo pago o en 6 mensualidades cómodas.</p>
         </li>
         <li>
           <svg class="icono-dorado" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="26" height="34" rx="2"/><path d="M14 16h14M14 23h14M14 30h8"/><path d="m28 36 5 5 10-11"/></svg>
@@ -348,8 +360,8 @@
             <div class="paso-contenido">
               <p>Cuando eliges tu plan, te enviamos por escrito:</p>
               <ul class="requisitos">
-                <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>El detalle de las etapas de tu tesis</li>
-                <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Los montos y momentos de cada pago</li>
+                <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>El detalle de las etapas de tu asesoría</li>
+                <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Tu forma de pago: pago único o mensualidades</li>
               </ul>
             </div>
           </details>
@@ -359,7 +371,7 @@
           <details name="pasos-tesis">
             <summary><span><span class="paso-etiqueta">Paso 4</span><span class="paso-titulo">Haz tu primer pago y empezamos</span></span></summary>
             <div class="paso-contenido">
-              <p>Realizas tu primer pago por <strong>depósito o transferencia</strong> a la cuenta oficial de Grupo Genesia.</p>
+              <p>Realizas tu pago único o tu primera mensualidad por <strong>depósito o transferencia</strong> a la cuenta oficial de Grupo Genesia.</p>
               <p>Con eso iniciamos el acompañamiento de la etapa 1: tu plan de investigación.</p>
             </div>
           </details>
@@ -369,7 +381,7 @@
           <details name="pasos-tesis">
             <summary><span><span class="paso-etiqueta">Paso 5</span><span class="paso-titulo">Avanzamos por etapas</span></span></summary>
             <div class="paso-contenido">
-              <p>Tu tesis avanza en 4 etapas. Cada una termina cuando tu asesor o revisor la aprueba, y pagas al iniciar cada etapa.</p>
+              <p>Tu tesis avanza en 4 etapas. Cada una termina cuando tu asesor o revisor la aprueba.</p>
               <ol class="etapas">
                 <li><div><strong>Plan de investigación</strong><span>Te orientamos en la elección del tema y en la elaboración de tu plan, conforme al instructivo.</span></div></li>
                 <li><div><strong>Capítulos I y II</strong><span>Asesoría capítulo por capítulo y revisión de tus avances.</span></div></li>
@@ -405,8 +417,8 @@
         <div>
           <span class="plan-etiqueta">¿Solo necesitas asesoría en tu plan?</span>
           <h3>Asesoría de plan de investigación</h3>
-          <span class="plan-precio">Q&nbsp;3,000</span>
-          <span class="plan-pagos">En 2 pagos de Q&nbsp;1,500</span>
+          <span class="plan-precio">Q&nbsp;3,500</span>
+          <span class="plan-pagos">Pago único o 2 pagos de Q&nbsp;1,750</span>
           <div class="beneficios">
             <p class="beneficios-titulo">🎁 Beneficios</p>
             <ul>
@@ -423,15 +435,25 @@
           <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>1 ronda de revisión</li>
           <li><svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Informe antiplagio y de IA</li>
         </ul>
-        <p class="escalera">🪜 <strong>Si continúas con la asesoría de tu tesis dentro de los 30 días, tus Q&nbsp;3,000 cuentan completos.</strong></p>
+        <p class="escalera">🪜 <strong>Si continúas con la asesoría de tu tesis dentro de los 30 días, tus Q&nbsp;3,500 cuentan completos.</strong></p>
       </div>
 
       <h3 class="subtitulo-planes">Asesoría y acompañamiento en toda tu tesis</h3>
+
+      <!-- Selector: cambia los precios entre pago único y 6 mensualidades -->
+      <div class="selector-pago" role="group" aria-label="Forma de pago">
+        <span class="ahorro-burbuja">Ahorra hasta Q&nbsp;1,203</span>
+        <button type="button" class="opcion-pago" data-modo="mensual" aria-pressed="false">Mensual</button>
+        <button type="button" class="opcion-pago" data-modo="unico" aria-pressed="true">Pago único</button>
+      </div>
       <ul class="planes">
         <li class="plan">
           <span class="plan-etiqueta">Plan</span>
           <h3>Esencial</h3>
-          <span class="plan-precio">Q&nbsp;7,000</span>
+          <div class="precio-tesis">
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;7,500</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;600</span></div>
+            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;1,350<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;8,100 en total</span></div>
+          </div>
           <p class="plan-resultado">Acompañamiento en las 4 etapas de tu tesis.</p>
           <dl class="plan-lista">
             <div><dt>Asesoría en las 4 etapas</dt><dd class="si">✓</dd></div>
@@ -458,7 +480,10 @@
           <span class="sello">⭐ El más elegido</span>
           <span class="plan-etiqueta">Plan</span>
           <h3>Full</h3>
-          <span class="plan-precio">Q&nbsp;8,997</span>
+          <div class="precio-tesis">
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;9,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;803</span></div>
+            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;1,800<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;10,800 en total</span></div>
+          </div>
           <p class="plan-resultado">Acompañamiento cercano hasta que termines tu tesis.</p>
           <dl class="plan-lista">
             <div><dt>Asesoría en las 4 etapas</dt><dd class="si">✓</dd></div>
@@ -474,7 +499,7 @@
             <p class="beneficios-intro">Todo lo del Esencial, más:</p>
             <ul>
               <li>Revisión de redacción y ortografía de tus avances en cada etapa</li>
-              <li>10% de descuento en la Academia Jurídica Genesia</li>
+              <li>40% de descuento en la Academia Jurídica Genesia</li>
             </ul>
           </div>
           <a class="boton-secundario" href="#solicitud" data-plan="Full">Elegir Full</a>
@@ -482,7 +507,10 @@
         <li class="plan">
           <span class="plan-etiqueta">Plan</span>
           <h3>Premium</h3>
-          <span class="plan-precio">Q&nbsp;11,997</span>
+          <div class="precio-tesis">
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;14,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;1,203</span></div>
+            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;2,700<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;16,200 en total</span></div>
+          </div>
           <p class="plan-resultado">Acompañamiento completo hasta tu defensa.</p>
           <dl class="plan-lista">
             <div><dt>Asesoría en las 4 etapas</dt><dd class="si">✓</dd></div>
@@ -498,7 +526,6 @@
             <p class="beneficios-intro">Todo lo del Full, más:</p>
             <ul>
               <li>Banco de preguntas para tu defensa</li>
-              <li>35% de descuento en la Academia Jurídica Genesia</li>
             </ul>
           </div>
           <a class="boton-secundario" href="#solicitud" data-plan="Premium">Elegir Premium</a>
@@ -517,10 +544,9 @@
           </ul>
         </div>
         <div class="caja caja-premium">
-          <h3>💎 ¿Por qué el Premium?</h3>
-          <p>Full Q&nbsp;8,997 + defensa Q&nbsp;1,500 + prioridad Q&nbsp;1,000 + 4 rondas extra Q&nbsp;2,000 + 2 sesiones extra Q&nbsp;400 = <strong>Q&nbsp;13,897</strong>.</p>
-          <p><strong>Con el Premium ahorras casi Q&nbsp;1,900.</strong></p>
-          <p>Y además, <strong>35% de descuento</strong> en la Academia Jurídica Genesia.</p>
+          <h3>🎓 Tesis + Academia: 40% de descuento</h3>
+          <p><strong>¿Eres o fuiste estudiante de la Academia Jurídica Genesia?</strong> Al contratar tu plan Full obtienes un <strong>40% de descuento</strong>.</p>
+          <p><strong>¿Contrataste tu plan Full?</strong> Obtienes un <strong>40% de descuento</strong> en la Academia Jurídica Genesia.</p>
         </div>
       </div>
 
@@ -551,28 +577,30 @@
   </section>
 
   <!-- ===================== 5. FORMA DE PAGO (resumen; el detalle se envía al contratar) ===================== -->
+  <!-- CAMBIAR: precios de pago único y mensualidades -->
   <section class="seccion" id="pagos">
     <div class="contenedor">
       <h2>Forma de pago</h2>
-      <p class="nota-seccion">Pagas cada etapa antes de empezarla: solo pagas por lo que vas avanzando.</p>
+      <p class="nota-seccion">Elige cómo pagar: en un solo pago o en 6 mensualidades.</p>
       <div class="pagos-grid">
         <div>
           <table class="tabla-pagos">
             <thead>
-              <tr><th scope="col">Plan</th><th scope="col">Pagos</th></tr>
+              <tr><th scope="col">Plan</th><th scope="col">Pago único</th><th scope="col">Mensual</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Asesoría de plan de investigación</th><td><strong>2 pagos</strong> de Q&nbsp;1,500</td></tr>
-              <tr><th scope="row">Esencial</th><td><strong>4 pagos</strong> de Q&nbsp;1,750</td></tr>
-              <tr class="fila-destacada"><th scope="row">Full ⭐</th><td><strong>4 pagos</strong> de Q&nbsp;2,250*</td></tr>
-              <tr><th scope="row">Premium</th><td><strong>4 pagos</strong> de Q&nbsp;3,000*</td></tr>
+              <tr><th scope="row">Asesoría de plan de investigación</th><td><strong>Q&nbsp;3,500</strong></td><td>2 pagos de Q&nbsp;1,750</td></tr>
+              <tr><th scope="row">Esencial</th><td><strong>Q&nbsp;7,500</strong></td><td>6 × Q&nbsp;1,350</td></tr>
+              <tr class="fila-destacada"><th scope="row">Full ⭐</th><td><strong>Q&nbsp;9,997</strong></td><td>6 × Q&nbsp;1,800</td></tr>
+              <tr><th scope="row">Premium</th><td><strong>Q&nbsp;14,997</strong></td><td>6 × Q&nbsp;2,700</td></tr>
             </tbody>
           </table>
-          <p class="aclaracion">* El último pago se ajusta para que el total sea exacto.</p>
+          <p class="aclaracion">Pagas por depósito o transferencia a la cuenta oficial de Grupo Genesia.</p>
         </div>
         <div class="notas-pago">
-          <p class="nota-pago dorada"><strong>💬 ¿Prefieres pagar en mensualidades?</strong>Pregunta por nuestras opciones de 6 u 8 pagos.</p>
-          <p class="nota-pago"><strong>🪜 ¿Empezaste con la asesoría de tu plan de investigación?</strong>Si sigues dentro de los 30 días, tus Q&nbsp;3,000 se descuentan completos.</p>
+          <p class="nota-pago dorada"><strong>💰 Ahorra con el pago único</strong>Pagas hasta Q&nbsp;1,203 menos que en mensualidades.</p>
+          <p class="nota-pago"><strong>🪜 ¿Empezaste con la asesoría de tu plan de investigación?</strong>Si sigues dentro de los 30 días, tus Q&nbsp;3,500 se descuentan completos.</p>
+          <p class="nota-pago"><strong>🎓 ¿Eres estudiante de la Academia Jurídica?</strong>Tu plan Full tiene 40% de descuento.</p>
           <p class="nota-pago"><strong>📄 El detalle completo</strong>Te lo enviamos por escrito cuando eliges tu plan.</p>
         </div>
       </div>
@@ -616,7 +644,7 @@
         </details>
         <details name="preguntas-tesis">
           <summary>¿Cómo pago?</summary>
-          <p>Por depósito o transferencia, por etapas: pagas cada etapa antes de empezarla. También tenemos opciones de 6 u 8 pagos.</p>
+          <p>Por depósito o transferencia, en un solo pago o en 6 mensualidades. La asesoría del plan de investigación se paga en un solo pago o en 2 pagos.</p>
         </details>
         <details name="preguntas-tesis">
           <summary>¿Qué pasa si mi asesor pide más correcciones de las que incluye mi plan?</summary>
@@ -624,7 +652,7 @@
         </details>
         <details name="preguntas-tesis">
           <summary>¿Puedo cambiar de plan?</summary>
-          <p>Sí. Si empezaste con la asesoría de tu plan de investigación y continúas dentro de los 30 días, tus Q&nbsp;3,000 cuentan completos. Entre planes de tesis, pagas solo la diferencia.</p>
+          <p>Sí. Si empezaste con la asesoría de tu plan de investigación y continúas dentro de los 30 días, tus Q&nbsp;3,500 cuentan completos. Entre planes de tesis, pagas solo la diferencia.</p>
         </details>
         <details name="preguntas-tesis">
           <summary>Ya tengo avance, ¿puedo empezar en otra etapa?</summary>
@@ -739,6 +767,20 @@
 <script src="/js/menu.js"></script>
 <!-- Asistente de chat (cuadrito de la esquina) -->
 <script src="/js/chat.js"></script>
+
+<!-- ===================== JAVASCRIPT: selector Mensual / Pago único ===================== -->
+<script>
+  document.querySelectorAll('.opcion-pago').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      const mensual = boton.dataset.modo === 'mensual';
+      document.querySelectorAll('.opcion-pago').forEach(function (b) {
+        b.setAttribute('aria-pressed', b === boton ? 'true' : 'false');
+      });
+      document.querySelectorAll('.modo-mensual').forEach(function (el) { el.hidden = !mensual; });
+      document.querySelectorAll('.modo-unico').forEach(function (el) { el.hidden = mensual; });
+    });
+  });
+</script>
 
 <!-- ===================== JAVASCRIPT: envía la solicitud de tesis a WhatsApp ===================== -->
 <script>
