@@ -150,6 +150,22 @@
   }
   @media (prefers-reduced-motion: reduce) { .metodo-panel { animation: none; } .metodo-letra { transition: none; } }
 
+  /* El Método Genesia va sobre fondo claro: letras en bloques azules con brillo dorado */
+  .seccion-metodo .metodo-etiqueta { color: #b7851f; }
+  .seccion-metodo .metodo-titulo { color: var(--azul); }
+  .seccion-metodo .metodo-intro { color: var(--azul-suave); }
+  .seccion-metodo .metodo-intro strong { color: var(--azul); }
+  .seccion-metodo .metodo-letra { background: var(--azul); border-color: var(--azul); box-shadow: 0 8px 18px rgba(20, 55, 74, 0.18); }
+  .seccion-metodo .metodo-letra:hover { border-color: #e8be5c; }
+  .seccion-metodo .metodo-letra:focus-visible { outline-color: var(--azul); }
+  .seccion-metodo .metodo-letra[aria-selected="true"] { background: #f2cf7a; border-color: #e8be5c; }
+  .seccion-metodo .metodo-panel { border: 1px solid var(--linea); box-shadow: 0 12px 30px rgba(20, 55, 74, 0.1); }
+  .seccion-metodo .sabado summary { background: var(--azul); color: var(--blanco); }
+  .seccion-metodo .sabado summary:hover { background: #0c222e; }
+  .seccion-metodo .sabado summary:focus-visible { outline-color: var(--azul); }
+  .seccion-metodo .sabado summary .sabado-play { background: #f2cf7a; color: var(--azul); }
+  .seccion-metodo .video-pendiente { background: var(--azul); border-color: #e8be5c; }
+
   /* ===== CURSOS: una tarjeta por fase, con portada y lista de materias ===== */
   .cursos {
     display: grid;
@@ -505,37 +521,8 @@
     </div>
   </section>
 
-  <!-- ===================== 3. BONUS ===================== -->
-  <section class="seccion">
-    <div class="contenedor">
-      <h2 class="bonus-titulo">Bonus <span>+</span></h2>
-      <ul class="bonus">
-        <li>
-          <!-- Ícono: carpeta con documento -->
-          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 9a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M11 17h10M11 21h6"/></svg></span>
-          <h3>Acceso a material didáctico en Drive</h3>
-        </li>
-        <li>
-          <!-- Ícono: dos globos de conversación -->
-          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8l-4 3v-3H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M21 12h6a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2v3l-4-3h-6a2 2 0 0 1-2-2v-1"/></svg></span>
-          <h3>Grupo de WhatsApp para preguntas y respuestas</h3>
-        </li>
-        <li>
-          <!-- Ícono: expositor frente a una pizarra -->
-          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="5" width="16" height="11" rx="1"/><circle cx="8" cy="12" r="3"/><path d="M3 27v-4a5 5 0 0 1 10 0v4M11 18l5-3"/></svg></span>
-          <h3>Clases magistrales con expertos en las áreas legales</h3>
-        </li>
-        <li>
-          <!-- Ícono: calendario -->
-          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6M10 18h3M15 18h3M20 18h2M10 22h3M15 22h3"/></svg></span>
-          <h3>Calendario de estudios personalizado</h3>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===================== 4. METODOLOGÍA ===================== -->
-  <section class="seccion seccion-azul">
+  <!-- ===================== 3. METODOLOGÍA (Método Genesia) ===================== -->
+  <section class="seccion seccion-metodo">
     <div class="contenedor">
       <h2>Metodología</h2>
 
@@ -731,6 +718,35 @@
           </div>
         </details>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. BONUS ===================== -->
+  <section class="seccion seccion-azul">
+    <div class="contenedor">
+      <h2 class="bonus-titulo">Bonus <span>+</span></h2>
+      <ul class="bonus">
+        <li>
+          <!-- Ícono: carpeta con documento -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 9a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M11 17h10M11 21h6"/></svg></span>
+          <h3>Acceso a material didáctico en Drive</h3>
+        </li>
+        <li>
+          <!-- Ícono: dos globos de conversación -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8l-4 3v-3H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M21 12h6a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2v3l-4-3h-6a2 2 0 0 1-2-2v-1"/></svg></span>
+          <h3>Grupo de WhatsApp para preguntas y respuestas</h3>
+        </li>
+        <li>
+          <!-- Ícono: expositor frente a una pizarra -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="5" width="16" height="11" rx="1"/><circle cx="8" cy="12" r="3"/><path d="M3 27v-4a5 5 0 0 1 10 0v4M11 18l5-3"/></svg></span>
+          <h3>Clases magistrales con expertos en las áreas legales</h3>
+        </li>
+        <li>
+          <!-- Ícono: calendario -->
+          <span class="bonus-icono"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6M10 18h3M15 18h3M20 18h2M10 22h3M15 22h3"/></svg></span>
+          <h3>Calendario de estudios personalizado</h3>
+        </li>
+      </ul>
     </div>
   </section>
 
