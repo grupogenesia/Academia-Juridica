@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Asesoría de Tesis · Grupo Genesia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --azul: #14374a; --azul-oscuro: #0c222e; --azul-suave: #4c6878; --gris: #e1e5e8; --blanco: #f7f8f9;
+    --linea: #c3cbd1; --oro: #b7851f; --oro-claro: #f2cf7a; --crema: #fbf5e6; --verde: #1f8f4e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Source Sans 3", Arial, sans-serif; color: var(--azul); font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3, h4 { font-family: "Libre Baskerville", Georgia, serif; margin: 0; line-height: 1.2; }
+
+  .pagina { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; background: #fff; }
+  .pagina:last-child { page-break-after: auto; break-after: auto; }
+  .contenido { padding: 16mm 16mm 22mm; }
+
+  /* Encabezado y pie de las páginas interiores */
+  .cabeza { display: flex; justify-content: space-between; align-items: center; padding: 9mm 16mm 0; }
+  .cabeza img { height: 11mm; }
+  .cabeza span { font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--azul-suave); }
+  .pie { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; border-top: 1px solid var(--linea); padding-top: 3mm; font-size: 8pt; color: var(--azul-suave); }
+
+  .etiqueta { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oro); margin: 0 0 2mm; }
+  h2 { font-size: 21pt; margin-bottom: 4mm; }
+  .intro { color: var(--azul-suave); font-size: 11pt; margin: 0 0 7mm; max-width: 160mm; }
+
+  /* ===== PORTADA ===== */
+  .portada { background: radial-gradient(circle at 80% 15%, #1d4b63 0%, var(--azul) 45%, var(--azul-oscuro) 100%); color: var(--blanco); }
+  .portada .marco { position: absolute; inset: 10mm; border: 1px solid rgba(242, 207, 122, 0.45); border-radius: 4mm; }
+  .portada .logo { position: absolute; top: 30mm; left: 0; right: 0; text-align: center; }
+  .portada .logo img { height: 34mm; filter: brightness(0) invert(1); }
+  .portada .grupo { margin-top: 5mm; font-size: 10pt; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--oro-claro); }
+  .portada .centro { position: absolute; top: 112mm; left: 22mm; right: 22mm; text-align: center; }
+  .portada .linea-oro { width: 30mm; height: 1.2mm; background: var(--oro-claro); margin: 0 auto 8mm; border-radius: 1mm; }
+  .portada h1 { font-size: 40pt; color: #fff; }
+  .portada h1 em { font-style: italic; color: var(--oro-claro); font-weight: 400; }
+  .portada .sub { margin-top: 6mm; font-size: 13pt; color: var(--linea); }
+  .portada .lic { display: inline-block; margin-top: 9mm; padding: 2.5mm 7mm; border: 1px solid rgba(242, 207, 122, 0.6); border-radius: 20mm; font-size: 10.5pt; font-weight: 600; color: var(--oro-claro); }
+  .portada .gratis { position: absolute; bottom: 52mm; left: 0; right: 0; text-align: center; }
+  .portada .gratis span { display: inline-block; padding: 4mm 9mm; background: var(--oro-claro); color: var(--azul); border-radius: 20mm; font-weight: 700; font-size: 12pt; }
+  .portada .contacto { position: absolute; bottom: 22mm; left: 0; right: 0; text-align: center; font-size: 10pt; color: var(--linea); }
+  .portada .contacto strong { color: #fff; }
+
+  /* ===== POR QUÉ ===== */
+  .razones { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .razon { padding: 5mm 5.5mm; background: var(--blanco); border: 1px solid var(--linea); border-left: 1.2mm solid var(--oro-claro); border-radius: 2.5mm; }
+  .razon h3 { font-size: 12pt; margin-bottom: 1.5mm; }
+  .razon p { margin: 0; color: var(--azul-suave); }
+  .unis { margin-top: 8mm; padding: 6mm; background: var(--azul); color: var(--blanco); border-radius: 3mm; }
+  .unis h3 { font-family: "Source Sans 3", sans-serif; font-size: 8.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro-claro); margin-bottom: 3mm; }
+  .unis ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2.5mm; }
+  .unis li { padding: 1.5mm 4mm; border: 1px solid rgba(242, 207, 122, 0.5); border-radius: 10mm; font-weight: 600; font-size: 9.5pt; }
+  .unis p { margin: 3mm 0 0; font-size: 9pt; color: var(--linea); }
+  .gratis-caja { margin-top: 8mm; display: flex; align-items: center; gap: 6mm; padding: 6mm 7mm; background: linear-gradient(120deg, #f2cf7a, #e8be5c); border-radius: 3mm; }
+  .gratis-caja .ico { font-size: 22pt; }
+  .gratis-caja h3 { font-size: 14pt; margin-bottom: 1mm; }
+  .gratis-caja p { margin: 0; }
+
+  /* ===== PASOS Y ETAPAS ===== */
+  .pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 3.2mm; counter-reset: p; }
+  .pasos li { counter-increment: p; display: grid; grid-template-columns: 11mm 1fr; gap: 4mm; align-items: start; padding: 3.5mm 5mm; background: var(--blanco); border: 1px solid var(--linea); border-radius: 2.5mm; }
+  .pasos li::before { content: counter(p); width: 11mm; height: 11mm; border-radius: 50%; background: var(--azul); color: var(--oro-claro); display: grid; place-items: center; font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 13pt; }
+  .pasos h3 { font-size: 11.5pt; margin-bottom: 0.8mm; }
+  .pasos p { margin: 0; color: var(--azul-suave); font-size: 10pt; }
+  .pasos .gratis-tag { display: inline-block; margin-left: 2mm; padding: 0.3mm 2.5mm; background: var(--oro-claro); border-radius: 5mm; font-family: "Source Sans 3", sans-serif; font-size: 8pt; font-weight: 700; vertical-align: middle; }
+  .etapas-titulo { margin: 8mm 0 3mm; font-size: 14pt; }
+  .etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .etapa { padding: 4mm; background: var(--azul); color: var(--blanco); border-radius: 2.5mm; }
+  .etapa b { display: block; font-family: "Libre Baskerville", serif; font-size: 18pt; color: var(--oro-claro); line-height: 1; margin-bottom: 2mm; }
+  .etapa h4 { font-family: "Source Sans 3", sans-serif; font-size: 10pt; margin-bottom: 1mm; }
+  .etapa p { margin: 0; font-size: 8.5pt; color: var(--linea); line-height: 1.35; }
+  .nota-etapa { margin: 3mm 0 0; font-size: 9pt; color: var(--azul-suave); }
+
+  /* ===== PLANES ===== */
+  .plan-inv { display: grid; grid-template-columns: 1fr 1.25fr; gap: 6mm; padding: 6mm; border: 1px solid var(--linea); border-radius: 3mm; background: var(--blanco); margin-bottom: 7mm; }
+  .plan-inv h3 { font-size: 15pt; }
+  .precio { font-family: "Libre Baskerville", serif; font-size: 22pt; font-weight: 700; margin-top: 2mm; }
+  .precio-sub { font-size: 9pt; color: var(--azul-suave); }
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6mm; }
+  .checks li { padding-left: 6mm; position: relative; font-size: 9.5pt; font-weight: 600; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--verde); font-weight: 700; }
+  .escalera { grid-column: 1 / -1; margin: 0; padding: 2.5mm 4mm; background: var(--crema); border-left: 1mm solid var(--oro); border-radius: 1.5mm; font-weight: 600; font-size: 9.5pt; }
+
+  .tabla-planes { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.3pt; }
+  .tabla-planes th, .tabla-planes td { padding: 2.4mm 3mm; border-bottom: 1px solid var(--linea); text-align: center; vertical-align: middle; }
+  .tabla-planes th:first-child, .tabla-planes td:first-child { text-align: left; color: var(--azul-suave); width: 34%; }
+  .tabla-planes thead th { background: var(--azul); color: #fff; font-family: "Libre Baskerville", serif; font-size: 12pt; padding: 3.5mm 3mm; }
+  .tabla-planes thead th:first-child { background: transparent; }
+  .tabla-planes thead th.full { background: var(--oro-claro); color: var(--azul); }
+  .tabla-planes thead small { display: block; font-family: "Source Sans 3", sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .tabla-planes td.full { background: var(--crema); font-weight: 700; }
+  .tabla-planes .fila-precio td { font-family: "Libre Baskerville", serif; font-size: 13pt; font-weight: 700; color: var(--azul); }
+  .tabla-planes .fila-precio td:first-child { font-family: "Source Sans 3", sans-serif; font-size: 9.3pt; font-weight: 400; color: var(--azul-suave); }
+  .tabla-planes .ahorro { display: inline-block; padding: 0.4mm 2.5mm; border-radius: 5mm; background: var(--crema); color: #8a5a00; font-size: 8.5pt; font-weight: 700; }
+  .tabla-planes td.full .ahorro { background: #e8be5c; color: var(--azul); }
+  .si { color: var(--verde); font-weight: 700; }
+  .beneficios-t { margin: 6mm 0 3mm; font-size: 13pt; }
+  .beneficios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .beneficio { padding: 4mm; background: var(--crema); border-radius: 2.5mm; font-size: 9pt; }
+  .beneficio.full { box-shadow: inset 0 0 0 0.6mm #e8be5c; }
+  .beneficio h4 { font-size: 11pt; margin-bottom: 1mm; }
+  .beneficio .de { margin: 0 0 1.5mm; color: var(--azul-suave); font-size: 8.5pt; }
+  .beneficio ul { margin: 0; padding-left: 4mm; }
+  .beneficio li { margin-bottom: 1mm; font-weight: 600; }
+
+  /* ===== PAGOS, EXTRAS, DESCUENTO ===== */
+  .tabla-pagos { width: 100%; border-collapse: collapse; font-size: 10pt; margin-bottom: 3mm; }
+  .tabla-pagos th, .tabla-pagos td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--linea); text-align: left; }
+  .tabla-pagos thead th { background: var(--azul); color: #fff; font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; }
+  .tabla-pagos .full { background: var(--crema); }
+  .tabla-pagos td strong { font-size: 11pt; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+  .caja { padding: 5mm; border-radius: 3mm; border: 1px solid var(--linea); }
+  .caja h3 { font-size: 12.5pt; margin-bottom: 3mm; }
+  .caja ul { list-style: none; margin: 0; padding: 0; }
+  .caja li { display: flex; justify-content: space-between; gap: 3mm; padding: 1.8mm 0; border-top: 1px solid var(--linea); font-size: 9.3pt; }
+  .caja li strong { white-space: nowrap; color: var(--oro); }
+  .caja.azul { background: var(--azul); color: var(--blanco); border: none; }
+  .caja.azul p { margin: 0 0 2.5mm; font-size: 9.8pt; color: var(--linea); }
+  .caja.azul strong { color: #fff; }
+  .caja.azul .grande { font-family: "Libre Baskerville", serif; font-size: 26pt; color: var(--oro-claro); line-height: 1; margin-bottom: 2mm; }
+  .maestria { margin-top: 5mm; padding: 4.5mm 6mm; border-left: 1.5mm solid var(--oro); background: var(--blanco); border-radius: 2mm; }
+  .maestria h3 { font-size: 12pt; margin-bottom: 1mm; }
+  .maestria p { margin: 0; color: var(--azul-suave); }
+
+  /* ===== PREGUNTAS ===== */
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 6mm; }
+  .faq div { padding: 3.5mm 4.5mm; background: var(--blanco); border-radius: 2.5mm; border: 1px solid var(--linea); break-inside: avoid; }
+  .faq h3 { font-size: 10.5pt; margin-bottom: 1.2mm; }
+  .faq p { margin: 0; color: var(--azul-suave); font-size: 9.2pt; line-height: 1.4; }
+  .faq .ancha { grid-column: 1 / -1; }
+
+  /* ===== CONTRAPORTADA ===== */
+  .final { background: radial-gradient(circle at 20% 85%, #1d4b63 0%, var(--azul) 45%, var(--azul-oscuro) 100%); color: var(--blanco); }
+  .final .marco { position: absolute; inset: 10mm; border: 1px solid rgba(242, 207, 122, 0.45); border-radius: 4mm; }
+  .final .centro { position: absolute; top: 50mm; left: 24mm; right: 24mm; text-align: center; }
+  .final h2 { font-size: 28pt; color: #fff; }
+  .final .sub { color: var(--linea); font-size: 12pt; margin: 4mm 0 10mm; }
+  .final .cta { display: inline-block; padding: 5mm 12mm; background: var(--verde); color: #fff; border-radius: 3mm; font-weight: 700; font-size: 15pt; }
+  .final .datos { margin: 16mm auto 0; display: grid; gap: 6mm; max-width: 130mm; text-align: left; }
+  .final .dato { padding: 5mm 6mm; border: 1px solid rgba(242, 207, 122, 0.4); border-radius: 3mm; }
+  .final .dato b { display: block; font-size: 8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oro-claro); margin-bottom: 1.5mm; }
+  .final .dato span { display: block; font-size: 10.5pt; }
+  .final .logo-final { position: absolute; bottom: 24mm; left: 0; right: 0; text-align: center; }
+  .final .logo-final img { height: 16mm; filter: brightness(0) invert(1); opacity: 0.9; }
+  .final .legal { position: absolute; bottom: 15mm; left: 0; right: 0; text-align: center; font-size: 8pt; color: var(--linea); }
+  /* Ajuste de espacio en la página de beneficios y pagos */
+  .tabla-pagos th, .tabla-pagos td { padding: 2.1mm 4mm; }
+  .dos { margin-top: 4mm; }
+  .beneficio { padding: 3.2mm 4mm; }
+  .caja { padding: 4mm 5mm; }
+  .caja li { padding: 1.4mm 0; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. PORTADA ============ -->
+<section class="pagina portada">
+  <div class="marco"></div>
+  <div class="logo">
+    <img src="logo.png" alt="Grupo Genesia">
+    <div class="grupo">Grupo Genesia</div>
+  </div>
+  <div class="centro">
+    <div class="linea-oro"></div>
+    <h1>Asesoría de <em>Tesis</em></h1>
+    <p class="sub">Te acompañamos en tu tesis: desde elegir el tema hasta tu defensa.</p>
+    <span class="lic">🎓 Licenciatura en Ciencias Jurídicas y Sociales</span>
+  </div>
+  <div class="gratis"><span>🎁 Tu primera reunión es GRATIS</span></div>
+  <div class="contacto">WhatsApp <strong>+502 4107 7030</strong> · Instagram <strong>@grupogenesia</strong></div>
+</section>
+
+<!-- ============ 2. POR QUÉ ============ -->
+<section class="pagina">
+  <div class="cabeza"><img src="logo.png" alt=""><span>Asesoría de tesis</span></div>
+  <div class="contenido">
+    <p class="etiqueta">Quiénes te acompañan</p>
+    <h2>¿Por qué elegir la asesoría de Genesia?</h2>
+    <p class="intro">Te acompañamos en cada etapa de tu tesis de Licenciatura en Ciencias Jurídicas y Sociales, con orientación clara y un equipo de abogados que conoce cómo se evalúa tu trabajo.</p>
+    <div class="razones">
+      <div class="razon"><h3>⚖️ Abogados colegiados</h3><p>Te acompañan abogados y notarios con experiencia en investigación jurídica.</p></div>
+      <div class="razon"><h3>📘 Conocemos tu instructivo</h3><p>Te asesoramos para que tu trabajo cumpla el instructivo y las normas de tu universidad.</p></div>
+      <div class="razon"><h3>💳 Pago único o mensualidades</h3><p>Elige pagar en un solo pago o en 6 mensualidades cómodas.</p></div>
+      <div class="razon"><h3>🪜 Tu plan cuenta</h3><p>Si empiezas con la asesoría de tu plan de investigación y continúas, lo que pagaste cuenta completo.</p></div>
+    </div>
+    <div class="unis">
+      <h3>Trabajamos con</h3>
+      <ul>
+        <li>Universidad de San Carlos de Guatemala</li>
+        <li>Universidad Mariano Gálvez</li>
+        <li>Universidad Rafael Landívar</li>
+        <li>Universidad Da Vinci de Guatemala</li>
+        <li>Universidad Panamericana</li>
+      </ul>
+      <p>¿Tu universidad no está en la lista? Escríbenos y revisamos su instructivo.</p>
+    </div>
+    <div class="gratis-caja">
+      <span class="ico">🎁</span>
+      <div>
+        <h3>Tu primera reunión es gratis</h3>
+        <p>Sin compromiso: revisamos tu universidad y tu avance, y te recomendamos el plan que más te conviene.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span>Grupo Genesia · Asesoría de tesis</span><span>2</span></div>
+</section>
+
+<!-- ============ 3. CÓMO EMPEZAR ============ -->
+<section class="pagina">
+  <div class="cabeza"><img src="logo.png" alt=""><span>Asesoría de tesis</span></div>
+  <div class="contenido">
+    <p class="etiqueta">Paso a paso</p>
+    <h2>Cómo empezar tu asesoría</h2>
+    <ol class="pasos">
+      <li><div><h3>Agenda tu primera reunión <span class="gratis-tag">GRATIS</span></h3><p>Es por Google Meet o Zoom, sin compromiso. Solo necesitas un celular, laptop o tablet.</p></div></li>
+      <li><div><h3>Revisamos tu caso</h3><p>Conversamos sobre tu universidad y su instructivo, tu tema o tu avance, y el plan que más te conviene.</p></div></li>
+      <li><div><h3>Elige tu plan</h3><p>Te enviamos por escrito el detalle de las etapas de tu asesoría y tu forma de pago.</p></div></li>
+      <li><div><h3>Haz tu pago y empezamos</h3><p>Pago único o primera mensualidad, por depósito o transferencia a la cuenta oficial de Grupo Genesia.</p></div></li>
+      <li><div><h3>Avanzamos por etapas</h3><p>Tu tesis avanza en 4 etapas. Cada una termina cuando tu asesor o revisor la aprueba.</p></div></li>
+      <li><div><h3>Tu entrega final y defensa</h3><p>Revisamos contigo tu trabajo final antes de que lo entregues, con su informe antiplagio y de detección de IA. Si lo eliges, te preparamos para la defensa con 2 simulacros y tu presentación.</p></div></li>
+    </ol>
+    <h3 class="etapas-titulo">Las 4 etapas de tu tesis</h3>
+    <div class="etapas">
+      <div class="etapa"><b>1</b><h4>Plan de investigación</h4><p>Orientación en la elección del tema y en la elaboración de tu plan, conforme al instructivo.</p></div>
+      <div class="etapa"><b>2</b><h4>Capítulos I y II</h4><p>Asesoría capítulo por capítulo y revisión de tus avances.</p></div>
+      <div class="etapa"><b>3</b><h4>Capítulos III y IV</h4><p>Asesoría en los capítulos que siguen, según tu universidad.</p></div>
+      <div class="etapa"><b>4</b><h4>Cierre y entrega</h4><p>Orientación en conclusiones, introducción y bibliografía, y revisión completa.</p></div>
+    </div>
+    <p class="nota-etapa"><strong>Ronda de revisión:</strong> cuando tu asesor o revisor te devuelve el trabajo con observaciones, las revisamos y corregimos contigo.</p>
+  </div>
+  <div class="pie"><span>Grupo Genesia · Asesoría de tesis</span><span>3</span></div>
+</section>
+
+<!-- ============ 4. PLANES ============ -->
+<section class="pagina">
+  <div class="cabeza"><img src="logo.png" alt=""><span>Asesoría de tesis</span></div>
+  <div class="contenido">
+    <p class="etiqueta">Nuestros planes</p>
+    <h2>Elige tu plan</h2>
+
+    <div class="plan-inv">
+      <div>
+        <p class="etiqueta" style="margin:0">¿Solo necesitas asesoría en tu plan?</p>
+        <h3>Asesoría de plan de investigación</h3>
+        <div class="precio">Q 3,500</div>
+        <div class="precio-sub">Pago único o 2 pagos de Q 1,750</div>
+      </div>
+      <ul class="checks">
+        <li>3 sugerencias de tema</li>
+        <li>Revisión conforme al instructivo de tu universidad</li>
+        <li>Asesoría en la elaboración de tu plan</li>
+        <li>1 sesión por Meet para revisarlo contigo</li>
+        <li>1 ronda de revisión · Informe antiplagio y de IA</li>
+        <li>Guía de estructura y formato · Sugerencia de fuentes</li>
+      </ul>
+      <p class="escalera">🪜 Si continúas con la asesoría de tu tesis dentro de los 30 días, tus Q 3,500 cuentan completos.</p>
+    </div>
+
+    <table class="tabla-planes">
+      <thead>
+        <tr><th></th><th>Esencial</th><th class="full"><small>⭐ El más elegido</small>Full</th><th>Premium</th></tr>
+      </thead>
+      <tbody>
+        <tr class="fila-precio"><td>Pago único</td><td>Q 7,500</td><td class="full">Q 9,997</td><td>Q 14,997</td></tr>
+        <tr><td>Ahorro con pago único</td><td><span class="ahorro">12%</span></td><td class="full"><span class="ahorro">20% · el mejor</span></td><td><span class="ahorro">15%</span></td></tr>
+        <tr><td>O en 6 mensualidades de</td><td>Q 1,425</td><td class="full">Q 2,085</td><td>Q 2,945</td></tr>
+        <tr><td>Asesoría en las 4 etapas</td><td class="si">✓</td><td class="full si">✓</td><td class="si">✓</td></tr>
+        <tr><td>Revisión según tu instructivo</td><td class="si">✓</td><td class="full si">✓</td><td class="si">✓</td></tr>
+        <tr><td>Rondas de revisión por etapa</td><td>1</td><td class="full">2</td><td>Hasta 3</td></tr>
+        <tr><td>Sesiones por Meet</td><td>1 por etapa</td><td class="full">1 por capítulo</td><td>1 por capítulo + 2</td></tr>
+        <tr><td>Informe antiplagio e IA</td><td>De la tesis final</td><td class="full">De cada etapa</td><td>De cada etapa + final</td></tr>
+        <tr><td>Preparación para la defensa</td><td>+ Q 1,500</td><td class="full">+ Q 1,500</td><td class="si">✓ Incluida</td></tr>
+        <tr><td>Atención prioritaria (&lt; 24 h)</td><td>+ Q 1,000</td><td class="full">+ Q 1,000</td><td class="si">✓ Incluida</td></tr>
+      </tbody>
+    </table>
+
+</div>
+  </div>
+  <div class="pie"><span>Grupo Genesia · Asesoría de tesis</span><span>4</span></div>
+</section>
+
+<!-- ============ 5. PAGOS Y EXTRAS ============ -->
+<section class="pagina">
+  <div class="cabeza"><img src="logo.png" alt=""><span>Asesoría de tesis</span></div>
+  <div class="contenido">
+    <p class="etiqueta">Lo que recibes e inversión</p>
+    <h2>🎁 Beneficios de cada plan</h2>
+    
+    <div class="beneficios">
+      <div class="beneficio"><h4>Esencial</h4><p class="de">Incluye:</p><ul><li>Guía de estructura y formato según el normativo de tu universidad</li><li>Sugerencia de fuentes: leyes, doctrina y jurisprudencia</li><li>Calendario de trabajo personalizado</li><li>WhatsApp directo con tu asesor</li></ul></div>
+      <div class="beneficio full"><h4>Full ⭐</h4><p class="de">Todo lo del Esencial, más:</p><ul><li>Revisión de redacción y ortografía de tus avances en cada etapa</li><li>40% de descuento en la Academia Jurídica Genesia</li></ul></div>
+      <div class="beneficio"><h4>Premium</h4><p class="de">Todo lo del Full, más:</p><ul><li>Banco de preguntas para tu defensa</li><li>Defensa y atención prioritaria incluidas</li></ul></div>
+    </div>
+    <h3 class="beneficios-t" style="margin-top:8mm">💳 Forma de pago: pago único o 6 mensualidades</h3>
+    <table class="tabla-pagos">
+      <thead><tr><th>Plan</th><th>Pago único</th><th>Mensual</th><th>Ahorro</th></tr></thead>
+      <tbody>
+        <tr><td>Asesoría de plan de investigación</td><td><strong>Q 3,500</strong></td><td>2 pagos de Q 1,750</td><td>—</td></tr>
+        <tr><td>Esencial</td><td><strong>Q 7,500</strong></td><td>6 × Q 1,425</td><td>12%</td></tr>
+        <tr class="full"><td>Full ⭐</td><td><strong>Q 9,997</strong></td><td>6 × Q 2,085</td><td><strong>20%</strong></td></tr>
+        <tr><td>Premium</td><td><strong>Q 14,997</strong></td><td>6 × Q 2,945</td><td>15%</td></tr>
+      </tbody>
+    </table>
+    <p class="nota-etapa">Pagas por depósito o transferencia a la cuenta oficial de Grupo Genesia. El ahorro se calcula sobre el total de las 6 mensualidades. El detalle completo te lo enviamos por escrito al contratar tu plan.</p>
+
+    <div class="dos">
+      <div class="caja">
+        <h3>Extras para cualquier plan</h3>
+        <ul>
+          <li>Preparación para la defensa (2 simulacros + presentación) <strong>Q 1,500</strong></li>
+          <li>Atención prioritaria (respuesta en menos de 24 h) <strong>Q 1,000</strong></li>
+          <li>Sesión extra por Meet (45 min) <strong>Q 200 · 3 por Q 500</strong></li>
+          <li>Ronda de revisión extra <strong>Q 500</strong></li>
+          <li>Urgencia (fecha límite cercana de tu universidad) <strong>+20%</strong></li>
+        </ul>
+      </div>
+      <div class="caja azul">
+        <div class="grande">40%</div>
+        <h3 style="color:#fff">Tesis + Academia</h3>
+        <p><strong>¿Eres o fuiste estudiante de la Academia Jurídica Genesia?</strong> Al contratar tu plan Full obtienes un 40% de descuento.</p>
+        <p><strong>¿Contrataste tu plan Full?</strong> Obtienes un 40% de descuento en la Academia Jurídica Genesia.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="pie"><span>Grupo Genesia · Asesoría de tesis</span><span>5</span></div>
+</section>
+
+<!-- ============ 6. PREGUNTAS ============ -->
+<section class="pagina">
+  <div class="cabeza"><img src="logo.png" alt=""><span>Asesoría de tesis</span></div>
+  <div class="contenido">
+    <p class="etiqueta">Resolvemos tus dudas</p>
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq">
+      <div><h3>¿La primera reunión tiene costo?</h3><p>No, es gratis y sin compromiso. Revisamos tu universidad y tu avance, y te recomendamos el plan que más te conviene.</p></div>
+      <div><h3>¿Garantizan que mi tesis será aprobada?</h3><p>La aprobación depende de tu universidad. Te asesoramos conforme a su instructivo y te acompañamos en cada corrección que te pidan.</p></div>
+      <div><h3>¿Con qué universidades trabajan?</h3><p>USAC, Mariano Gálvez, Rafael Landívar, Da Vinci y Panamericana. Si la tuya no está, revisamos su instructivo.</p></div>
+      <div><h3>¿Tengo que viajar a la capital?</h3><p>No. Todo tu proceso puede ser en línea, por Google Meet o Zoom, desde cualquier departamento.</p></div>
+      <div class="ancha"><h3>¿Puedo recibir mi asesoría de manera presencial?</h3><p>Sí, en nuestras 2 sedes y con cita previa: <strong>Baja Verapaz:</strong> San Jerónimo, zona 0, Barrio Abajo, a 2 cuadras de Panadería Doña Lucía · <strong>Ciudad de Guatemala:</strong> Edificio Santo Domingo, 11 calle 10-56, zona 1.</p></div>
+      <div><h3>¿Cuánto tiempo tarda mi tesis?</h3><p>Depende de tu universidad y de los tiempos de revisión de tu asesor. En la primera reunión te damos un calendario estimado.</p></div>
+      <div><h3>¿Cómo pago?</h3><p>Por depósito o transferencia, en un solo pago o en 6 mensualidades. El plan de investigación, en un pago o en 2.</p></div>
+      <div><h3>¿Y si me piden más correcciones?</h3><p>Puedes agregar rondas de revisión extra por Q 500 cada una, o subir a un plan con más rondas incluidas.</p></div>
+      <div><h3>¿Puedo cambiar de plan?</h3><p>Sí. Si empezaste con la asesoría de tu plan de investigación y continúas dentro de 30 días, tus Q 3,500 cuentan completos.</p></div>
+      <div><h3>Ya tengo avance, ¿puedo empezar en otra etapa?</h3><p>Sí, te aceptamos. Evaluamos lo que llevas y te enviamos una propuesta personalizada.</p></div>
+      <div><h3>¿Mi información es confidencial?</h3><p>Sí. Somos abogados y manejamos tu información con total reserva profesional.</p></div>
+    </div>
+    <div class="maestria">
+      <h3>¿Necesitas asesoría para tu tesis de maestría?</h3>
+      <p>Contacta a nuestro asesor y te enviamos una propuesta de asesoría personalizada para tu programa.</p>
+    </div>
+    <p class="nota-etapa" style="margin-top:6mm">Precios en quetzales. La aprobación de tu tesis depende de tu universidad.</p>
+  </div>
+  <div class="pie"><span>Grupo Genesia · Asesoría de tesis</span><span>6</span></div>
+</section>
+
+<!-- ============ 7. CONTRAPORTADA ============ -->
+<section class="pagina final">
+  <div class="marco"></div>
+  <div class="centro">
+    <h2>Agenda tu primera reunión gratis</h2>
+    <p class="sub">Recibe toda la información, sin compromiso.</p>
+    <span class="cta">WhatsApp +502 4107 7030</span>
+    <div class="datos">
+      <div class="dato"><b>Sede Baja Verapaz</b><span>San Jerónimo, zona 0, Barrio Abajo, a 2 cuadras de Panadería Doña Lucía</span></div>
+      <div class="dato"><b>Sede Ciudad de Guatemala</b><span>Edificio Santo Domingo, 11 calle 10-56, zona 1</span></div>
+      <div class="dato"><b>Redes sociales</b><span>Instagram @grupogenesia · Facebook Grupo Genesia</span></div>
+    </div>
+  </div>
+  <div class="logo-final"><img src="logo.png" alt="Grupo Genesia"></div>
+  <div class="legal">© 2026 Grupo Genesia · Servicio de asesoría y acompañamiento académico</div>
+</section>
+
+</body>
+</html>
