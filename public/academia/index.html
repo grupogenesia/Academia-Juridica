@@ -254,6 +254,18 @@
   .fila dd { margin: 0; font-weight: 600; min-width: 0; }
   .fila dd small { display: block; font-weight: 400; color: var(--azul-suave); font-size: 15px; }
 
+  /* Descuento cruzado Academia + Tesis */
+  .descuento-tesis { display: flex; gap: 24px 32px; align-items: flex-start; margin-top: 28px; padding: 26px 28px; border: 1px solid rgba(242, 207, 122, 0.5); border-radius: 12px; background: rgba(247, 248, 249, 0.05); color: var(--blanco); }
+  .descuento-cifra { flex-shrink: 0; font-family: var(--letra-titulo); font-size: 56px; font-weight: 700; line-height: 1; color: #f2cf7a; }
+  .descuento-tesis h3 { font-size: 22px; margin-bottom: 10px; color: var(--blanco); }
+  .descuento-tesis p { margin: 0; color: var(--linea); }
+  .descuento-tesis p + p { margin-top: 12px; }
+  .descuento-tesis strong { color: var(--blanco); }
+  .descuento-tesis .ejemplo { display: inline-block; margin-top: 4px; font-size: 15px; color: #f2cf7a; }
+  .descuento-tesis .ejemplo strong { color: #f2cf7a; }
+  .descuento-tesis a { color: var(--blanco); text-underline-offset: 3px; }
+  @media (max-width: 600px) { .descuento-tesis { flex-direction: column; padding: 22px 20px; } .descuento-cifra { font-size: 44px; } }
+
   /* ===== PRECIOS: selector Mensual / Pago único y precio grande en cada plan ===== */
   .selector-pago {
     position: relative;
@@ -886,6 +898,16 @@
           </div>
         </article>
 
+      </div>
+
+      <!-- Descuento cruzado con la asesoría de tesis -->
+      <div class="descuento-tesis">
+        <div class="descuento-cifra">40%</div>
+        <div>
+          <h3>Academia + Tesis: 40% de descuento</h3>
+          <p><strong>¿Contrataste el plan Full de asesoría de tesis?</strong> Se te aplica un <strong>40% de descuento sobre el valor del curso</strong>.<br><span class="ejemplo">Ejemplo: presencial Q&nbsp;2,500 → <strong>Q&nbsp;1,500</strong> · virtual Q&nbsp;1,800 → <strong>Q&nbsp;1,080</strong></span></p>
+          <p><strong>¿Eres o fuiste estudiante de la Academia?</strong> Se te aplica un <strong>40% de descuento sobre el valor del plan Full</strong> de asesoría de tesis.<br><span class="ejemplo">Ejemplo: pago único de Q&nbsp;9,997 → <strong>Q&nbsp;5,998</strong> · <a href="/tesis/">Ver asesoría de tesis</a></span></p>
+        </div>
       </div>
     </div>
   </section>
