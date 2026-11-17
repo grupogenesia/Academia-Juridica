@@ -146,6 +146,7 @@
   .ahorro-burbuja::after { content: ""; position: absolute; top: 100%; right: 40px; border: 6px solid transparent; border-top-color: #f2cf7a; }
   .precio-tesis .plan-precio small { font-size: 18px; font-weight: 400; color: var(--azul-suave); }
   .precio-detalle { display: block; margin-top: 2px; color: var(--azul-suave); font-size: 15px; }
+  .precio-ahorro-mejor { background: #e8be5c !important; color: var(--azul) !important; }
   .precio-ahorro { display: inline-block; margin-top: 6px; padding: 3px 10px; background: #fbf0d0; border-radius: 999px; color: #8a5a00; font-size: 14px; font-weight: 700; }
   @media (max-width: 420px) { .opcion-pago { padding: 11px 18px; } }
 
@@ -442,7 +443,7 @@
 
       <!-- Selector: cambia los precios entre pago único y 6 mensualidades -->
       <div class="selector-pago" role="group" aria-label="Forma de pago">
-        <span class="ahorro-burbuja">Ahorra hasta Q&nbsp;1,203</span>
+        <span class="ahorro-burbuja">Ahorra hasta Q&nbsp;1,503</span>
         <button type="button" class="opcion-pago" data-modo="mensual" aria-pressed="false">Mensual</button>
         <button type="button" class="opcion-pago" data-modo="unico" aria-pressed="true">Pago único</button>
       </div>
@@ -451,7 +452,7 @@
           <span class="plan-etiqueta">Plan</span>
           <h3>Esencial</h3>
           <div class="precio-tesis">
-            <div class="modo-unico"><span class="plan-precio">Q&nbsp;7,500</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;600</span></div>
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;7,500</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;600 (8%)</span></div>
             <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;1,350<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;8,100 en total</span></div>
           </div>
           <p class="plan-resultado">Acompañamiento en las 4 etapas de tu tesis.</p>
@@ -481,8 +482,8 @@
           <span class="plan-etiqueta">Plan</span>
           <h3>Full</h3>
           <div class="precio-tesis">
-            <div class="modo-unico"><span class="plan-precio">Q&nbsp;9,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;803</span></div>
-            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;1,800<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;10,800 en total</span></div>
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;9,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro precio-ahorro-mejor">Ahorras Q&nbsp;1,103 (11%) · mejor porcentaje</span></div>
+            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;1,850<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;11,100 en total</span></div>
           </div>
           <p class="plan-resultado">Acompañamiento cercano hasta que termines tu tesis.</p>
           <dl class="plan-lista">
@@ -508,8 +509,8 @@
           <span class="plan-etiqueta">Plan</span>
           <h3>Premium</h3>
           <div class="precio-tesis">
-            <div class="modo-unico"><span class="plan-precio">Q&nbsp;14,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;1,203</span></div>
-            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;2,700<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;16,200 en total</span></div>
+            <div class="modo-unico"><span class="plan-precio">Q&nbsp;14,997</span><span class="precio-detalle">Pago único</span><span class="precio-ahorro">Ahorras Q&nbsp;1,503 (10%)</span></div>
+            <div class="modo-mensual" hidden><span class="plan-precio">Q&nbsp;2,750<small>/mes</small></span><span class="precio-detalle">6 mensualidades · Q&nbsp;16,500 en total</span></div>
           </div>
           <p class="plan-resultado">Acompañamiento completo hasta tu defensa.</p>
           <dl class="plan-lista">
@@ -591,14 +592,14 @@
             <tbody>
               <tr><th scope="row">Asesoría de plan de investigación</th><td><strong>Q&nbsp;3,500</strong></td><td>2 pagos de Q&nbsp;1,750</td></tr>
               <tr><th scope="row">Esencial</th><td><strong>Q&nbsp;7,500</strong></td><td>6 × Q&nbsp;1,350</td></tr>
-              <tr class="fila-destacada"><th scope="row">Full ⭐</th><td><strong>Q&nbsp;9,997</strong></td><td>6 × Q&nbsp;1,800</td></tr>
-              <tr><th scope="row">Premium</th><td><strong>Q&nbsp;14,997</strong></td><td>6 × Q&nbsp;2,700</td></tr>
+              <tr class="fila-destacada"><th scope="row">Full ⭐</th><td><strong>Q&nbsp;9,997</strong></td><td>6 × Q&nbsp;1,850</td></tr>
+              <tr><th scope="row">Premium</th><td><strong>Q&nbsp;14,997</strong></td><td>6 × Q&nbsp;2,750</td></tr>
             </tbody>
           </table>
           <p class="aclaracion">Pagas por depósito o transferencia a la cuenta oficial de Grupo Genesia.</p>
         </div>
         <div class="notas-pago">
-          <p class="nota-pago dorada"><strong>💰 Ahorra con el pago único</strong>Pagas hasta Q&nbsp;1,203 menos que en mensualidades.</p>
+          <p class="nota-pago dorada"><strong>💰 Ahorra con el pago único</strong>Pagas hasta Q&nbsp;1,503 menos que en mensualidades. El Full tiene el mejor porcentaje de ahorro: 11%.</p>
           <p class="nota-pago"><strong>🪜 ¿Empezaste con la asesoría de tu plan de investigación?</strong>Si sigues dentro de los 30 días, tus Q&nbsp;3,500 se descuentan completos.</p>
           <p class="nota-pago"><strong>🎓 ¿Eres estudiante de la Academia Jurídica?</strong>Tu plan Full tiene 40% de descuento.</p>
           <p class="nota-pago"><strong>📄 El detalle completo</strong>Te lo enviamos por escrito cuando eliges tu plan.</p>
