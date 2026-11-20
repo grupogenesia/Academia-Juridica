@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{--azul:#14374a;--azul2:#1d4b63;--noche:#0c222e;--suave:#4c6878;--gris:#eef1f3;--oro:#b7851f;--oroc:#f2cf7a;--orom:#e8be5c;--crema:#fbf5e6}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1080px;height:1350px;font-family:"Source Sans 3",sans-serif;color:var(--azul);background:#fff;overflow:hidden}
+h1,h2,h3{font-family:"Libre Baskerville",serif;margin:0;line-height:1.15}p{margin:0}
+.banda{height:390px;position:relative;background:url(academia-aula.jpg) center 35%/cover;border-bottom:10px solid var(--oroc)}
+.banda::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(12,34,46,.96) 0%,rgba(20,55,74,.88) 50%,rgba(20,55,74,.45) 100%)}
+.marca{position:absolute;top:44px;left:70px;display:flex;align-items:center;gap:18px}
+.marca img{height:62px;filter:brightness(0) invert(1)}
+.marca span{font-size:19px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--oroc);border-left:2px solid rgba(242,207,122,.6);padding-left:18px}
+.titulo{position:absolute;left:70px;right:70px;bottom:46px;color:#fff}
+.titulo h1{font-size:84px;color:#fff}
+.chip{display:inline-block;margin-top:18px;padding:9px 24px;border:2px solid rgba(242,207,122,.75);border-radius:40px;font-size:24px;font-weight:700;color:var(--oroc)}
+.cuerpo{padding:44px 70px 0}
+.gracias{font-family:"Libre Baskerville",serif;font-size:28px;line-height:1.5;padding-left:24px;border-left:6px solid var(--oroc)}
+.t{margin:40px 0 20px;font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--oro)}
+.items{display:grid;gap:18px}
+.item{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;padding:22px 26px;background:var(--gris);border-radius:18px}
+.item b.n{width:64px;height:64px;border-radius:50%;background:var(--azul);color:var(--oroc);display:grid;place-items:center;font-family:"Libre Baskerville",serif;font-size:30px;font-weight:700}
+.item h3{font-size:27px;margin:4px 0 6px}
+.item p{font-size:22px;line-height:1.42;color:var(--suave)}
+.item p strong{color:var(--azul)}
+.fechas{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,var(--azul2),var(--noche));color:#fff}
+.fechas div{padding:22px 28px}
+.fechas div+div{border-left:2px solid rgba(242,207,122,.35)}
+.fechas small{display:block;font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--oroc);margin-bottom:6px}
+.fechas strong{font-family:"Libre Baskerville",serif;font-size:25px}
+.pie{position:absolute;left:70px;right:70px;bottom:40px;display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:3px solid var(--orom)}
+.pie h2{font-size:32px}
+.pie h2 em{font-style:italic;font-weight:400;color:var(--oro)}
+.pie .wa{padding:14px 26px;background:#1f8f4e;color:#fff;border-radius:14px;font-weight:700;font-size:24px}
+</style></head><body>
+<div class="banda">
+  <div class="marca"><img src="logo.png" alt=""><span>Academia Jurídica Genesia</span></div>
+  <div class="titulo"><h1>¡Bienvenido(a)! 🎓</h1><span class="chip">Grupo de Fase Privada</span></div>
+</div>
+<div class="cuerpo">
+  <p class="gracias">Gracias por completar tu proceso de inscripción. Será un gusto acompañarte en tu preparación profesional.</p>
+  <p class="t">Información de interés</p>
+  <div class="items">
+    <div class="item"><b class="n">1</b><div><h3>Grupo de WhatsApp</h3><p>Al cerrar las inscripciones, te agregaremos al grupo oficial de WhatsApp. Ahí compartiremos toda la información sobre el <strong>inicio de clases, el horario y la ubicación</strong>.</p></div></div>
+    <div class="item"><b class="n">2</b><div><h3>Material didáctico</h3><p>Recibirás acceso a una <strong>carpeta de Google Drive</strong>, donde podrás ver y descargar el material didáctico del curso.</p></div></div>
+    <div class="item"><b class="n">3</b><div><h3>Guarda nuestro número</h3><p>Agrega el <strong>+502 4102 4701</strong> a tus contactos para no perderte ningún aviso. Escríbenos ahí también si tienes dudas.</p></div></div>
+  </div>
+  <div class="fechas">
+    <div><small>Cierre de inscripciones</small><strong>18 de diciembre de 2026</strong></div>
+    <div><small>Inicio de clases</small><strong>Sábado 9 de enero de 2027</strong></div>
+  </div>
+</div>
+<div class="pie"><h2>¡Nos vemos <em>en clase!</em></h2><span class="wa">💬 +502 4102 4701</span></div>
+</body></html>
