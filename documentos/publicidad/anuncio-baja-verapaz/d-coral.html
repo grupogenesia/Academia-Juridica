@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700;900&display=swap">
+<style>
+:root{--azul:#14374a;--azul2:#1d4b63;--noche:#0c222e;--oroc:#f2cf7a;--orom:#e8be5c;--oro:#b7851f;--linea:#c9d3d9;--verde:#1f8f4e}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:"Source Sans 3",sans-serif;color:var(--azul);background:var(--noche)}
+p{margin:0}
+.oro{position:absolute;inset:0 0 auto 0;height:800px;background:linear-gradient(150deg,#f8e2a3 0%,#f2cf7a 45%,#e3b452 100%);clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.oro::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(20,55,74,.05) 0 2px,transparent 2px 40px)}
+.cab{position:absolute;top:50px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.cab img{height:64px}
+.pill{padding:12px 24px;background:var(--azul);color:var(--oroc);border-radius:40px;font-weight:900;font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.tit{position:absolute;top:165px;left:64px;z-index:2}
+.t1{font-weight:900;font-size:150px;line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--azul)}
+.t2{margin-top:14px;font-family:"Libre Baskerville",serif;font-style:italic;font-size:46px;color:var(--azul)}
+.t3{margin-top:6px;font-weight:900;font-size:112px;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;color:#fff;background:var(--azul);display:inline-block;padding:10px 22px 14px;transform:rotate(-2deg);box-shadow:0 14px 30px rgba(12,34,46,.35)}
+.t4{margin-top:34px;font-size:32px;font-weight:700;color:var(--azul);max-width:560px;line-height:1.25}
+.t4 b{background:#fff;padding:0 8px;border-radius:6px}
+.polaroid{position:absolute;top:560px;right:48px;width:400px;padding:14px 14px 56px;background:#fff;border-radius:10px;transform:rotate(5deg);box-shadow:0 24px 50px rgba(0,0,0,.4);z-index:3}
+.polaroid div{height:300px;border-radius:6px;background:url(academia-aula.jpg) 40% center/cover}
+.polaroid p{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:"Libre Baskerville",serif;font-style:italic;font-size:24px;color:var(--azul)}
+.sticker{position:absolute;top:500px;right:380px;width:170px;height:170px;border-radius:50%;background:var(--azul);color:var(--oroc);display:grid;place-items:center;text-align:center;font-weight:900;font-size:25px;line-height:1.05;text-transform:uppercase;transform:rotate(-12deg);box-shadow:0 12px 26px rgba(0,0,0,.35);z-index:4;border:4px dashed rgba(242,207,122,.6)}
+.abajo{position:absolute;left:64px;right:64px;top:880px;color:#fff;z-index:2}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bloque{padding:20px 24px;border-radius:18px;background:rgba(255,255,255,.07);border:2px solid rgba(242,207,122,.35)}
+.bloque small{display:block;font-size:18px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--oroc);margin-bottom:4px}
+.bloque b{font-family:"Libre Baskerville",serif;font-size:44px;line-height:1.1}
+.bloque span{display:block;font-size:21px;color:var(--linea);margin-top:4px}
+.chips{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.chips span{padding:9px 18px;border-radius:30px;background:rgba(242,207,122,.14);color:var(--oroc);font-weight:700;font-size:22px}
+.cta{position:absolute;left:64px;right:64px;bottom:52px;padding:26px 32px;border-radius:20px;background:var(--verde);color:#fff;display:flex;justify-content:space-between;align-items:center;box-shadow:0 16px 34px rgba(0,0,0,.45);z-index:2}
+.cta b{font-size:34px;font-weight:900;text-transform:uppercase;letter-spacing:.03em}
+.cta span{font-size:34px;font-weight:900}
+.urg{position:absolute;left:64px;right:64px;bottom:168px;text-align:center;font-size:26px;font-weight:700;color:var(--oroc);z-index:2}
+.t4{max-width:520px}
+.sticker{top:175px;right:60px;width:160px;height:160px;font-size:24px}
+.polaroid{top:545px;width:370px}
+.polaroid div{height:235px}
+.abajo{top:905px}
+.chips{margin-top:16px}
+.t4 b{white-space:nowrap}
+.sticker{background:#E2725B;color:#fff;border-color:rgba(255,255,255,.8);font-size:26px}
+.urg{bottom:166px}
+.urg span{display:inline-block;padding:10px 26px;border-radius:40px;background:#E2725B;color:#fff}
+</style></head><body>
+<div class="oro"></div>
+<div class="cab"><img src="logo.png" alt=""><span class="pill">📍 Baja Verapaz · Presencial</span></div>
+<div class="tit">
+  <p class="t1">Prepárate</p>
+  <p class="t2">para tu examen de la</p>
+  <p class="t3">Fase Privada</p>
+  <p class="t4">Sin viajar a la capital: clases en <b>San Jerónimo</b>, todos los sábados.</p>
+</div>
+<div class="sticker">¡Últimos<br>días!</div>
+<div class="polaroid"><div></div><p>Academia Jurídica Genesia</p></div>
+<div class="abajo">
+  <div class="fila">
+    <div class="bloque"><small>Inicio</small><b>9 de enero</b><span>Sábado · 2027 · 08:00 a 17:00</span></div>
+    <div class="bloque"><small>Inversión</small><b>Q 2,500</b><span>pago único · o 6 × Q 500</span></div>
+  </div>
+  <div class="chips"><span>⚖️ Simulacros con tribunal</span><span>🎙️ Método Genesia</span><span>📚 Material en Drive</span></div>
+</div>
+<p class="urg"><span>⏳ Cupo limitado · Inscripciones hasta el 18 de diciembre</span></p>
+<div class="cta"><b>💬 Escríbenos ahora</b><span>+502 4107 7030 →</span></div>
+</body></html>
