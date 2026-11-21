@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700;900&display=swap">
+<style>
+:root{--noche:#0c222e;--azul:#14374a;--oceano:#1e6f9a;--cian:#5bc0eb;--oroc:#f2cf7a;--orom:#e8be5c;--linea:#cfe3ee}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:"Source Sans 3",sans-serif;color:#fff;background:var(--noche);text-align:center}
+p{margin:0}
+.fondo{position:absolute;inset:0;background:url(academia-aula.jpg) center/cover}
+.fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,34,46,.82) 0%,rgba(20,55,74,.80) 35%,rgba(30,111,154,.78) 55%,rgba(12,34,46,.96) 85%,#0c222e 100%)}
+.marco{position:absolute;inset:34px;border:2px solid rgba(242,207,122,.45);border-radius:28px}
+.logo{position:absolute;top:80px;left:0;right:0}
+.logo img{height:84px;filter:brightness(0) invert(1)}
+.logo p{margin-top:12px;font-size:19px;font-weight:900;letter-spacing:.32em;text-transform:uppercase;color:var(--cian)}
+.pre{position:absolute;top:290px;left:0;right:0;font-family:"Libre Baskerville",serif;font-style:italic;font-size:40px;color:var(--linea)}
+.fase{position:absolute;top:345px;left:0;right:0;font-weight:900;font-size:156px;line-height:1;letter-spacing:-.02em;text-transform:uppercase;color:var(--oroc);text-shadow:0 10px 40px rgba(242,207,122,.35)}
+.div{position:absolute;top:560px;left:140px;right:140px;display:flex;align-items:center;gap:24px}
+.div i{flex:1;height:3px;background:linear-gradient(90deg,transparent,var(--oroc))}
+.div i:last-child{background:linear-gradient(90deg,var(--oroc),transparent)}
+.div span{width:96px;height:96px;border-radius:50%;background:var(--oroc);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.div svg{width:52px;height:52px;fill:var(--azul)}
+.sj{position:absolute;top:690px;left:0;right:0;font-weight:900;font-size:128px;line-height:1;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 8px 30px rgba(0,0,0,.4)}
+.bv{position:absolute;top:840px;left:0;right:0}
+.bv span{display:inline-block;padding:12px 40px;border-radius:50px;background:var(--oroc);color:var(--azul);font-weight:900;font-size:46px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.det{position:absolute;top:960px;left:0;right:0;font-size:30px;font-weight:600;color:var(--linea)}
+.det b{color:#fff}
+.info{position:absolute;bottom:180px;left:0;right:0;font-size:23px;color:var(--linea)}
+.info b{color:var(--oroc)}
+.cta{position:absolute;left:80px;right:80px;bottom:72px;display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-radius:18px;background:#1f8f4e;font-weight:900;font-size:30px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.cta i{font-style:normal;text-transform:uppercase;letter-spacing:.03em}
+</style></head><body>
+<div class="fondo"></div><div class="marco"></div>
+<div class="logo"><img src="logo.png" alt=""><p>Academia Jurídica Genesia</p></div>
+<p class="pre">Prepárate para tu examen de la</p>
+<p class="fase">Fase Privada</p>
+<div class="div"><i></i><span><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></span><i></i></div>
+<p class="sj">San Jerónimo</p>
+<p class="bv"><span>Baja Verapaz</span></p>
+<p class="det"><b>Clases presenciales</b> · todos los sábados · sin viajar a la capital</p>
+<p class="info">Inicio: <b>sábado 9 de enero de 2027</b> · ⏳ Cupo limitado · Inscripciones hasta el 18 de diciembre</p>
+<div class="cta"><i>💬 Escríbenos por WhatsApp</i><span>+502 4107 7030 →</span></div>
+</body></html>
