@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700;900&display=swap">
+<style>
+:root{--azul:#14374a;--azul2:#1d4b63;--noche:#0c222e;--oroc:#f2cf7a;--orom:#e8be5c;--oro:#b7851f;--linea:#c9d3d9;--verde:#1f8f4e}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:"Source Sans 3",sans-serif;color:#fff;
+ background:radial-gradient(circle at 85% 20%,#24597a 0%,var(--azul) 40%,var(--noche) 100%)}
+p{margin:0}
+/* líneas diagonales sutiles */
+.rayas{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(242,207,122,.05) 0 2px,transparent 2px 46px)}
+.cab{position:absolute;top:52px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center}
+.cab img{height:66px;filter:brightness(0) invert(1)}
+.tag{padding:10px 22px;border:2px solid var(--oroc);border-radius:40px;font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--oroc)}
+/* foto circular */
+.foto{position:absolute;top:170px;right:-90px;width:520px;height:520px;border-radius:50%;background:url(academia-aula.jpg) 40% center/cover;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.foto::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(200deg,rgba(12,34,46,0) 40%,rgba(12,34,46,.55) 100%)}
+.titulo{position:absolute;top:190px;left:64px;width:640px}
+.pre{font-size:38px;font-weight:600;color:var(--linea)}
+.grande{margin-top:2px;font-weight:900;font-size:112px;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;color:var(--oroc);text-shadow:0 8px 30px rgba(0,0,0,.35)}
+.frase{margin-top:30px;font-family:"Libre Baskerville",serif;font-size:42px;line-height:1.32;color:#fff}
+.marcador{background:linear-gradient(transparent 58%,rgba(242,207,122,.55) 58%);padding:0 4px}
+.chips{position:absolute;top:760px;left:64px;right:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.chip{padding:20px 18px;border-radius:18px;background:rgba(255,255,255,.08);border:2px solid rgba(242,207,122,.35)}
+.chip .i{font-size:34px}
+.chip b{display:block;margin-top:6px;font-size:25px;line-height:1.2}
+.chip span{display:block;font-size:20px;color:var(--linea);margin-top:2px}
+.datos{position:absolute;top:960px;left:64px;right:64px;display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:stretch}
+.cal{border-radius:18px;overflow:hidden;background:#fff;color:var(--azul);text-align:center;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.cal .mes{background:var(--orom);padding:8px 0;font-weight:900;font-size:24px;letter-spacing:.2em}
+.cal .dia{font-family:"Libre Baskerville",serif;font-weight:700;font-size:74px;line-height:1.05;padding-top:4px}
+.cal .sem{font-size:19px;font-weight:700;color:#4c6878;padding-bottom:10px}
+.precio{border-radius:18px;padding:20px 26px;background:linear-gradient(120deg,#f6dc94,#e8be5c);color:var(--azul);display:flex;flex-direction:column;justify-content:center}
+.precio small{font-size:18px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.precio b{font-family:"Libre Baskerville",serif;font-size:66px;line-height:1.05}
+.precio span{font-size:23px;font-weight:700}
+.urg{position:absolute;left:64px;right:64px;bottom:150px;text-align:center;font-size:26px;font-weight:700;color:var(--oroc)}
+.cta{position:absolute;left:64px;right:64px;bottom:52px;padding:24px 30px;border-radius:20px;background:var(--verde);display:flex;justify-content:space-between;align-items:center;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.cta b{font-size:31px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+.cta span{font-size:34px;font-weight:900}
+.titulo{width:600px}
+.frase{font-size:40px}
+.marcador{background:none;padding:0;color:var(--oroc);font-style:italic;border-bottom:5px solid var(--orom)}
+.chips{top:700px}
+.chip b{font-size:29px}
+.chip span{font-size:22px}
+.datos{top:905px}
+.urg{bottom:180px;font-size:28px}
+</style></head><body>
+<div class="rayas"></div>
+<div class="foto"></div>
+<div class="cab"><img src="logo.png" alt=""><span class="tag">Fase Privada 2027</span></div>
+<div class="titulo">
+  <p class="pre">¿Estudias Derecho en</p>
+  <p class="grande">Baja<br>Verapaz?</p>
+  <p class="frase">Prepárate para tu examen privado <span class="marcador">sin viajar a la capital.</span></p>
+</div>
+<div class="chips">
+  <div class="chip"><span class="i">📍</span><b>Presencial</b><span>San Jerónimo</span></div>
+  <div class="chip"><span class="i">🗓️</span><b>Sábados</b><span>08:00 a 17:00 hrs</span></div>
+  <div class="chip"><span class="i">⚖️</span><b>Simulacros</b><span>frente a un tribunal</span></div>
+</div>
+<div class="datos">
+  <div class="cal"><div class="mes">ENERO</div><div class="dia">09</div><div class="sem">SÁBADO · INICIO</div></div>
+  <div class="precio"><small>Inversión total</small><b>Q 2,500</b><span>pago único · o 6 mensualidades de Q 500</span></div>
+</div>
+<p class="urg">⏳ Cupo limitado · Inscripciones hasta el 18 de diciembre</p>
+<div class="cta"><b>💬 Inscríbete por WhatsApp</b><span>+502 4107 7030</span></div>
+</body></html>
