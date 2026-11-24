@@ -72,7 +72,7 @@
     visa_americana: {
       boton: 'Visa americana',
       area: 'general',
-      texto: 'Te acompañamos en 3 fases: preparación de tu expediente (DS-160), programación de tu cita en la Embajada y preparación para tu entrevista.<br><br><b>Inversión:</b> Q 2,997 por persona, en un pago o en hasta 3 cuotas sin recargo. Precio familiar por persona: 2 personas Q 2,897 · 3 personas Q 2,797 · 4 o más Q 2,697.<br><br><b>Promoción navideña:</b> Q 2,497 por persona en noviembre y diciembre, para todos.<br><br><b>Requisitos:</b> pasaporte vigente, DPI, formulario DS-160 y fotografía digital.',
+      texto: 'Te acompañamos en 3 fases: preparación de tu expediente (DS-160), programación de tu cita en la Embajada y preparación para tu entrevista.<br><br><b>Inversión:</b> Q 2,997 por persona, en un pago o en hasta 3 cuotas sin recargo. Precio familiar por persona: 2 personas Q 2,897 · 3 personas Q 2,797 · 4 o más Q 2,697.<br><br><b>Promoción navideña:</b> Q 2,497 por persona durante diciembre, para todos. Participas en la rifa de una canasta navideña el 26 de diciembre.<br><br><b>Requisitos:</b> pasaporte vigente, DPI, formulario DS-160 y fotografía digital.',
       enlace: ['Ver visa americana', '/visas/americana/'],
       opciones: ['persona', 'visas']
     },
