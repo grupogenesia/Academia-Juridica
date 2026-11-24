@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Base de datos de Grupo Genesia: folletos y documentos informativos para ver y descargar.">
+<title>Base de datos · Grupo Genesia</title>
+
+<!-- Tipos de letra: uno elegante para títulos y uno sencillo para el texto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+<!-- Estilos compartidos por todo el sitio -->
+<link rel="stylesheet" href="/css/estilos.css">
+
+<!-- Estilos que solo usa esta página -->
+<style>
+  /* ===== BASE DE DATOS: documentos para ver y descargar ===== */
+  .area-titulo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .area-titulo h2 { margin: 0; }
+  .area-titulo span { padding: 4px 14px; border-radius: 999px; background: var(--azul); color: var(--blanco); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .documentos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 24px; }
+  .documento { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; align-items: start; padding: 20px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 12px; }
+  .documento img { width: 170px; height: auto; border-radius: 6px; box-shadow: 0 8px 20px rgba(20, 55, 74, 0.25); }
+  .doc-tipo { display: inline-block; padding: 2px 10px; border-radius: 4px; background: #a3332b; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+  .documento h3 { margin: 10px 0 6px; font-size: 20px; line-height: 1.3; }
+  .documento p { margin: 0 0 16px; color: var(--azul-suave); font-size: 15px; }
+  .doc-acciones { display: flex; flex-wrap: wrap; gap: 10px; }
+  .doc-acciones a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; }
+  .doc-ver { background: var(--azul); color: var(--blanco); }
+  .doc-ver:hover { background: #0c222e; }
+  .doc-bajar { border: 2px solid var(--azul); color: var(--azul); }
+  .doc-bajar:hover { background: var(--azul); color: var(--blanco); }
+  .doc-acciones a:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+  @media (max-width: 420px) { .documento { grid-template-columns: 1fr; } .documento img { width: 160px; } }
+</style>
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO (igual en todas las páginas) ===================== -->
+<header class="encabezado">
+  <div class="contenedor">
+
+    <!-- Logo a la izquierda (al tocarlo, regresa al inicio) -->
+    <a class="logo" href="/"><img src="/img/logo.png" alt="Grupo Genesia, ir al inicio" width="746" height="505"></a>
+
+    <!-- Botón ☰ para abrir el menú en el celular -->
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Menú a la derecha: aria-current marca la página en la que estás -->
+    <nav class="menu" id="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quienes-somos/">Quiénes somos</a></li>
+        <li><a href="/base-de-datos/" aria-current="page">Base de datos</a></li>
+        <li><a href="/contacto/">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Franja azul con el eslogan -->
+<div class="franja">
+  <div class="contenedor">
+    <p class="eslogan">Especialistas en resolución de conflictos</p>
+  </div>
+</div>
+
+<main>
+  <!-- ===================== 1. PRESENTACIÓN ===================== -->
+  <section class="seccion presentacion">
+    <div class="contenedor">
+      <p class="migas"><a href="/">Home</a> <span aria-hidden="true">/</span> Base de datos</p>
+      <h1>Base de datos</h1>
+      <p class="resumen">Aquí encuentras nuestros folletos y documentos informativos. Puedes verlos en línea o descargarlos.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 2. DOCUMENTOS ===================== -->
+  <!-- Para agregar otro documento: sube el PDF a /documentos/ y copia un bloque <li class="documento"> -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="area-titulo"><h2>Academia Jurídica</h2><span>Folletos</span></div>
+      <ul class="documentos">
+        <li class="documento">
+          <img src="/img/folleto-academia-portada.jpg" alt="Portada del folleto de la Academia Jurídica Genesia" width="600" height="849" loading="lazy">
+          <div>
+            <span class="doc-tipo">PDF</span>
+            <h3>Folleto Academia Jurídica Genesia</h3>
+            <p>Método Genesia, cursos de Fase Privada y Fase Pública, planes, horarios, precios y preguntas frecuentes.</p>
+            <div class="doc-acciones">
+              <a class="doc-ver" href="/documentos/academia-juridica-genesia.pdf" target="_blank" rel="noopener">Ver PDF</a>
+              <a class="doc-bajar" href="/documentos/academia-juridica-genesia.pdf" download="Academia-Juridica-Genesia.pdf">Descargar</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>Grupo Genesia</strong> · WhatsApp <strong>+502 4107 7030</strong> · San Jerónimo, Baja Verapaz · Ciudad de Guatemala</p>
+  </div>
+  <!-- Franja final: derechos reservados y enlaces legales -->
+  <div class="pie-legal">
+    <div class="contenedor">
+      <p>© 2026 Grupo Genesia. Todos los derechos reservados.</p>
+      <ul>
+        <li><a href="/privacidad/">Política de privacidad</a></li>
+        <li><a href="/derechos-de-autor/">Derechos de autor</a></li>
+        <li><a href="/quienes-somos/">Nuestra historia</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- Abre y cierra el menú en el celular -->
+<script src="/js/menu.js"></script>
+<!-- Asistente de chat (cuadrito de la esquina) -->
+<script src="/js/chat.js"></script>
+</body>
+</html>
